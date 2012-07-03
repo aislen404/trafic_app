@@ -4,6 +4,11 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="angular-1.0.0rc9" level="application" />
+    <orderEntry type="library" name="angular-sanitize-1.0.0rc9" level="application" />
+    <orderEntry type="library" name="jQuery UI-1.8.17" level="application" />
+    <orderEntry type="library" name="jQuery-1.7.2" level="application" />
+    <orderEntry type="library" name="Modernizr-2.5.3" level="application" />
   </component>
 </module>
 
