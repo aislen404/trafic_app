@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>prueba de carga con Jquery</title>
+    <script type="text/javascript" src="lib/jquery/jquery-1.7.2.js"></script>
+</head>
+<body>
+    <b>Successful Response (should be blank):</b>
+    <div id="success"></div>
+    <b>Error Response:</b>
+    <div id="error"></div>
+
+    <script>
+        /*
+        $("#success").load("http://infocar.dgt.es/etraffic/BuscarElementosServlet?Camaras=true&IncidenciasEVENTOS=false&IncidenciasMETEOROLOGICA=false&IncidenciasOBRAS=false&IncidenciasOTROS=false&IncidenciasPUERTOS=false&IncidenciasRETENCION=false&Paneles=false&SensoresMeteorologico=false&SensoresTrafico=false&accion=getElementos&latNS=40.50857873259441&latSW=40.37898227049007&longNS=-3.4771728515625&longSW=-3.8610076904296875&niveles=true&zoom=11", function(response, status, xhr) {
+            if (status == "error") {
+                var msg = "Sorry but there was an error: ";
+                $("#error").html(msg + xhr.status + " " + xhr.statusText);
+            }
+        });*/
+
+        alert("http://infocar.dgt.es/etraffic/BuscarElementosServlet?" +
+                "Camaras=true&IncidenciasEVENTOS=false&IncidenciasMETEOROLOGICA=false&IncidenciasOBRAS=false" +
+                "&IncidenciasOTROS=false&IncidenciasPUERTOS=false&IncidenciasRETENCION=false&Paneles=false&" +
+                "SensoresMeteorologico=false&SensoresTrafico=false&accion=getElementos&" +
+                "latNS=40.50857873259441&latSW=40.37898227049007&longNS=-3.4771728515625&longSW=-3.8610076904296875&niveles=true&zoom=11");
+
+        $.getJSON("http://infocar.dgt.es/etraffic/BuscarElementosServlet?" +
+                "Camaras=true&IncidenciasEVENTOS=false&IncidenciasMETEOROLOGICA=false&IncidenciasOBRAS=false" +
+                "&IncidenciasOTROS=false&IncidenciasPUERTOS=false&IncidenciasRETENCION=false&Paneles=false&" +
+                "SensoresMeteorologico=false&SensoresTrafico=false&accion=getElementos&" +
+                "latNS=40.50857873259441&latSW=40.37898227049007&longNS=-3.4771728515625&longSW=-3.8610076904296875&niveles=true&zoom=11",
+            function(data) {
+                $.each(data.items, function(i,item){
+                    alert(item);
+                });
+            });
+
+    </script>
+</body>
+</html>

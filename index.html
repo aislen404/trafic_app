@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <title>Trafico</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+</head>
+<body ng-controller="trafficFilterCtrl">
+<div class="container-fluid">
+
+    <!-- Header Content -->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">
+                    Trafico
+                </a>
+                <ul class="nav">
+                    <li><a href="#" ng-click="getJson()">Cargar Datos</a></li>
+                    <li><a href="#" ng-click="createMap()">Cargar Mapa</a></li>
+                    <li><a href="#" ng-click="generateMarks()">Generar Marcadores</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>>
+
+    <div class="row-fluid">
+
+        <!--Sidebar content-->
+        <div class="span2 well">
+            <form class=" form-inline">
+                    <ul class="nav nav-list filtros">
+
+                        <li class="nav-header">
+                            <i class="icon-info-sign"></i>
+                            Información
+                        </li>
+                        <li>
+                            <label id="lbl_prm_0" for="prm_0" class="checkbox">Camaras {{num_cam}}</label>
+                            <input id="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_7" for="prm_7" class="checkbox">Paneles</label>
+                            <input id="prm_7" type="checkbox" ng-model="fltr_paneles" ng-change="createMark()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_8" for="prm_8" class="checkbox">Est. Meteorologicas</label>
+                            <input id="prm_8" type="checkbox" ng-model="fltr_est_meteorologica" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_9" for="prm_9" class="checkbox">Sensores Trafico</label>
+                            <input id="prm_9" type="checkbox" ng-model="fltr_trafico" ng-change="getJson()">
+                        </li>
+
+                        <li class="nav-header">
+                            <i class="icon-warning-sign"></i>
+                            Incidencias
+                        </li>
+                        <li>
+                            <label id="lbl_prm_1" for="prm_1" class="checkbox">Eventos</label>
+                            <input id="prm_1" type="checkbox" ng-model="fltr_eventos" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_2" for="prm_2" class="checkbox">Meteorologia</label>
+                            <input id="prm_2" type="checkbox" ng-model="fltr_meteorologia" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_3" for="prm_3" class="checkbox">Obras</label>
+                            <input id="prm_3" type="checkbox" ng-model="fltr_obras" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_4" for="prm_4" class="checkbox">Otros</label>
+                            <input id="prm_4" type="checkbox" ng-model="fltr_otros" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_5" for="prm_5" class="checkbox">Puertos</label>
+                            <input id="prm_5" type="checkbox" ng-model="fltr_puertos" ng-change="getJson()">
+                        </li>
+                        <li>
+                         <label id="lbl_prm_6" for="prm_6" class="checkbox">Retenciones</label>
+                            <input id="prm_6" type="checkbox" ng-model="fltr_retencion" ng-change="getJson()">
+                        </li>
+
+                        <li class="nav-header">
+                            <i class="icon-globe"></i>
+                            Geoposicionamiento
+                        </li>
+                        <li>
+                            <label id="lbl_prm_10" for="prm_10">latNS</label>
+                            <input id="prm_10" class="span10" type="text" ng-model="fltr_latNS" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_11" for="prm_11">longNS</label>
+                            <input id="prm_11" class="span10" type="text" ng-model="fltr_longNS" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_12" for="prm_12">latSW</label>
+                            <input id="prm_12" class="span10" type="text" ng-model="fltr_latSW" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_13" for="prm_13">longSW</label>
+                            <input id="prm_13" class="span10" type="text" ng-model="fltr_longSW" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_15" for="prm_15">Zoom</label>
+                            <input id="prm_15" class="span10" type="meter" value="7" step="1" min="1" max="20" ng-model="fltr_zoom" ng-change="getJson()">
+                        </li>
+                        <li>
+                            <label id="lbl_prm_14" for="prm_14" class="checkbox">Niveles</label>
+                            <input id="prm_14" type="checkbox" ng-model="fltr_niveles" ng-change="getJson()">
+                        </li>
+
+                    </ul>
+            </form>
+        </div>
+
+        <!--Body content-->
+        <div id="map_canvas" class="span8 well">
+        </div>
+
+        <!--Aside content-->
+        <div class="span2 well">
+            <pre>http status code: {{status}}</pre>
+            <pre>http response data: {{datos}}</pre>
+        </div>
+
+        <div class="infobox-wrapper">
+            <div id="infobox">
+                The contents of your info box. It's very easy to create and customize.
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
