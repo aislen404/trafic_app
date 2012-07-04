@@ -52,7 +52,7 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
         '&niveles=' + $scope.fltr_niveles +
         '&zoom=' + $scope.fltr_zoom;
 
-    var b='dataModels/BuscarElementosServlet_1.json';
+    var b='dataModels/BuscarElementosServlet_0.json';
 
     $scope.url=b;
 
@@ -69,12 +69,13 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
     }
 
     $scope.createMap = function() {
-        if (navigator.geolocation)
-        {
+        if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(
 
                 function (position) {
-                    mapServiceProvider(position.coords.latitude,position.coords.longitude);
+                    $scope.fltr_latNS = position.coords.latitude;
+                    $scope.fltr_longNS = position.coords.longitude;
+                    mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS);
                 },
                 function (error)
                 {
@@ -100,95 +101,85 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
         }
     }
 
-    function mapServiceProvider(lat,lng,obj,id) {
-        var myOptions = {
-            zoom: $scope.fltr_zoom,
-            center: new google.maps.LatLng(lat,lng),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        $scope.map = new google.maps.Map(document.getElementById($scope.IDmapa),myOptions);
-
-        markServiceCreator(lat,lng,'me');
-    }
-
-    function markServiceCreator(lat,lng,ico){
-        /* marcador de posición */
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat,lng),
-            animation: google.maps.Animation.DROP,
-            map: $scope.map,
-            icon: 'img/'+ico+'.png'//,
-            //title: $scope.datos[i].tipo+" : "+ $scope.datos[i].alias
-        });
-    }
-
     $scope.generateMarks = function() {
         var i=0;
         var lat;
         var lng;
-        var myLatLng;
-        var marker;
+        var ico;
+        var title;
 
         while(i<=$scope.datos.length){
 
             lat=$scope.datos[i].lat;
             lng=$scope.datos[i].lng;
 
-            markServiceCreator(lat, lng, $scope.datos[i].tipo);
-            /*myLatLng = new google.maps.LatLng(lat,lng);
+            if($scope.datos[i].tipo == 'Incidencia'){
+                ico = incidentIcoResolutor($scope.datos[i].tipoInci);
+            }else{
+                ico = incidentIcoResolutor($scope.datos[i].tipo);
+            }
 
-             marcador de posición
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                animation: google.maps.Animation.DROP,
-                map: $scope.map,
-                icon: 'img/'+$scope.datos[i].tipo+'.png',
-                title: $scope.datos[i].tipo+" : "+ $scope.datos[i].alias
-            });*/
+            title = $scope.datos[i].tipo+" : "+ $scope.datos[i].alias;
+
+            markServiceCreator(lat, lng, ico, title);
 
             i++;
         }
     }
+
+    function incidentIcoResolutor (typeInc) {
+        var ico;
+
+        switch (typeInc){
+            case ('Me'):
+                ico = 'img/me.png';
+                break;
+            case ('Camara'):
+                ico = 'img/Camara.png';
+                break;
+            case ('SensorMeteorologico'):
+                ico ='img/sensorMetorologico.png';
+                break;
+            case ('SensorTrafico'):
+                ico='img/sensorTrafico.png';
+                break;
+            case('OBRAS'):
+                ico = 'img/Obras.png';
+                break;
+            case ('OTROS'):
+                ico = 'img/Otros.png';
+                break;
+            case ('METEOROL�GICO'):
+                ico = 'img/Meteorologico.png';
+                break;
+            case ('RETENCI�N / CONGESTI�N'):
+                ico = 'img/Retencion.png';
+                break
+        }
+        return ico;
+
+    }
+
+
+    function mapServiceProvider(lat,lng) {
+        var myOptions = {
+            zoom: $scope.fltr_zoom,
+            center: new google.maps.LatLng(lat,lng),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        $scope.map = new google.maps.Map(document.getElementById($scope.IDmapa),myOptions);
+        markServiceCreator(lat,lng,incidentIcoResolutor('Me'),'latitud:'+lat+' longitud:'+lng);
+    }
+
+
+    function markServiceCreator(lat,lng,ico,title){
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat,lng),
+            animation: google.maps.Animation.DROP,
+            map: $scope.map,
+            icon: ico,
+            title: title
+        });
+    }
+
 }
-
-/*
-precision "1"
-
-fecha "06/03/2012"
-
-poblacion "CABEZON DE PISUERGA"
-
-alias "OBRAS / A-62 (112.0 - 114.5 )"
-
-sentido "CRECIENTE DE LA KILOMETRACIÓN"
-
-descripcion "<strong>OBRA /\n ...>ARCÉN CERRADO</strong>"
-
-tipoInci "OBRAS"
-
-lng -4.6597533
-
-pkFinal 114.5
-
-provincia "VALLADOLID"
-
-codEle "386218"
-
-causa "OBRAS"
-
-carretera "A-62"
-
-hora "13:11"
-
-estado 1
-
-pkIni 112
-
-icono "INC_RMT_RWL_LS4_CAC.png"
-
-tipo "Incidencia"
-
-lat 41.743443
-
-nivel "VERDE"
-*/
