@@ -56,7 +56,9 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
 
     var c='dataModels/dgtProxy.php'
 
-    $scope.url=c;
+    var d='dataModels/BuscarElementosServlet_x.json';
+
+    $scope.url=d;
 
     $scope.getJson = function(){
         $http({method: $scope.method, url: $scope.url,header: $scope.header, cache: $templateCache}).

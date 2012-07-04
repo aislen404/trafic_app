@@ -47,8 +47,13 @@ function incidentIcoResolutor (typeInc) {
             break;
         case ('RETENCI�N / CONGESTI�N'):
             ico = 'img/Retencion.png';
-            break
+            break;
+        case ('Panel_CMS'):
+            ico = 'img/panel.png';
+            break;
     }
+
+
     return ico;
 
 }
