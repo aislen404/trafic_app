@@ -127,7 +127,10 @@
         <!--Aside content-->
         <div class="span2 well">
             <pre>http status code: {{status}}</pre>
-            <pre>http response data: {{datos}}</pre>
+            <pre>http response data:</pre>
+            <ul>
+                <li ng-repeat="dato in datos">{{dato.tipo}}</li>
+            </ul>
         </div>
 
         <div class="infobox-wrapper">

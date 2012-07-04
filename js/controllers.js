@@ -54,7 +54,9 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
 
     var b='dataModels/BuscarElementosServlet_0.json';
 
-    $scope.url=b;
+    var c='dataModels/dgtProxy.php'
+
+    $scope.url=c;
 
     $scope.getJson = function(){
         $http({method: $scope.method, url: $scope.url,header: $scope.header, cache: $templateCache}).
@@ -99,6 +101,7 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
         }else{
             $scope.map = mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS,$scope.IDmapa,$scope.fltr_zoom);
         }
+
     }
 
     $scope.generateMarks = function() {

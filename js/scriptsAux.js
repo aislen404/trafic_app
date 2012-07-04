@@ -4,7 +4,7 @@ function mapServiceProvider(lat,lng,id,z) {
         center: new google.maps.LatLng(lat,lng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    res = new google.maps.Map(document.getElementById(id),myOptions);
+    return new google.maps.Map(document.getElementById(id),myOptions);
 }
 
 
