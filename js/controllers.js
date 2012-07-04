@@ -75,7 +75,7 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
                 function (position) {
                     $scope.fltr_latNS = position.coords.latitude;
                     $scope.fltr_longNS = position.coords.longitude;
-                    mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS);
+                    $scope.map = mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS,$scope.IDmapa,$scope.fltr_zoom);
                 },
                 function (error)
                 {
@@ -97,16 +97,20 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
                 }
             );
         }else{
-            mapServiceProvider($scope.fltr_latSW,$scope.fltr_longSW);
+            $scope.map = mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS,$scope.IDmapa,$scope.fltr_zoom);
         }
     }
 
     $scope.generateMarks = function() {
         var i=0;
-        var lat;
-        var lng;
+        var lat=$scope.fltr_latNS;
+        var lng=$scope.fltr_longNS;
         var ico;
         var title;
+        var objMap = $scope.map;
+
+        title = 'latitud:'+lat+' longitud:'+lng;
+        markServiceCreator(lat,lng,incidentIcoResolutor('Me'), title, objMap);
 
         while(i<=$scope.datos.length){
 
@@ -120,66 +124,10 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
             }
 
             title = $scope.datos[i].tipo+" : "+ $scope.datos[i].alias;
-
-            markServiceCreator(lat, lng, ico, title);
+            markServiceCreator(lat, lng, ico, title , objMap);
 
             i++;
         }
-    }
-
-    function incidentIcoResolutor (typeInc) {
-        var ico;
-
-        switch (typeInc){
-            case ('Me'):
-                ico = 'img/me.png';
-                break;
-            case ('Camara'):
-                ico = 'img/Camara.png';
-                break;
-            case ('SensorMeteorologico'):
-                ico ='img/sensorMetorologico.png';
-                break;
-            case ('SensorTrafico'):
-                ico='img/sensorTrafico.png';
-                break;
-            case('OBRAS'):
-                ico = 'img/Obras.png';
-                break;
-            case ('OTROS'):
-                ico = 'img/Otros.png';
-                break;
-            case ('METEOROL�GICO'):
-                ico = 'img/Meteorologico.png';
-                break;
-            case ('RETENCI�N / CONGESTI�N'):
-                ico = 'img/Retencion.png';
-                break
-        }
-        return ico;
 
     }
-
-
-    function mapServiceProvider(lat,lng) {
-        var myOptions = {
-            zoom: $scope.fltr_zoom,
-            center: new google.maps.LatLng(lat,lng),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        $scope.map = new google.maps.Map(document.getElementById($scope.IDmapa),myOptions);
-        markServiceCreator(lat,lng,incidentIcoResolutor('Me'),'latitud:'+lat+' longitud:'+lng);
-    }
-
-
-    function markServiceCreator(lat,lng,ico,title){
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat,lng),
-            animation: google.maps.Animation.DROP,
-            map: $scope.map,
-            icon: ico,
-            title: title
-        });
-    }
-
 }
