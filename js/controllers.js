@@ -8,17 +8,17 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
     $scope.fltr_camaras=true;
     $scope.fltr_eventos=true;
     $scope.fltr_meteorologia=true;
-    $scope.fltr_obras=true;
+    $scope.fltr_obras=false;
     $scope.fltr_otros=true;
     $scope.fltr_puertos=true;
     $scope.fltr_retencion=true;
     $scope.fltr_paneles=true;
     $scope.fltr_est_meteorologica=true;
     $scope.fltr_trafico=true;
-    $scope.fltr_latNS=40.50857873259441;
-    $scope.fltr_latSW=40.37898227049007;
-    $scope.fltr_longNS=-3.4771728515625;
-    $scope.fltr_longSW=-3.8610076904296875;
+    $scope.fltr_latNS=43.89789239125797;
+    $scope.fltr_latSW=35.53222622770337;
+    $scope.fltr_longNS=8.76708984375;
+    $scope.fltr_longSW=-15.468750000000002;
     $scope.fltr_niveles=true;
     $scope.fltr_zoom=6;
 
@@ -54,11 +54,28 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
 
     var b='dataModels/BuscarElementosServlet_0.json';
 
-    var c='dataModels/dgtProxy.php'
+    var c='dataModels/dgtProxy.php?'+
+        'Camaras=' + $scope.fltr_camaras +
+        '&IncidenciasEVENTOS=' + $scope.fltr_eventos +
+        '&IncidenciasMETEOROLOGICA=' + $scope.fltr_meteorologia +
+        '&IncidenciasOBRAS=' + $scope.fltr_obras +
+        '&IncidenciasOTROS=' + $scope.fltr_otros +
+        '&IncidenciasPUERTOS=' + $scope.fltr_puertos +
+        '&IncidenciasRETENCION=' + $scope.fltr_retencion +
+        '&Paneles=' + $scope.fltr_paneles +
+        '&SensoresMeteorologico=' + $scope.fltr_est_meteorologica +
+        '&SensoresTrafico=' + $scope.fltr_trafico +
+        '&accion=' + "getElementos" +
+        '&latNS=' + $scope.fltr_latNS +
+        '&latSW=' + $scope.fltr_latSW +
+        '&longNS=' + $scope.fltr_longNS +
+        '&longSW=' + $scope.fltr_longSW +
+        '&niveles=' + $scope.fltr_niveles +
+        '&zoom=' + $scope.fltr_zoom;
 
     var d='dataModels/BuscarElementosServlet_x.json';
 
-    $scope.url=b;
+    $scope.url=c;
 
     $scope.getJson = function(){
         $http({method: $scope.method, url: $scope.url,header: $scope.header, cache: $templateCache}).
@@ -77,9 +94,9 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
             navigator.geolocation.getCurrentPosition(
 
                 function (position) {
-                    $scope.fltr_latNS = position.coords.latitude;
-                    $scope.fltr_longNS = position.coords.longitude;
-                    $scope.map = mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS,$scope.IDmapa,$scope.fltr_zoom);
+                    $scope.myLatitude=position.coords.latitude;
+                    $scope.myLongitude=position.coords.longitude;
+                    $scope.map = mapServiceProvider($scope.myLatitude,$scope.myLongitude,$scope.IDmapa,$scope.fltr_zoom);
                 },
                 function (error)
                 {
@@ -108,8 +125,8 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
 
     $scope.generateMarks = function() {
         var i=0;
-        var lat=$scope.fltr_latNS;
-        var lng=$scope.fltr_longNS;
+        var lat=$scope.myLatitude;
+        var lng=$scope.myLongitude;
         var ico;
         var title;
         var objMap = $scope.map;

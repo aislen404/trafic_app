@@ -3,7 +3,7 @@
 /* Filters */
 
 angular.module('traficFilters', []).
-    filter('prueba', function() {
+    filter('itemTraficFilter', function() {
         return function(input, yepNope , cadena) {
             var out = '';
             var aux = '';

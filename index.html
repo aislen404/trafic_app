@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="trafic_app">
+<html lang="en" ng-app="trafic_app" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -30,7 +30,8 @@
                     <li><a href="#" ng-click="createMap()">Cargar Mapa</a></li>
                     <li><a href="#" ng-click="generateMarks()">Generar Marcadores</a></li>
                 </ul>
-                <p class="navbar-text pull-right">http status code: {{status}}</p>
+                <span class="navbar-text">Mi Latitud: {{myLatitude}} y Longitud: {{myLongitude}}</span>
+                <span class="navbar-text pull-right">http status code: {{status}}</span>
             </div>
         </div>
     </div>>
@@ -56,22 +57,22 @@
                                 <li>
                                     <label id="lbl_prm_0" for="prm_0" class="checkbox">Camaras</label>
                                     <input id="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_camaras:'Camara' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_camaras:'Camara' }} </p>
                                 </li>
                                 <li>
                                     <label id="lbl_prm_7" for="prm_7" class="checkbox">Paneles</label>
                                     <input id="prm_7" type="checkbox" ng-model="fltr_paneles" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_paneles:'Panel_CMS' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_paneles:'Panel_CMS' }} </p>
                                 </li>
                                 <li>
                                     <label id="lbl_prm_8" for="prm_8" class="checkbox">Est. Meteorologicas</label>
                                     <input id="prm_8" type="checkbox" ng-model="fltr_est_meteorologica" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_est_meteorologica:'SensorMeteorologico' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_est_meteorologica:'SensorMeteorologico' }} </p>
                                 </li>
                                 <li>
                                     <label id="lbl_prm_9" for="prm_9" class="checkbox">Sensores Trafico</label>
                                     <input id="prm_9" type="checkbox" ng-model="fltr_trafico" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_trafico:'SensorTrafico' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p>
                                 </li>
                             </ul>
                         </div>
@@ -97,17 +98,17 @@
                                 <li>
                                     <label id="lbl_prm_2" for="prm_2" class="checkbox">Meteorologia</label>
                                     <input id="prm_2" type="checkbox" ng-model="fltr_meteorologia" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_meteorologia:'METEOROL�GICO' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_meteorologia:'METEOROL�GICO' }} </p>
                                 </li>
                                 <li>
                                     <label id="lbl_prm_3" for="prm_3" class="checkbox">Obras</label>
                                     <input id="prm_3" type="checkbox" ng-model="fltr_obras" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_obras:'OBRAS' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_obras:'OBRAS' }} </p>
                                 </li>
                                 <li>
                                     <label id="lbl_prm_4" for="prm_4" class="checkbox">Otros</label>
                                     <input id="prm_4" type="checkbox" ng-model="fltr_otros" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_otros:'OTROS' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_otros:'OTROS' }} </p>
                                 </li>
                                 <li>
                                     <label id="lbl_prm_5" for="prm_5" class="checkbox">Puertos</label>
@@ -117,7 +118,7 @@
                                 <li>
                                     <label id="lbl_prm_6" for="prm_6" class="checkbox">Retenciones</label>
                                     <input id="prm_6" type="checkbox" ng-model="fltr_retencion" ng-change="getJson()">
-                                    <p ng-repeat="dato in datos">{{ dato | prueba:fltr_retencion:'RETENCI�N / CONGESTI�N' }} </p>
+                                    <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_retencion:'RETENCI�N / CONGESTI�N' }} </p>
                                 </li>
                             </ul>
                         </div>
