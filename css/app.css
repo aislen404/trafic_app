@@ -22,21 +22,16 @@ ul.filtros > li > span{
   font-size: 1.2em;
 }
 
+ul.filtros > li > label{
+    display: inline;
+}
+ul.filtros > li > .radio , ul.filtros > li > .checkbox {
+    padding-left: 0px;
+}
+
 h1 {
   border-bottom: 1px solid gray;
 }
 #map_canvas{
     height: 578px;
 }
-.infobox-wrapper {
-    display:none;
-}
-#infobox {
-    border:1px solid black;
-    margin-top: 8px;
-    background:#333;
-    color:#FFF;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
-    padding: 5px;
-}​

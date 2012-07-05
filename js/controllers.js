@@ -6,15 +6,15 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
 
     /* scopes for filters */
     $scope.fltr_camaras=true;
-    $scope.fltr_eventos=false;
-    $scope.fltr_meteorologia=false;
-    $scope.fltr_obras=false;
-    $scope.fltr_otros=false;
-    $scope.fltr_puertos=false;
-    $scope.fltr_retencion=false;
-    $scope.fltr_paneles=false;
-    $scope.fltr_est_meteorologica=false;
-    $scope.fltr_trafico=false;
+    $scope.fltr_eventos=true;
+    $scope.fltr_meteorologia=true;
+    $scope.fltr_obras=true;
+    $scope.fltr_otros=true;
+    $scope.fltr_puertos=true;
+    $scope.fltr_retencion=true;
+    $scope.fltr_paneles=true;
+    $scope.fltr_est_meteorologica=true;
+    $scope.fltr_trafico=true;
     $scope.fltr_latNS=40.50857873259441;
     $scope.fltr_latSW=40.37898227049007;
     $scope.fltr_longNS=-3.4771728515625;
@@ -58,7 +58,7 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
 
     var d='dataModels/BuscarElementosServlet_x.json';
 
-    $scope.url=d;
+    $scope.url=b;
 
     $scope.getJson = function(){
         $http({method: $scope.method, url: $scope.url,header: $scope.header, cache: $templateCache}).

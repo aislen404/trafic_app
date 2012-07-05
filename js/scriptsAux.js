@@ -1,3 +1,7 @@
+$.onload = function (){
+    $('.accordion').collapse()
+};
+
 function mapServiceProvider(lat,lng,id,z) {
     var myOptions = {
         zoom: z,
