@@ -40,7 +40,7 @@
 
         <!--Sidebar content-->
         <div class="span2">
-            <form class=" form-inline">
+            <form class="form-inline">
             <div class="accordion" id="accordion2">
                 <div class="accordion-group">
                     <div class="accordion-heading">
@@ -169,16 +169,49 @@
         </div>
 
         <!--Body content-->
-        <div id="map_canvas" class="span8 well">
+
+        <div class="span8">
+            <form class="form-inline well">
+
+                <label>Modo:</label>
+                    <select id="mode" onchange="updateMode()">
+                        <option value="driving">Conduciendo</option>
+                        <option value="walking">Andando</option>
+                        <option value="bicycling">Bicicleta</option>
+                    </select>
+
+                <label id="lbl_map_highways" for="map_highways" class="checkbox">Sin autopistas</label>
+                    <input type="checkbox" class="checkbox" id="map_highways" checked >
+
+
+                <label id="lbl_map_tolls" for="map_tolls" class="checkbox">Sin peajes</label>
+                    <input type="checkbox" id="map_tolls" checked>
+
+                <label id="lbl_map_optimize" for="map_optimize" class="checkbox">Optimizada</label>
+                    <input type="checkbox" class="checkbox" id="map_optimize" checked>
+
+                <input type="button" value="Limpiar" class="btn btn-warning" onclick="reset()">
+                <input type="button" value="Vamonos !!" class="btn btn-primary" onclick="calcRoute()">
+
+            </form>
+            <div id="map_canvas" class="well">
+            </div>
         </div>
+
 
         <!--Aside content-->
         <div class="span2 well">
+            <div id="directionsPanel" style="position:absolute; left: 410px; width:240px; height:400px; overflow: auto"></div>
+        </div>
+
+        <!-- Footer content , only for develop version -->
+        <div class="span10 well">
             <pre>http response data:</pre>
             <div>
-                <p ng-repeat="dato in datos">{{dato.tipo}} : {{dato.alias}}</p>
+                <span ng-repeat="dato in datos">{{dato.tipo}} : {{dato.alias}}</span>
             </div>
         </div>
+
     </div>
 </div>
 </body>
