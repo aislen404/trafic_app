@@ -1,7 +1,7 @@
 /* app css stylesheet */
 
 body {
- padding-top: 50px;
+  padding-top: 55px;
 }
 
 ul.filtros {
@@ -32,12 +32,63 @@ ul.filtros > li > .radio , ul.filtros > li > .checkbox {
 h1 {
   border-bottom: 1px solid gray;
 }
-#map_canvas{
-    height: 500px;
+
+select{
+    width: auto;
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
-    #map_canvas{
-        height: 420px;
+#map_canvas{
+    height: 480px;
+}
+@media (max-width: 1024px) {
+    body {
+        padding-top: 50px;
+    }
+    .accordion,form {
+        margin-bottom: 10px;
+    }
+    .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .row-fluid [class*="span"] {
+        margin-left: 1%;
+    }
+    .row-fluid .span2 {
+        width: 16%;
+    }
+    #map_canvas {
+        height: 445px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 52px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+    [class*="span"], .row-fluid [class*="span"] {
+        display: block;
+        float: none;
+        margin-left: 0;
+        width: auto;
+    }
+    .container-fluid {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+    .accordion,form {
+        margin-bottom: 2px;
+    }
+    #map_canvas {
+        height: 440px;
+    }
+}
+
+@media (max-width: 640px) {
+    body{
+        padding-left: 7px;
+        padding-right: 7px;
     }
 }

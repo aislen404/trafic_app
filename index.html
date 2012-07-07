@@ -53,11 +53,11 @@
                         <a href="#" ng-click="generateMarks()">Marcadores</a>
                     </li>
                     <li class="divider-vertical"></li>
-                    <li class="span4">
+                    <li class="span3">
                         <span class="navbar-text label label-info">Mi Latitud : {{myLatitude}}</span>&nbsp;
                         <span class="navbar-text label label-info">Mi Longitud : {{myLongitude}}</span>
                     </li>
-                    <li class="span4">
+                    <li class="span3">
                         <span class="navbar-text label label-info">http status code : {{status}}</span>
                     </li>
                 </ul>
@@ -215,24 +215,28 @@
                         </div>
                         <div id="collapseRoute" class="accordion-body in collapse" style="height: auto; ">
                             <div class="accordion-inner">
-                                <label>Modo:</label>
-                                <select id="mode" onchange="updateMode()">
-                                    <option value="driving">Conduciendo</option>
-                                    <option value="walking">Andando</option>
-                                    <option value="bicycling">Bicicleta</option>
-                                </select>
 
-                                <label id="lbl_map_highways" for="map_highways" class="checkbox">Sin autopistas</label>
-                                <input type="checkbox" class="checkbox" id="map_highways" checked >
+                                <div class="control-group">
+                                    <label>Modo:</label>
+                                    <select id="mode" onchange="updateMode()">
+                                        <option value="driving">Conduciendo</option>
+                                        <option value="walking">Andando</option>
+                                        <option value="bicycling">Bicicleta</option>
+                                    </select>
 
-                                <label id="lbl_map_tolls" for="map_tolls" class="checkbox">Sin peajes</label>
-                                <input type="checkbox" id="map_tolls" checked>
+                                    <label id="lbl_map_highways" for="map_highways" class="checkbox">Sin autopistas</label>
+                                    <input type="checkbox" class="checkbox" id="map_highways" checked >
 
-                                <label id="lbl_map_optimize" for="map_optimize" class="checkbox">Optimizada</label>
-                                <input type="checkbox" class="checkbox" id="map_optimize" checked>
+                                    <label id="lbl_map_tolls" for="map_tolls" class="checkbox">Sin peajes</label>
+                                    <input type="checkbox" id="map_tolls" checked>
 
-                                <input type="button" value="Limpiar" class="btn btn-warning" onclick="reset()">
-                                <input type="button" value="Vamonos !!" class="btn btn-success" onclick="calcRoute()">
+                                    <label id="lbl_map_optimize" for="map_optimize" class="checkbox">Optimizada</label>
+                                    <input type="checkbox" class="checkbox" id="map_optimize" checked>
+                                </div>
+                                <div class="pull-right lead">
+                                    <input type="button" value="Limpiar" class="btn btn-warning" onclick="reset()">
+                                    <input type="button" value="Vamonos !!" class="btn btn-success" onclick="calcRoute()">
+                                </div>
                             </div>
                         </div>
                     </div>

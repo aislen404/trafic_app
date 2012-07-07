@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icos/favicon_yo.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icos/yo_114.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icos/yo_144.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icos/yo_57.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icos/yo_72.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/app.css" afterPath="$PROJECT_DIR$/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-responsive.css" afterPath="$PROJECT_DIR$/css/bootstrap-responsive.css" />
@@ -35,15 +30,14 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="31" selection-start="3063" selection-end="3063" vertical-scroll-proportion="-9.708333">
+            <state line="205" column="59" selection-start="11653" selection-end="11653" vertical-scroll-proportion="-5.3333335">
               <folding>
                 <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+                <element signature="tag#button#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="tag#div#1;tag#div#0;tag#div#0;tag#form#0;tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="tag#div#1;tag#div#1;tag#div#0;tag#form#0;tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="tag#div#1;tag#div#2;tag#div#0;tag#form#0;tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
-                <element signature="tag#form#0;tag#div#1;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
-                <element signature="tag#div#2;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -52,16 +46,7 @@
       <file leaf-file-name="bootstrap-responsive.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/bootstrap-responsive.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="693" column="19" selection-start="11578" selection-end="11578" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="4" selection-start="307" selection-end="307" vertical-scroll-proportion="196.92308">
+            <state line="180" column="8" selection-start="2986" selection-end="2992" vertical-scroll-proportion="-16.961538">
               <folding />
             </state>
           </provider>
@@ -70,7 +55,7 @@
       <file leaf-file-name="app.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="19" selection-start="33" selection-end="53" vertical-scroll-proportion="0.059840426">
+            <state line="61" column="5" selection-start="897" selection-end="897" vertical-scroll-proportion="0.42154256">
               <folding />
             </state>
           </provider>
@@ -107,6 +92,15 @@
         <entry file="file://$PROJECT_DIR$/js/mapRoutingDirection.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="120" column="1" selection-start="3389" selection-end="3389" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4922" column="29" selection-start="98603" selection-end="98603" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -443,13 +437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="307" selection-end="307" vertical-scroll-proportion="196.92308">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="45" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" />
@@ -479,29 +466,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap-responsive.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="693" column="19" selection-start="11578" selection-end="11578" vertical-scroll-proportion="0.0">
+        <state line="180" column="8" selection-start="2986" selection-end="2992" vertical-scroll-proportion="-16.961538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4922" column="29" selection-start="98603" selection-end="98603" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="31" selection-start="3063" selection-end="3063" vertical-scroll-proportion="-9.708333">
+        <state line="205" column="59" selection-start="11653" selection-end="11653" vertical-scroll-proportion="-5.3333335">
           <folding>
             <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#button#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
             <element signature="tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
             <element signature="tag#div#1;tag#div#0;tag#div#0;tag#form#0;tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
             <element signature="tag#div#1;tag#div#1;tag#div#0;tag#form#0;tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
             <element signature="tag#div#1;tag#div#2;tag#div#0;tag#form#0;tag#div#0;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="tag#form#0;tag#div#1;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="tag#div#2;tag#div#0;tag#div#1;tag#body#0;tag#html#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="33" selection-end="53" vertical-scroll-proportion="0.059840426">
+        <state line="61" column="5" selection-start="897" selection-end="897" vertical-scroll-proportion="0.42154256">
           <folding />
         </state>
       </provider>
