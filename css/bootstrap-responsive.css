@@ -220,6 +220,10 @@
   .navbar-fixed-bottom .container {
     width: 724px;
   }
+.container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
   .span12 {
     width: 724px;
   }
@@ -309,8 +313,8 @@
     float: left;
     width: 100%;
     min-height: 28px;
-    margin-left: 2.762430939%;
-    *margin-left: 2.709239449638298%;
+    margin-left: 1.35%;
+    *margin-left: 1.35%;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
         -ms-box-sizing: border-box;
@@ -336,8 +340,8 @@
     *width: 74.25620077063829%;
   }
   .row-fluid .span8 {
-    width: 65.74585634900001%;
-    *width: 65.6926648596383%;
+    width: 57.75%;
+    *width: 57.75%;
   }
   .row-fluid .span7 {
     width: 57.182320438000005%;
@@ -360,12 +364,15 @@
     *width: 22.874985304638297%;
   }
   .row-fluid .span2 {
-    width: 14.364640883%;
-    *width: 14.311449393638298%;
+    width: 19.778%;
+    *width: 19.778%;
   }
   .row-fluid .span1 {
     width: 5.801104972%;
     *width: 5.747913482638298%;
+  }
+  .well{
+    margin-bottom:10px;
   }
   input,
   textarea,
@@ -684,8 +691,8 @@
     padding-top: 0;
   }
   .navbar-fixed-top {
-    position: static;
-    margin-bottom: 18px;
+    position: fixed;
+    margin-bottom: 10px;
   }
   .navbar-fixed-top .navbar-inner {
     padding: 5px;

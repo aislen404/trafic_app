@@ -1,7 +1,7 @@
 /* app css stylesheet */
 
 body {
-  padding-top: 20px;
+ padding-top: 50px;
 }
 
 ul.filtros {
@@ -33,5 +33,11 @@ h1 {
   border-bottom: 1px solid gray;
 }
 #map_canvas{
-    height: 578px;
+    height: 500px;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #map_canvas{
+        height: 420px;
+    }
 }
