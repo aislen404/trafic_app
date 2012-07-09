@@ -7,17 +7,12 @@ var waypoints = [];
 var markers = [];
 var directionsVisible = false;
 
-function initialize() {
+function initialize(objMap) {
     directionsDisplay = new google.maps.DirectionsRenderer();
-    //var chicago = new google.maps.LatLng(37.7749295, -122.4194155);
-    var myOptions = {
-        zoom:13/*,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: chicago*/
-    }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    map = objMap;
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+
 
     google.maps.event.addListener(map, 'click', function(event) {
         if (origin == null) {

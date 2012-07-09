@@ -12,12 +12,15 @@ function mapServiceProvider(lat,lng,id,z) {
 
     var map = new google.maps.Map(document.getElementById(id),myOptions);
 
+
 /*
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 */
     var trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
+
+    initialize(map);
 
     return map;
 }
