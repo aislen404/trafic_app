@@ -1,6 +1,20 @@
 $.onload = function (){
     $('.accordion').collapse();
     $('.dropdown-toggle').dropdown();
+
+    $('.alternative').toggle({
+        onClick: function (evt, status) {
+            console.log('.alternative changed to: ' + status, 'the reverse of: ' + !status);
+        },
+        text: {
+            enabled: 'ENABLED',
+            disabled: 'DISABLED'
+        },
+        style: {
+            enabled: 'success',
+            disabled: 'danger'
+        }
+    });
 };
 
 function mapServiceProvider(lat,lng,id,z) {

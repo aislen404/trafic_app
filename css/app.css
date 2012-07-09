@@ -37,7 +37,6 @@ select{
     width: auto;
 }
 .navbar .form-inline label{
-    margin-left: 15px;
 }
 
 .navbar .form-inline span{
@@ -52,6 +51,11 @@ select{
 #map_canvas{
     height: 480px;
 }
+
+
+
+
+
 @media (max-width: 1024px) {
     body {
         padding-top: 55px;
