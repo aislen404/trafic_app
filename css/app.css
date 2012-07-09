@@ -42,7 +42,7 @@ select{
 }
 @media (max-width: 1024px) {
     body {
-        padding-top: 50px;
+        padding-top: 55px;
     }
     .accordion,form {
         margin-bottom: 10px;

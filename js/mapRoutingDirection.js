@@ -1,5 +1,5 @@
 var directionDisplay;
-var directionsService = new google.maps.DirectionsService();
+
 var map;
 var origin = null;
 var destination = null;
@@ -9,11 +9,11 @@ var directionsVisible = false;
 
 function initialize() {
     directionsDisplay = new google.maps.DirectionsRenderer();
-    var chicago = new google.maps.LatLng(37.7749295, -122.4194155);
+    //var chicago = new google.maps.LatLng(37.7749295, -122.4194155);
     var myOptions = {
-        zoom:13,
+        zoom:13/*,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: chicago
+        center: chicago*/
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     directionsDisplay.setMap(map);
@@ -47,6 +47,8 @@ function addMarker(latlng) {
 }
 
 function calcRoute() {
+    var directionsService = new google.maps.DirectionsService();
+
     if (origin == null) {
         alert("Click on the map to add a start point");
         return;
@@ -75,9 +77,9 @@ function calcRoute() {
         destination: destination,
         waypoints: waypoints,
         travelMode: mode,
-        optimizeWaypoints: document.getElementById('optimize').checked,
-        avoidHighways: document.getElementById('highways').checked,
-        avoidTolls: document.getElementById('tolls').checked
+        optimizeWaypoints: document.getElementById('map_optimize').checked,
+        avoidHighways: document.getElementById('map_highways').checked,
+        avoidTolls: document.getElementById('map_tolls').checked
     };
 
     directionsService.route(request, function(response, status) {

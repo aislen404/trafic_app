@@ -1,5 +1,6 @@
 $.onload = function (){
-    $('.accordion').collapse()
+    $('.accordion').collapse();
+    $('.dropdown-toggle').dropdown();
 };
 
 function mapServiceProvider(lat,lng,id,z) {
