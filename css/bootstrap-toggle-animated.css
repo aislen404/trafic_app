@@ -47,9 +47,9 @@
 .iphone-toggle-buttons input[type="checkbox"] + span::after,
 .iphone-toggle-buttons input[type="radio"] + span::after
 {
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .iphone-toggle-buttons input[type="checkbox"] + span::before,
@@ -108,12 +108,11 @@
 .iphone-toggle-buttons input[type="checkbox"] + span,
 .iphone-toggle-buttons input[type="radio"] + span
 {
-    width: 100px;
+    width: 80px;
     height: 30px;
     font: bold 14px/30px Arial, Sans-serif;
     color: #8c8c8c;
     text-transform: uppercase;
-    border: solid 1px #bcbbbb;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8c8c8", endColorstr="#f3f3f3");
     background: -moz-linear-gradient(top, #c8c8c8, #f3f3f3);
     background: -webkit-linear-gradient(top, #c8c8c8, #f3f3f3);
@@ -179,7 +178,6 @@
 {
     border-top: solid 1px #0f2a4f;
     border-bottom: solid 1px #0f2a4f;
-    border-left: solid 1px #2c5496;
     height: 30px;
     top: -1px;
     left: -1px;
