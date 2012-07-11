@@ -1,21 +1,5 @@
-$.onload = function (){
-    $('.accordion').collapse();
-    $('.dropdown-toggle').dropdown();
-
-    $('.alternative').toggle({
-        onClick: function (evt, status) {
-            console.log('.alternative changed to: ' + status, 'the reverse of: ' + !status);
-        },
-        text: {
-            enabled: 'ENABLED',
-            disabled: 'DISABLED'
-        },
-        style: {
-            enabled: 'success',
-            disabled: 'danger'
-        }
-    });
-};
+$('.accordion').collapse();
+$('.dropdown-toggle').dropdown();
 
 function mapServiceProvider(lat,lng,id,z) {
     var myOptions = {
@@ -25,7 +9,6 @@ function mapServiceProvider(lat,lng,id,z) {
     }
 
     var map = new google.maps.Map(document.getElementById(id),myOptions);
-
 
 /*
     var transitLayer = new google.maps.TransitLayer();

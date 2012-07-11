@@ -19,6 +19,7 @@
 </head>
 <body ng-controller="trafficFilterCtrl">
 <!-- Header Content -->
+
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -56,25 +57,40 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <div class="toggle alternative success" data-enabled="ON" data-disabled="OFF" data-toggle="toggle">
-                                    <input id="prm_0" name="prm_0" type="checkbox" value="1" class="checkbox" checked="checked" ng-model="fltr_camaras" ng-change="getJson()"/>
-                                    <label class="check" for="prm_0"></label>
+                                <span class="toggle span2">Camaras</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label for="prm_0">
+                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr-camaras" ng-change="getJson()">
+                                        <span>Camaras</span></label>
                                 </div>
-                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_camaras:'Camara' }} </p> -->
                             </li>
                             <li>
-                                <label id="lbl_prm_7" for="prm_7" class="checkbox">Paneles</label>
-                                <input id="prm_7" type="checkbox" ng-model="fltr_paneles" ng-change="getJson()">
-                               <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_paneles:'Panel_CMS' }} </p> -->
+                                <span class="toggle span2">Paneles</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label for="prm_7">
+                                        <input id="prm_7" name="prm_7" type="checkbox" ng-model="fltr_paneles" ng-change="getJson()">
+                                        <span>Paneles</span>
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <label id="lbl_prm_8" for="prm_8" class="checkbox">Est. Meteorologicas</label>
-                                <input id="prm_8" type="checkbox" ng-model="fltr_est_meteorologica" ng-change="getJson()">
+                                <span class="toggle span2">Meteo</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label for="prm_8">
+                                        <input id="prm_8" name="prm_8" type="checkbox" ng-model="fltr_est_meteorologica" ng-change="getJson()">
+                                        <span>Est. Meteorologicas</span>
+                                    </label>
+                                </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_est_meteorologica:'SensorMeteorologico' }} </p> -->
                             </li>
                             <li>
-                                <label id="lbl_prm_9" for="prm_9" class="checkbox">Sensores Trafico</label>
-                                <input id="prm_9" type="checkbox" ng-model="fltr_trafico" ng-change="getJson()">
+                                <span class="toggle span2">Trafico</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label class="check" for="prm_9">
+                                        <input id="prm_9" name="prm_9" type="checkbox" ng-model="ltr_trafico" ng-change="getJson()">
+                                        <span>Sensores Trafico</span>
+                                    </label>
+                                </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p> -->
                             </li>
                         </ul>
@@ -88,33 +104,60 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <label id="lbl_prm_1" for="prm_1" class="checkbox">Eventos</label>
-                                <input id="prm_1" type="checkbox" ng-model="fltr_eventos" ng-change="getJson()">
+                                <span class="toggle span2">Eventos</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label id="lbl_prm_1" for="prm_1" class="checkbox">
+                                        <input id="prm_1" type="checkbox" ng-model="fltr_eventos" ng-change="getJson()">
+                                        <span>Eventos</span>
+                                    </label>
+                                </div>
 
                             </li>
                             <li>
-                                <label id="lbl_prm_2" for="prm_2" class="checkbox">Meteorologia</label>
-                                <input id="prm_2" type="checkbox" ng-model="fltr_meteorologia" ng-change="getJson()">
+                                <span class="toggle span2">Meteorologia</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label id="lbl_prm_2" for="prm_2" class="checkbox">
+                                        <input id="prm_2" type="checkbox" ng-model="fltr_meteorologia" ng-change="getJson()">
+                                        <span>Meteorologia</span>
+                                    </label>
+                                </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_meteorologia:'METEOROL�GICO' }} </p> -->
                             </li>
                             <li>
-                                <label id="lbl_prm_3" for="prm_3" class="checkbox">Obras</label>
-                                <input id="prm_3" type="checkbox" ng-model="fltr_obras" ng-change="getJson()">
+                                <span class="toggle span2">Obras</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label id="lbl_prm_3" for="prm_3" class="checkbox">
+                                        <input id="prm_3" type="checkbox" ng-model="fltr_obras" ng-change="getJson()">
+                                        <span>Obras</span>
+                                    </label>
+                                </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_obras:'OBRAS' }} </p> -->
                             </li>
                             <li>
-                                <label id="lbl_prm_4" for="prm_4" class="checkbox">Otros</label>
-                                <input id="prm_4" type="checkbox" ng-model="fltr_otros" ng-change="getJson()">
+                                <span class="toggle span2">Otros</span>
+                                <div class="iphone-toggle-buttons">
+                                    <label id="lbl_prm_4" for="prm_4" class="checkbox">
+                                        <input id="prm_4" type="checkbox" ng-model="fltr_otros" ng-change="getJson()">
+                                        <span>Otros</span>
+                                    </label>
+                                </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_otros:'OTROS' }} </p> -->
                             </li>
                             <li>
-                                <label id="lbl_prm_5" for="prm_5" class="checkbox">Puertos</label>
-                                <input id="prm_5" type="checkbox" ng-model="fltr_puertos" ng-change="getJson()">
-
+                                <span class="toggle span2">Puertos</span>
+                                <div class="iphone-toggle-buttons">
+                                <label id="lbl_prm_5" for="prm_5" class="checkbox">
+                                    <input id="prm_5" type="checkbox" ng-model="fltr_puertos" ng-change="getJson()">
+                                    <span>Puertos</span>
+                                </label>
                             </li>
                             <li>
-                                <label id="lbl_prm_6" for="prm_6" class="checkbox">Retenciones</label>
-                                <input id="prm_6" type="checkbox" ng-model="fltr_retencion" ng-change="getJson()">
+                                <span class="toggle span2">Retenciones</span>
+                                <div class="iphone-toggle-buttons">
+                                <label id="lbl_prm_6" for="prm_6" class="checkbox">
+                                    <input id="prm_6" type="checkbox" ng-model="fltr_retencion" ng-change="getJson()">
+                                    <span>Retenciones</span>
+                                </label>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_retencion:'RETENCI�N / CONGESTI�N' }} </p> -->
                             </li>
                         </ul>
@@ -234,18 +277,15 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-
 <script src="lib/angular/angular.js"></script>
 <script src="lib/jquery/jquery-1.7.2.js"></script>
 <script src="lib/bootstrap/bootstrap-collapse.js"></script>
 <script src="lib/bootstrap/bootstrap-dropdown.js"></script>
-<script src="lib/bootstrap/bootstrap-toggle.js"></script>
-<script src="js/app.js"></script>
 <script src="js/filters.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/scriptsAux.js"></script>
 <script src="js/mapRoutingDirection.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-
+<script src="js/app.js"></script>
 </body>
 </html>

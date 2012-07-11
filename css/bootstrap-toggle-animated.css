@@ -1,144 +1,196 @@
-.toggle {
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-color: #5BB75B;
-    background-image: -moz-linear-gradient(center top , #62C462, #51A351);
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    border-radius: 4px 4px 4px 4px;
-    border-style: solid;
-    border-width: 1px;
-    bottom: -2px;
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
+    content: "off";
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after
+{
+    content: "on";
+}
+
+.iphone-toggle-buttons
+{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.iphone-toggle-buttons
+{
+    margin: 4px 0;
+}
+
+.iphone-toggle-buttons label,
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span,
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
     display: inline-block;
-    height: 25px;
-    margin-left: 30px;
-    position: relative;
-    width: 140px;
 }
-.toggle:before {
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+.iphone-toggle-buttons label,
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span
+{
+    vertical-align: middle;
 }
-.toggle.disabled {
-    background-color: #F5F5F5;
-    background-image: -moz-linear-gradient(center top , #FFFFFF, #E6E6E6);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span,
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 }
-.toggle.disabled:after {
-    color: #555555;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::before,
+.iphone-toggle-buttons input[type="radio"]:checked + span::before,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after
+{
+    top: 0;
 }
-.toggle.danger, .toggle.disabled-danger {
-    background-color: #DA4F49;
-    background-image: -moz-linear-gradient(center top , #EE5F5B, #BD362F);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::before,
+.iphone-toggle-buttons input[type="radio"]:checked + span::before
+{
+    right: 0;
 }
-.toggle.disabled.disabled-danger:after {
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after
+{
+    left: 0;
 }
-.toggle.warning, .toggle.disabled-warning {
-    background-color: #FAA732;
-    background-image: -moz-linear-gradient(center top , #FBB450, #F89406);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.toggle.disabled.disabled-warning:after {
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-}
-.toggle.success, .toggle.disabled-success {
-    background-color: #5BB75B;
-    background-image: -moz-linear-gradient(center top , #62C462, #51A351);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.toggle.disabled.disabled-success:after {
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-}
-.toggle.primary, .toggle.disabled-primary {
-    background-color: #0074CC;
-    background-image: -moz-linear-gradient(center top , #0088CC, #0055CC);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.toggle.disabled.disabled-primary:after {
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-}
-.toggle.info, .toggle.disabled-info {
-    background-color: #49AFCD;
-    background-image: -moz-linear-gradient(center top , #5BC0DE, #2F96B4);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.toggle.disabled.disabled-info:after {
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-}
-.toggle.inverse, .toggle.disabled-inverse {
-    background-color: #414141;
-    background-image: -moz-linear-gradient(center top , #555555, #222222);
-    background-repeat: repeat-x;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.toggle.inverse:before, .toggle.disabled.disabled-inverse:after {
-    color: #FFFFFF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-}
-.toggle:before, .toggle:after {
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 0.4px;
-    line-height: 25px;
-    padding-left: 12px;
-}
-.toggle:before {
-    content: attr(data-enabled);
-    padding-left: 9px;
-}
-.toggle.disabled:before {
-    content: "";
-    padding-left: 60px;
-}
-.toggle.disabled:after {
-    content: attr(data-disabled);
-}
-.toggle .check {
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-color: #F5F5F5;
-    background-image: -moz-linear-gradient(center top , #FFFFFF, #E6E6E6);
-    border-color: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    border-radius: 3px 3px 3px 3px;
-    border-style: solid;
-    border-width: 1px;
-    display: block;
-    height: 25px;
-    left: -1px;
+
+.iphone-toggle-buttons input[type="checkbox"],
+.iphone-toggle-buttons input[type="radio"],
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before,
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
     position: absolute;
-    top: -1px;
-    width: 65px;
 }
-.toggle .check:hover {
+
+.iphone-toggle-buttons label
+{
+    margin: 4px;
     cursor: pointer;
 }
-.toggle input[type="checkbox"] {
-    display: none;
+
+.iphone-toggle-buttons input[type="checkbox"],
+.iphone-toggle-buttons input[type="radio"]
+{
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -webkit-opacity: 0;
+    opacity: 0;
 }
-.toggle input[type="checkbox"]:checked + label.check {
-    left: 74px;
+
+.iphone-toggle-buttons input[type="checkbox"] + span,
+.iphone-toggle-buttons input[type="radio"] + span
+{
+    width: 100px;
+    height: 30px;
+    font: bold 14px/30px Arial, Sans-serif;
+    color: #8c8c8c;
+    text-transform: uppercase;
+    border: solid 1px #bcbbbb;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c8c8c8", endColorstr="#f3f3f3");
+    background: -moz-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: -webkit-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: -o-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: -ms-linear-gradient(top, #c8c8c8, #f3f3f3);
+    background: linear-gradient(top, #c8c8c8, #f3f3f3);
+    position: relative;
+    text-indent: -9999px;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span::before,
+.iphone-toggle-buttons input[type="radio"] + span::before
+{
+    content: "";
+    width: 40%;
+    height: 29px;
+    border-top: solid 1px #fff;
+    border-right: solid 1px #bebebe;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cfcfcf", endColorstr="#f9f9f9");
+    background: -moz-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: -webkit-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: -o-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: -ms-linear-gradient(top, #cfcfcf, #f9f9f9);
+    background: linear-gradient(top, #cfcfcf, #f9f9f9);
+    -moz-box-shadow: 1px 0 1px #bebebe;
+    -webkit-box-shadow: 1px 0 1px #bebebe;
+    box-shadow: 1px 0 1px #bebebe;
+}
+
+.iphone-toggle-buttons input[type="checkbox"] + span::after,
+.iphone-toggle-buttons input[type="radio"] + span::after
+{
+    text-indent: 0;
+    width: 62%;
+    height: 32px;
+    text-align: center;
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span,
+.iphone-toggle-buttons input[type="radio"]:checked + span
+{
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b45bd", endColorstr="#5d96ea");
+    background: -moz-linear-gradient(top, #1b45bd, #5d96ea);
+    background: -webkit-linear-gradient(top, #1b45bd, #5d96ea);
+    background: -o-linear-gradient(top, #1b45bd, #5d96ea);
+    background: -ms-linear-gradient(top, #1b45bd, #5d96ea);
+    background: linear-gradient(top, #1b45bd, #5d96ea);
+    color: #fff;
+    text-shadow: -1px -1px #0d2046;
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::before,
+.iphone-toggle-buttons input[type="radio"]:checked + span::before
+{
+    left: auto;
+    -moz-box-shadow: -2px 0 1px #3a5e91;
+    -webkit-box-shadow: -2px 0 1px #3a5e91;
+    box-shadow: -2px 0 1px #3a5e91;
+}
+
+.iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
+.iphone-toggle-buttons input[type="radio"]:checked + span::after
+{
+    border-top: solid 1px #0f2a4f;
+    border-bottom: solid 1px #0f2a4f;
+    border-left: solid 1px #2c5496;
+    height: 30px;
     top: -1px;
-}
-.toggle input[type="checkbox"] + label.check {
     left: -1px;
-    top: -1px;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.browser-support li.ie6,
+.browser-support li.ie7,
+.browser-support li.ie8
+{
+    display: none;
 }
