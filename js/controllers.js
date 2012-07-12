@@ -26,7 +26,6 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
     $scope.datos;
 
     /* scopes for map */
-    $scope.map;
     $scope.IDmapa="map_canvas";
 
     $scope.method = 'GET';
@@ -96,7 +95,8 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
                 function (position) {
                     $scope.myLatitude=position.coords.latitude;
                     $scope.myLongitude=position.coords.longitude;
-                    $scope.map = mapServiceProvider($scope.myLatitude,$scope.myLongitude,$scope.IDmapa,$scope.fltr_zoom);
+
+                    mapServiceProvider($scope.myLatitude,$scope.myLongitude,$scope.IDmapa,$scope.fltr_zoom);
                 },
                 function (error)
                 {
@@ -118,7 +118,7 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
                 }
             );
         }else{
-            $scope.map = mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS,$scope.IDmapa,$scope.fltr_zoom);
+            mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS,$scope.IDmapa,$scope.fltr_zoom);
         }
 
     }
