@@ -176,8 +176,6 @@
 .iphone-toggle-buttons input[type="checkbox"]:checked + span::after,
 .iphone-toggle-buttons input[type="radio"]:checked + span::after
 {
-    border-top: solid 1px #0f2a4f;
-    border-bottom: solid 1px #0f2a4f;
     height: 30px;
     top: -1px;
     left: -1px;

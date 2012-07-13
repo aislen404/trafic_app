@@ -9,25 +9,55 @@ var poisDGT =[];
 var directionsVisible = false;
 
 function mapServiceProvider(lat,lng,id,z) {
-    alert('dss');
     var myOptions = {
         zoom: z,
         center: new google.maps.LatLng(lat,lng),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.BOTTOM_CENTER
+        },
+        panControl: true,
+        panControlOptions: {
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        scaleControl: true,
+        scaleControlOptions: {
+            position: google.maps.ControlPosition.TOP_LEFT
+        },
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_TOP
+        }
     }
 
     map = new google.maps.Map(document.getElementById(id),myOptions);
 
-    var transitLayer = new google.maps.TransitLayer();
+    transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
-    var trafficLayer = new google.maps.TrafficLayer();
+    trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
 
-    var directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
+  /*  var weatherLayer = new google.maps.weather.WeatherLayer({
+        temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
+        windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
+    });
+    weatherLayer.setMap(map);
+
+    var cloudLayer = new google.maps.weather.CloudLayer();
+    cloudLayer.setMap(map);
+*/
     google.maps.event.addListener(map, 'click', function(event) {
         if (origin == null) {
             origin = event.latLng;
@@ -45,6 +75,13 @@ function mapServiceProvider(lat,lng,id,z) {
             }
         }
     });
+
+    /*
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        var zoomLevel = map.getZoom();
+        map.setCenter(myLatLng);
+        infowindow.setContent('Zoom: ' + zoomLevel);
+    });*/
 }
 
 function markServiceCreator(lat,lng,ico,title,objMap){
@@ -56,6 +93,7 @@ function markServiceCreator(lat,lng,ico,title,objMap){
 function addPoisDGT(latlng,icon,title) {
     poisDGT.push(new google.maps.Marker({
         position: latlng,
+        draggable: false,
         map: map,
         animation: google.maps.Animation.DROP,
         icon: icon,
@@ -66,6 +104,7 @@ function addPoisDGT(latlng,icon,title) {
 function addMarker(latlng) {
      markers.push(new google.maps.Marker({
         position: latlng,
+        draggable: true,
         map: map,
         animation: google.maps.Animation.DROP,
         icon: 'http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png'
