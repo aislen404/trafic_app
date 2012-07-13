@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-toggle-animated.css" afterPath="$PROJECT_DIR$/css/bootstrap-toggle-animated.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-responsive.css" afterPath="$PROJECT_DIR$/css/bootstrap-responsive.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-responsive.min.css" afterPath="$PROJECT_DIR$/css/bootstrap-responsive.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap.css" afterPath="$PROJECT_DIR$/css/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/css/bootstrap.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/mapRoutingDirection.js" afterPath="$PROJECT_DIR$/js/mapRoutingDirection.js" />
     </list>
     <ignored path="trafic_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="291" column="82" selection-start="15476" selection-end="15476" vertical-scroll-proportion="-65.083336">
+            <state line="293" column="0" selection-start="15522" selection-end="15607" vertical-scroll-proportion="0.816825">
               <folding />
             </state>
           </provider>
@@ -62,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapRoutingDirection.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mapRoutingDirection.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/mapRoutingDirection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="9" selection-start="2706" selection-end="2706" vertical-scroll-proportion="0.8914729">
+            <state line="83" column="9" selection-start="2706" selection-end="2706" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,9 +100,9 @@
         <option value="$PROJECT_DIR$/css/app.css" />
         <option value="$PROJECT_DIR$/js/scriptsAux.js" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/bootstrap-toggle-animated.css" />
         <option value="$PROJECT_DIR$/js/mapRoutingDirection.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -433,6 +435,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/mapRoutingDirection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="9" selection-start="2706" selection-end="2706" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap-toggle-animated.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="177" column="1" selection-start="5816" selection-end="5816" vertical-scroll-proportion="0.0">
@@ -442,14 +451,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="291" column="82" selection-start="15476" selection-end="15476" vertical-scroll-proportion="-65.083336">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/mapRoutingDirection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="9" selection-start="2706" selection-end="2706" vertical-scroll-proportion="0.8914729">
+        <state line="293" column="0" selection-start="15522" selection-end="15607" vertical-scroll-proportion="0.816825">
           <folding />
         </state>
       </provider>
