@@ -8,13 +8,13 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
     $scope.fltr_camaras=true;
     $scope.fltr_eventos=true;
     $scope.fltr_meteorologia=true;
-    $scope.fltr_obras=false;
+    $scope.fltr_obras=true;
     $scope.fltr_otros=true;
     $scope.fltr_puertos=true;
     $scope.fltr_retencion=true;
     $scope.fltr_paneles=true;
-    $scope.fltr_est_meteorologica=true;
-    $scope.fltr_trafico=true;
+    $scope.fltr_est_meteorologica=false;
+    $scope.fltr_trafico=false;
     $scope.fltr_latNS=43.89789239125797;
     $scope.fltr_latSW=35.53222622770337;
     $scope.fltr_longNS=8.76708984375;
@@ -31,6 +31,9 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
     $scope.method = 'GET';
     $scope.url = '';
     $scope.header='';
+
+    $scope.myLatitude = $scope.fltr_latNS;
+    $scope.myLongitude = $scope.fltr_longNS;
 
     var a= 'http://infocar.dgt.es/etraffic/BuscarElementosServlet?' +
         'Camaras=' + $scope.fltr_camaras +
@@ -76,6 +79,11 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
 
     $scope.url=b;
 
+    $scope.BeganToBegin = function (){
+        $scope.getJson();
+        $scope.createMap();
+    }
+
     $scope.getJson = function(){
         $http({method: $scope.method, url: $scope.url,header: $scope.header, cache: $templateCache}).
             success(function(data, status) {
@@ -95,7 +103,6 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
                 function (position) {
                     $scope.myLatitude=position.coords.latitude;
                     $scope.myLongitude=position.coords.longitude;
-
                     mapServiceProvider($scope.myLatitude,$scope.myLongitude,$scope.IDmapa,$scope.fltr_zoom);
                 },
                 function (error)
@@ -118,7 +125,9 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
                 }
             );
         }else{
-            mapServiceProvider($scope.fltr_latNS,$scope.fltr_longNS,$scope.IDmapa,$scope.fltr_zoom);
+            $scope.myLatitude = $scope.fltr_latNS;
+            $scope.myLongitude = $scope.fltr_longNS;
+            mapServiceProvider($scope.myLatitude,$scope.myLongitude,$scope.IDmapa,$scope.fltr_zoom);
         }
 
     }
@@ -129,10 +138,9 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
         var lng=$scope.myLongitude;
         var ico;
         var title;
-        var objMap = $scope.map;
 
-        title = 'latitud:'+lat+' longitud:'+lng;
-        markServiceCreator(lat,lng,incidentIcoResolutor('Me'), title, objMap);
+        title = 'latitud:'+$scope.myLatitude+' longitud:'+$scope.myLongitude;
+        addPoisDGT($scope.myLatitude,$scope.myLongitude,incidentIcoResolutor('Me'), title);
 
         while(i<=$scope.datos.length){
 
@@ -146,8 +154,7 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
             }
 
             title = $scope.datos[i].tipo+" : "+ $scope.datos[i].alias;
-            markServiceCreator(lat, lng, ico, title , objMap);
-
+            addPoisDGT(lat, lng, ico, title);
             i++;
         }
 

@@ -1,4 +1,4 @@
-var directionDisplay;
+var directionDisplay=document.getElementById("directionsPanel");
 
 var map;
 var origin = null;
@@ -6,9 +6,13 @@ var destination = null;
 var waypoints = [];
 var markers = [];
 var poisDGT =[];
-var directionsVisible = false;
 
-function mapServiceProvider(lat,lng,id,z) {
+var transitLayers = false;
+var trafficLayers = false;
+var weatherLayers = false;
+var directionLayers = false;
+
+ mapServiceProvider = function(lat,lng,id,z) {
     var myOptions = {
         zoom: z,
         center: new google.maps.LatLng(lat,lng),
@@ -31,7 +35,7 @@ function mapServiceProvider(lat,lng,id,z) {
         scaleControlOptions: {
             position: google.maps.ControlPosition.TOP_LEFT
         },
-        streetViewControl: true,
+        streetViewControl: false,
         streetViewControlOptions: {
             position: google.maps.ControlPosition.LEFT_TOP
         }
@@ -39,25 +43,79 @@ function mapServiceProvider(lat,lng,id,z) {
 
     map = new google.maps.Map(document.getElementById(id),myOptions);
 
+    /*google.maps.event.addListener(map, 'zoom_changed', function() {
+        var zoomLevel = map.getZoom();
+        map.setCenter(myLatLng);
+        infowindow.setContent('Zoom: ' + zoomLevel);
+    });*/
+
+}
+
+addPoisDGT = function (lat,lng,icon,title) {
+    poisDGT.push(new google.maps.Marker({
+        position: new google.maps.LatLng(lat,lng),
+        draggable: false,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        icon: icon,
+        title: title
+    }));
+}
+clearPoisDGT = function () {
+    for (var i = 0; i < poisDGT.length; i++) {
+        poisDGT[i].setMap(null);
+    }
+}
+
+addMarker = function(latlng) {
+     markers.push(new google.maps.Marker({
+        position: latlng,
+        draggable: true,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        icon: 'http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png'
+    }));
+}
+clearMarkers = function() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+}
+
+transitLayerToogle = function (){
+    if(transitLayers){
+        clearTransitLayer();
+        transitLayers = false;
+    }else{
+        addTransitLayer();
+        transitLayers = true;
+    }
+}
+
+addTransitLayer = function(){
     transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
+}
 
+clearTransitLayer = function(){ transitLayer.setMap(null);}
+
+trafficLayerToogle = function (){
+    if(trafficLayers){
+        clearTrafficLayer();
+        trafficLayers = false;
+    }else{
+        addTrafficLayer();
+        trafficLayers = true;
+    }
+}
+
+addTrafficLayer = function(){
     trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
+}
+clearTrafficLayer =function(){ trafficLayer.setMap(map); }
 
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById("directionsPanel"));
-
-  /*  var weatherLayer = new google.maps.weather.WeatherLayer({
-        temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
-        windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
-    });
-    weatherLayer.setMap(map);
-
-    var cloudLayer = new google.maps.weather.CloudLayer();
-    cloudLayer.setMap(map);
-*/
+addDirectionsLayer = function (){
     google.maps.event.addListener(map, 'click', function(event) {
         if (origin == null) {
             origin = event.latLng;
@@ -76,112 +134,101 @@ function mapServiceProvider(lat,lng,id,z) {
         }
     });
 
-    /*
-    google.maps.event.addListener(map, 'zoom_changed', function() {
-        var zoomLevel = map.getZoom();
-        map.setCenter(myLatLng);
-        infowindow.setContent('Zoom: ' + zoomLevel);
-    });*/
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(directionDisplay);
+}
+clearDirectionsLayer = function(){
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    document.getElementById("directionsPanel").innerHTML='';
 }
 
-function markServiceCreator(lat,lng,ico,title,objMap){
+weatherLayerToogle = function() {
+   if(weatherLayers){
+       clearWeatherLayer();
+       weatherLayers = false;
+   }else{
+       addWeatherLayer();
+       weatherLayers = true;
+   }
+}
+addWeatherLayer = function (){
+     var weatherLayer = new google.maps.weather.WeatherLayer({
+        temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
+        windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
+     });
+     weatherLayer.setMap(map);
 
-    addPoisDGT(new google.maps.LatLng(lat,lng),ico,title);
-
+     var cloudLayer = new google.maps.weather.CloudLayer();
+     cloudLayer.setMap(map);
+}
+clearWeatherLayer = function (){
+    weatherLayer.setMap(null);
+    cloudLayer.setMap(null);
 }
 
-function addPoisDGT(latlng,icon,title) {
-    poisDGT.push(new google.maps.Marker({
-        position: latlng,
-        draggable: false,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        icon: icon,
-        title: title
-    }));
-}
+calcRoute = function() {
 
-function addMarker(latlng) {
-     markers.push(new google.maps.Marker({
-        position: latlng,
-        draggable: true,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        icon: 'http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png'
-    }));
-}
+    if(directionLayers==false){
+        addDirectionsLayer();
+        var directionsService = new google.maps.DirectionsService();
 
-function calcRoute() {
-    var directionsService = new google.maps.DirectionsService();
-
-    if (origin == null) {
-        alert("Click on the map to add a start point");
-        return;
-    }
-
-    if (destination == null) {
-        alert("Click on the map to add an end point");
-        return;
-    }
-
-    var mode;
-    switch (document.getElementById("mode").value) {
-        case "bicycling":
-            mode = google.maps.DirectionsTravelMode.BICYCLING;
-            break;
-        case "driving":
-            mode = google.maps.DirectionsTravelMode.DRIVING;
-            break;
-        case "walking":
-            mode = google.maps.DirectionsTravelMode.WALKING;
-            break;
-    }
-
-    var request = {
-        origin: origin,
-        destination: destination,
-        waypoints: waypoints,
-        travelMode: mode,
-        optimizeWaypoints: document.getElementById('map_optimize').checked,
-        avoidHighways: document.getElementById('map_highways').checked,
-        avoidTolls: document.getElementById('map_tolls').checked
-    };
-
-    directionsService.route(request, function(response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
+        if (origin == null) {
+            alert("Click on the map to add a start point");
+            return;
         }
-    });
 
-    clearMarkers();
-    directionsVisible = true;
-}
+        if (destination == null) {
+            alert("Click on the map to add an end point");
+            return;
+        }
 
-function updateMode() {
-    if (directionsVisible) {
-        calcRoute();
+        var mode;
+        switch (document.getElementById("mode").value) {
+            case "bicycling":
+                mode = google.maps.DirectionsTravelMode.BICYCLING;
+                break;
+            case "driving":
+                mode = google.maps.DirectionsTravelMode.DRIVING;
+                break;
+            case "walking":
+                mode = google.maps.DirectionsTravelMode.WALKING;
+                break;
+        }
+
+        var request = {
+            origin: origin,
+            destination: destination,
+            waypoints: waypoints,
+            travelMode: mode,
+            optimizeWaypoints: document.getElementById('map_optimize').checked,
+            avoidHighways: document.getElementById('map_highways').checked,
+            avoidTolls: document.getElementById('map_tolls').checked
+        };
+
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+        directionLayers=true;
+        clearMarkers();
+    }else{
+        resetRoute();
+        clearDirectionsLayer();
+        directionLayers=false;
     }
 }
-function clearPoisDGT() {
-    for (var i = 0; i < poisDGT.length; i++) {
-        poisDGT[i].setMap(null);
-    }
-}
-function clearMarkers() {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
-    }
-}
 
-function clearWaypoints() {
+clearWaypoints = function() {
     markers = [];
     origin = null;
     destination = null;
     waypoints = [];
-    directionsVisible = false;
 }
 
-function reset() {
+resetRoute = function() {
     clearMarkers();
     clearWaypoints();
     directionsDisplay.setMap(null);
@@ -191,7 +238,7 @@ function reset() {
     directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 }
 
-function incidentIcoResolutor (typeInc) {
+ incidentIcoResolutor = function(typeInc) {
     var ico;
 
     switch (typeInc){
@@ -227,8 +274,8 @@ function incidentIcoResolutor (typeInc) {
     return ico;
 }
 
-var getMapLatNS =  function(objMap){ return objMap.getBounds().getNorthEast().lat(); }
-var getMapLongNS =  function(objMap){ return objMap.getBounds().getNorthEast().lng(); }
-var getMapLatSW =  function(objMap){ return objMap.getBounds().getSouthWest().lat(); }
-var getMapLongSW =  function(objMap){ return objMap.getBounds().getSouthWest().lng(); }
-var getMapZoom =  function(objMap){ return objMap.getZoom(); }
+getMapLatNS =  function(objMap){ return objMap.getBounds().getNorthEast().lat(); }
+getMapLongNS =  function(objMap){ return objMap.getBounds().getNorthEast().lng(); }
+getMapLatSW =  function(objMap){ return objMap.getBounds().getSouthWest().lat(); }
+getMapLongSW =  function(objMap){ return objMap.getBounds().getSouthWest().lng(); }
+getMapZoom =  function(objMap){ return objMap.getZoom(); }

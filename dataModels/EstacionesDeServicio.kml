@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+
+<Document>
+	<name>Estaciones de servicio de España</name>
+	<open>0</open>
+  	<visibility>1</visibility>
+	<LookAt>
+		<longitude>-7.957034</longitude>
+		<latitude>35.8031</latitude>
+		<altitude>0</altitude>
+		<range>2450070</range>
+		<tilt>0</tilt>
+		<heading>0</heading>
+	</LookAt>
+	<NetworkLink>
+  		<name>Listado</name>
+  		<open>0</open>
+  		<visibility>1</visibility>
+  		<refreshVisibility>0</refreshVisibility>
+  		<flyToView>0</flyToView>
+  		<Link>
+			<href>http://geoportal.mityc.es/hidrocarburos/eess/kml.do</href>
+			<viewRefreshMode>onStop</viewRefreshMode>
+			<refreshInterval>2</refreshInterval>
+    			<viewRefreshTime>0</viewRefreshTime>
+    			<viewFormat>BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]</viewFormat>
+		</Link>
+	</NetworkLink>
+</Document>
+</kml>
