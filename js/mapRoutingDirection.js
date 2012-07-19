@@ -7,10 +7,18 @@ var waypoints = [];
 var markers = [];
 var poisDGT =[];
 var I = [];
+var transitLayer ;
+var trafficLayer;
+var weatherLayer;
+var cloudLayer;
 
 var myLat ;
 var myLong;
 var zoom = 6;
+
+
+var currentDirections;
+var oldDirections=[];
 
 var transitLayers = false;
 var trafficLayers = false;
@@ -58,6 +66,8 @@ getMyPosition = function (){
         function (position) {
             myLat = position.coords.latitude;
             myLong = position.coords.longitude;
+
+            zoom = 12;
 
             mapServiceProvider(myLat,myLong,zoom);
             addI();
@@ -158,9 +168,27 @@ addTrafficLayer = function(){
     trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
 }
-clearTrafficLayer =function(){ trafficLayer.setMap(map); }
+clearTrafficLayer =function(){ trafficLayer.setMap(null); }
 
 addDirectionsLayer = function (){
+    directionsDisplay = new google.maps.DirectionsRenderer({
+        map: map,
+        preserveViewport: true,
+        draggable: true
+    });
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(directionDisplay);
+
+    google.maps.event.addListener(directionsDisplay, 'directions_changed',function() {
+            if (currentDirections) {
+                oldDirections.push(currentDirections);
+                setUndoDisabled(false);
+            }
+            currentDirections = directionsDisplay.getDirections();
+        });
+
+    setUndoDisabled(true);
+
     google.maps.event.addListener(map, 'click', function(event) {
         if (origin == null) {
             origin = event.latLng;
@@ -178,10 +206,6 @@ addDirectionsLayer = function (){
             }
         }
     });
-
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(directionDisplay);
 }
 clearDirectionsLayer = function(){
     directionsDisplay = new google.maps.DirectionsRenderer();
@@ -199,13 +223,13 @@ weatherLayerToogle = function() {
    }
 }
 addWeatherLayer = function (){
-     var weatherLayer = new google.maps.weather.WeatherLayer({
+     weatherLayer = new google.maps.weather.WeatherLayer({
         temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
         windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
      });
      weatherLayer.setMap(map);
 
-     var cloudLayer = new google.maps.weather.CloudLayer();
+     cloudLayer = new google.maps.weather.CloudLayer();
      cloudLayer.setMap(map);
 }
 clearWeatherLayer = function (){
@@ -257,6 +281,7 @@ calcRoute = function() {
                 directionsDisplay.setDirections(response);
             }
         });
+
         directionLayers=true;
         clearMarkers();
     }else{
@@ -266,11 +291,10 @@ calcRoute = function() {
     }
 }
 
-clearWaypoints = function() {
-    markers = [];
-    origin = null;
-    destination = null;
-    waypoints = [];
+updateRoute = function(){
+    if(directionLayers==true){
+        calcRoute();
+    }
 }
 
 resetRoute = function() {
@@ -283,7 +307,26 @@ resetRoute = function() {
     directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 }
 
- incidentIcoResolutor = function(typeInc) {
+clearWaypoints = function() {
+    markers = [];
+    origin = null;
+    destination = null;
+    waypoints = [];
+}
+
+undo = function () {
+    currentDirections = null;
+    directionsDisplay.setDirections(oldDirections.pop());
+    if (!oldDirections.length) {
+        setUndoDisabled(true);
+    }
+}
+
+setUndoDisabled = function(value) {
+    //document.getElementById("undo").disabled = value;
+}
+
+incidentIcoResolutor = function(typeInc) {
     var ico;
 
     switch (typeInc){
@@ -318,6 +361,8 @@ resetRoute = function() {
 
     return ico;
 }
+
+
 
 getMapLatNS =  function(objMap){ return objMap.getBounds().getNorthEast().lat(); }
 getMapLongNS =  function(objMap){ return objMap.getBounds().getNorthEast().lng(); }

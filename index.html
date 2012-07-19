@@ -157,29 +157,31 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
+                            <!-- Route Planning Form -->
                             <li>
-                                <!-- Route Planning Form -->
-                            <div class="control-group">
-                                <label for="mode">Modo:</label>
-                                <select id="mode" onchange="updateMode()">
+                                <label for="mode" class="span1 checkbox">Modo</label>
+                                <select id="mode" class="span1" onchange="updateRoute()">
                                     <option value="driving">Conduciendo</option>
                                     <option value="walking">Andando</option>
                                     <option value="bicycling">Bicicleta</option>
                                 </select>
-
-                                <label id="lbl_map_highways" for="map_highways" class="checkbox">Sin autopistas</label>
-                                <input type="checkbox" class="checkbox" id="map_highways" checked >
-
-                                <label id="lbl_map_tolls" for="map_tolls" class="checkbox">Sin peajes</label>
-                                <input type="checkbox" id="map_tolls" checked>
-
-                                <label id="lbl_map_optimize" for="map_optimize" class="checkbox">Optimizada</label>
-                                <input type="checkbox" class="checkbox" id="map_optimize" checked>
-                            </div>
-                            <div class="pull-right lead">
+                            </li>
+                            <li>
+                                <label id="lbl_map_highways" for="map_highways" class="checkbox span1">Autopistas</label>
+                                <input type="checkbox" id="map_highways"  onchange="updateRoute()" checked>
+                            </li>
+                            <li>
+                                <label id="lbl_map_tolls" for="map_tolls" class="checkbox span1">Peajes</label>
+                                <input type="checkbox"  onchange="updateRoute()" id="map_tolls">
+                            </li>
+                            <li>
+                                <label id="lbl_map_optimize" for="map_optimize" class="checkbox span1">Optimizada</label>
+                                <input type="checkbox"  onchange="updateRoute()" id="map_optimize" checked>
+                            </li>
+                            <li>
                                 <input type="button" value="Limpiar" class="btn btn-warning" onclick="resetRoute()">
+                                <input type="button" value="Undo" class="btn btn-info" onclick="undo()">
                                 <input type="button" value="Vamonos !!" class="btn btn-success" onclick="calcRoute()">
-                            </div>
                             </li>
                         </ul>
                     </li>
@@ -198,14 +200,14 @@
     <div class="row-fluid">
 
         <!--Map content-->
-        <div class="span9">
+        <div class="span8">
             <!-- Google Map -->
             <div id="map_canvas" class="well">
             </div>
         </div>
 
         <!--Route content-->
-        <div class="span3 well">
+        <div class="span4 well">
             <div id="directionsPanel"></div>
         </div>
 
