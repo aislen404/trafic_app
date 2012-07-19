@@ -32,7 +32,7 @@
             <a class="brand" href="./index.html">Trafic APP</a>
             <div class="nav-collapse collapse form-inline">
                 <ul class="nav nav-pills">
-                    <a class="btn btn-info" href="#" ng-click="generateMarks()">Marcadores</a>
+                    <li><a href="#" ng-click="generateMarks()">Marcadores</a></li>
                     <li class="divider-vertical"></li>
                     <li class="dropdown" id="menu2">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
@@ -152,35 +152,34 @@
                     <li class="divider-vertical"></li>
                     <li class="dropdown" id="menu4">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu4">
-                            <i class="icon-globe icon-white"></i>
-                            Posicionamiento
+                            <i class="icon-road icon-white"></i>
+                            Route Planning
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <span class="navbar-text label label-info">Mi Lat : {{myLatitude}}</span>&nbsp;
-                                <span class="navbar-text label label-info">Mi Long : {{myLongitude}}</span>
-                            </li>
-                            <li>
-                                <span>latNS: {{fltr_latNS}}</span>
-                            </li>
-                            <li>
-                                <span>longNS: {{fltr_longNS}}</span>
-                            </li>
-                            <li>
-                                <span>latSW: {{fltr_latSW}}</span>
-                            </li>
-                            <li>
-                                <span>longSW: {{fltr_longSW}}</span>
-                            </li>
-                            <li>
-                                <span>
-                                    <label id="lbl_prm_10" for="prm_10"> Zoom: </label>
-                                    <input id="prm_10" name="prm_10" type="range" min="1" max="19" ng-model="fltr_zoom">
-                                </span>
-                            </li>
-                            <li>
-                                <span>Niveles: {{fltr_niveles}}</span>
+                                <!-- Route Planning Form -->
+                            <div class="control-group">
+                                <label for="mode">Modo:</label>
+                                <select id="mode" onchange="updateMode()">
+                                    <option value="driving">Conduciendo</option>
+                                    <option value="walking">Andando</option>
+                                    <option value="bicycling">Bicicleta</option>
+                                </select>
+
+                                <label id="lbl_map_highways" for="map_highways" class="checkbox">Sin autopistas</label>
+                                <input type="checkbox" class="checkbox" id="map_highways" checked >
+
+                                <label id="lbl_map_tolls" for="map_tolls" class="checkbox">Sin peajes</label>
+                                <input type="checkbox" id="map_tolls" checked>
+
+                                <label id="lbl_map_optimize" for="map_optimize" class="checkbox">Optimizada</label>
+                                <input type="checkbox" class="checkbox" id="map_optimize" checked>
+                            </div>
+                            <div class="pull-right lead">
+                                <input type="button" value="Limpiar" class="btn btn-warning" onclick="resetRoute()">
+                                <input type="button" value="Vamonos !!" class="btn btn-success" onclick="calcRoute()">
+                            </div>
                             </li>
                         </ul>
                     </li>
@@ -197,51 +196,9 @@
 <!-- Main Content -->
 <div class="container-fluid">
     <div class="row-fluid">
-        <!--Filter Content Form-->
 
         <!--Map content-->
         <div class="span9">
-            <!-- Route Planning Form -->
-            <form class="form-inline">
-                <div class="accordion" id="accordionRoute">
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseRoute">
-                            <span class="nav-header">
-                                <i class="icon-road"></i>
-                                Route Planning
-                            </span>
-                            </a>
-                        </div>
-                        <div id="collapseRoute" class="accordion-body in collapse">
-                            <div class="accordion-inner">
-
-                                <div class="control-group">
-                                    <label for="mode">Modo:</label>
-                                    <select id="mode" onchange="updateMode()">
-                                        <option value="driving">Conduciendo</option>
-                                        <option value="walking">Andando</option>
-                                        <option value="bicycling">Bicicleta</option>
-                                    </select>
-
-                                    <label id="lbl_map_highways" for="map_highways" class="checkbox">Sin autopistas</label>
-                                    <input type="checkbox" class="checkbox" id="map_highways" checked >
-
-                                    <label id="lbl_map_tolls" for="map_tolls" class="checkbox">Sin peajes</label>
-                                    <input type="checkbox" id="map_tolls" checked>
-
-                                    <label id="lbl_map_optimize" for="map_optimize" class="checkbox">Optimizada</label>
-                                    <input type="checkbox" class="checkbox" id="map_optimize" checked>
-                                </div>
-                                <div class="pull-right lead">
-                                    <input type="button" value="Limpiar" class="btn btn-warning" onclick="resetRoute()">
-                                    <input type="button" value="Vamonos !!" class="btn btn-success" onclick="calcRoute()">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
             <!-- Google Map -->
             <div id="map_canvas" class="well">
             </div>

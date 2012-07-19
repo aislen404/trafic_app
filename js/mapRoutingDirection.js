@@ -6,13 +6,21 @@ var destination = null;
 var waypoints = [];
 var markers = [];
 var poisDGT =[];
+var I = [];
+
+var myLat ;
+var myLong;
+var zoom = 6;
 
 var transitLayers = false;
 var trafficLayers = false;
 var weatherLayers = false;
 var directionLayers = false;
 
- mapServiceProvider = function(lat,lng,id,z) {
+var mapID ='map_canvas';
+
+mapServiceProvider = function(lat,lng,z) {
+
     var myOptions = {
         zoom: z,
         center: new google.maps.LatLng(lat,lng),
@@ -41,14 +49,51 @@ var directionLayers = false;
         }
     }
 
-    map = new google.maps.Map(document.getElementById(id),myOptions);
+    map = new google.maps.Map(document.getElementById(mapID),myOptions);
 
-    /*google.maps.event.addListener(map, 'zoom_changed', function() {
-        var zoomLevel = map.getZoom();
-        map.setCenter(myLatLng);
-        infowindow.setContent('Zoom: ' + zoomLevel);
-    });*/
+}
 
+getMyPosition = function (){
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            myLat = position.coords.latitude;
+            myLong = position.coords.longitude;
+
+            mapServiceProvider(myLat,myLong,zoom);
+            addI();
+
+            return true;
+        },
+        function (error)
+        {
+            switch(error.code)
+            {
+                case error.TIMEOUT:
+                    return error.TIMEOUT;
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    return error.POSITION_UNAVAILABLE;
+                    break;
+                case error.PERMISSION_DENIED:
+                    return error.PERMISSION_DENIED;
+                    break;
+                case error.UNKNOWN_ERROR:
+                    return error.UNKNOWN_ERR;
+                    break;
+            }
+        }
+    );
+}
+
+addI = function (){
+    I.push(new google.maps.Marker({
+        position: new google.maps.LatLng(myLat,myLong),
+        draggable: false,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        icon: incidentIcoResolutor('Me'),
+        title: 'Here Right Now!'
+    }));
 }
 
 addPoisDGT = function (lat,lng,icon,title) {
