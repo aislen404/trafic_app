@@ -1,2 +1,2 @@
-$('.accordion').collapse();
+//$('.accordion').collapse();
 $('.dropdown-toggle').dropdown();

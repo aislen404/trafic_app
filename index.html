@@ -18,11 +18,13 @@
 
 </head>
 <body ng-controller="trafficFilterCtrl">
-<!-- Header Content -->
 
+<!-- Header Content -->
 <div class="navbar navbar-fixed-top" ng-init="BeganToBegin()">
     <div class="navbar-inner">
         <div class="container">
+
+            <!-- button for menu access - only in responsive design for smarth devices -->
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -32,8 +34,7 @@
             <a class="brand" href="./index.html">Trafic APP</a>
             <div class="nav-collapse collapse form-inline">
                 <ul class="nav nav-pills">
-                    <li><a href="#" ng-click="generateMarks()">Marcadores</a></li>
-                    <li class="divider-vertical"></li>
+                    <!-- DGT Info filters & google layers -->
                     <li class="dropdown" id="menu2">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
                             <i class="icon-info-sign icon-white"></i>
@@ -45,7 +46,7 @@
                                 <span class="toggle span1">Camaras</span>
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_0">
-                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="getJson()">
+                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="updateJson()">
                                         <span>Camaras</span></label>
                                 </div>
                             </li>
@@ -53,7 +54,7 @@
                                 <span class="toggle span1">Paneles</span>
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_7">
-                                        <input id="prm_7" name="prm_7" type="checkbox" ng-model="fltr_paneles" ng-change="getJson()">
+                                        <input id="prm_7" name="prm_7" type="checkbox" ng-model="fltr_paneles" ng-change="updateJson()">
                                         <span>Paneles</span>
                                     </label>
                                 </div>
@@ -80,7 +81,10 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="divider-vertical"></li>
+
+                    <!-- DGT Incidents filters-->
                     <li class="dropdown" id="menu3">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
                             <i class="icon-warning-sign icon-white"></i>
@@ -92,7 +96,7 @@
                                 <span class="toggle span1">Eventos</span>
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_1" for="prm_1" class="checkbox">
-                                        <input id="prm_1" type="checkbox" ng-model="fltr_eventos" ng-change="getJson()">
+                                        <input id="prm_1" type="checkbox" ng-model="fltr_eventos" ng-change="updateJson()">
                                         <span>Eventos</span>
                                     </label>
                                 </div>
@@ -102,7 +106,7 @@
                                 <span class="toggle span1">Meteorologia</span>
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_2" for="prm_2" class="checkbox">
-                                        <input id="prm_2" type="checkbox" ng-model="fltr_meteorologia" ng-change="getJson()">
+                                        <input id="prm_2" type="checkbox" ng-model="fltr_meteorologia" ng-change="updateJson()">
                                         <span>Meteorologia</span>
                                     </label>
                                 </div>
@@ -112,7 +116,7 @@
                                 <span class="toggle span1">Obras</span>
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_3" for="prm_3" class="checkbox">
-                                        <input id="prm_3" type="checkbox" ng-model="fltr_obras" ng-change="getJson()">
+                                        <input id="prm_3" type="checkbox" ng-model="fltr_obras" ng-change="updateJson()">
                                         <span>Obras</span>
                                     </label>
                                 </div>
@@ -122,7 +126,7 @@
                                 <span class="toggle span1">Otros</span>
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_4" for="prm_4" class="checkbox">
-                                        <input id="prm_4" type="checkbox" ng-model="fltr_otros" ng-change="getJson()">
+                                        <input id="prm_4" type="checkbox" ng-model="fltr_otros" ng-change="updateJson()">
                                         <span>Otros</span>
                                     </label>
                                 </div>
@@ -132,7 +136,7 @@
                                 <span class="toggle span1">Puertos</span>
                                 <div class="iphone-toggle-buttons">
                                 <label id="lbl_prm_5" for="prm_5" class="checkbox">
-                                    <input id="prm_5" type="checkbox" ng-model="fltr_puertos" ng-change="getJson()">
+                                    <input id="prm_5" type="checkbox" ng-model="fltr_puertos" ng-change="updateJson()">
                                     <span>Puertos</span>
                                 </label>
                                 </div>
@@ -141,7 +145,7 @@
                                 <span class="toggle span1">Retenciones</span>
                                 <div class="iphone-toggle-buttons">
                                 <label id="lbl_prm_6" for="prm_6" class="checkbox">
-                                    <input id="prm_6" type="checkbox" ng-model="fltr_retencion" ng-change="getJson()">
+                                    <input id="prm_6" type="checkbox" ng-model="fltr_retencion" ng-change="updateJson()">
                                     <span>Retenciones</span>
                                 </label>
                                 </div>
@@ -149,43 +153,50 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="divider-vertical"></li>
+
+                    <!-- Route planning form -->
                     <li class="dropdown" id="menu4">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu4">
                             <i class="icon-road icon-white"></i>
                             Route Planning
                             <b class="caret"></b>
                         </a>
+
                         <ul class="dropdown-menu">
-                            <!-- Route Planning Form -->
                             <li>
-                                <label for="mode" class="span1 checkbox">Modo</label>
-                                <select id="mode" class="span1" onchange="updateRoute()">
+                                <label for="route_mode" class="span1 checkbox">Modo</label>
+                                <select id="route_mode" class="span2" onchange="updateRoute()">
                                     <option value="driving">Conduciendo</option>
                                     <option value="walking">Andando</option>
                                     <option value="bicycling">Bicicleta</option>
                                 </select>
                             </li>
                             <li>
-                                <label id="lbl_map_highways" for="map_highways" class="checkbox span1">Autopistas</label>
-                                <input type="checkbox" id="map_highways"  onchange="updateRoute()" checked>
+                                <label id="lbl_route_highways" for="route_highways" class="checkbox span1">Autopistas</label>
+                                <input id="route_highways" type="checkbox" onchange="updateRoute()" checked>
                             </li>
                             <li>
-                                <label id="lbl_map_tolls" for="map_tolls" class="checkbox span1">Peajes</label>
-                                <input type="checkbox"  onchange="updateRoute()" id="map_tolls">
+                                <label id="lbl_route_tolls" for="route_tolls" class="checkbox span1">Peajes</label>
+                                <input id="route_tolls" type="checkbox" onchange="updateRoute()">
                             </li>
                             <li>
-                                <label id="lbl_map_optimize" for="map_optimize" class="checkbox span1">Optimizada</label>
-                                <input type="checkbox"  onchange="updateRoute()" id="map_optimize" checked>
+                                <label id="lbl_route_optimize" for="route_optimize" class="checkbox span1">Optimizada</label>
+                                <input id="route_optimize" type="checkbox" onchange="updateRoute()" checked>
                             </li>
                             <li>
-                                <input type="button" value="Limpiar" class="btn btn-warning" onclick="resetRoute()">
-                                <input type="button" value="Undo" class="btn btn-info" onclick="undo()">
-                                <input type="button" value="Vamonos !!" class="btn btn-success" onclick="calcRoute()">
+                                <input type="button" value="Crear" class="btn btn-primary" onclick="createRoute()">
+                                <input type="button" value="Calcular" class="btn btn-success" onclick="calcRoute()">
+                                <input type="button" value="Deshacer" class="btn btn-warning" onclick="undoRoute()">
+                                <input type="button" value="Limpiar" class="btn btn-danger" onclick="resetRoute()">
                             </li>
                         </ul>
                     </li>
+
                     <li class="divider-vertical"></li>
+
+                    <!-- Status notice badge -->
                     <li>
                         <span class="navbar-text label label-info">Status : {{status}}</span>
                     </li>
