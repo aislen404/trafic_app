@@ -1,8 +1,8 @@
 var map;
-var mapID ='map_canvas';
-var myLat ;
-var myLong;
-var zoom = 6;
+var theMap =document.getElementById('map_canvas');
+var theLat = 40.418889;     // Madrid City Center Latitude
+var theLong = -3.691944;    // Madrid City Center Longitude
+var theZoom = 6;
 var I = [];
 
 var transitLayer ;
@@ -19,12 +19,12 @@ var weatherLayers = false;
 var directionLayers = false;
 
 var poisDGT =[];
-var route_mode = document.getElementById("route_mode").value;
+var route_mode = document.getElementById('route_mode').value;
 var route_optimize = document.getElementById('route_optimize').checked;
 var route_highways = document.getElementById('route_highways').checked;
 var route_tolls = document.getElementById('route_tolls').checked;
 
-var directionDisplay = document.getElementById("directionsPanel");
+var directionDisplay = document.getElementById('directionsPanel');
 var origin;
 var destination;
 var waypoints = [];
@@ -33,11 +33,11 @@ var currentDirections;
 var oldDirections=[];
 
 /* Google Map object creator*/
-mapServiceProvider = function(lat,lng,z) {
+mapServiceProvider = function() {
 
     var myOptions = {
-        zoom: z,
-        center: new google.maps.LatLng(lat,lng),
+        zoom: theZoom,
+        center: new google.maps.LatLng(theLat,theLong),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: true,
         mapTypeControlOptions: {
@@ -63,7 +63,7 @@ mapServiceProvider = function(lat,lng,z) {
         }
     }
 
-    map = new google.maps.Map(document.getElementById(mapID),myOptions);
+    map = new google.maps.Map(theMap,myOptions);
 
     // we need recover the object in the trafficFilterCtrl to bind this side with the controller
     return map;
@@ -74,11 +74,11 @@ mapServiceProvider = function(lat,lng,z) {
 getMyPosition = function (){
     navigator.geolocation.getCurrentPosition(
         function (position) {
-            myLat = position.coords.latitude;
-            myLong = position.coords.longitude;
-            zoom = 12;
+            theLat = position.coords.latitude;
+            theLong = position.coords.longitude;
+            theZoom = 12;
 
-            mapServiceProvider(myLat,myLong,zoom);
+            mapServiceProvider();
             addI();
 
             return true;
@@ -105,11 +105,11 @@ getMyPosition = function (){
 }
 addI = function (){
     I.push(new google.maps.Marker({
-        position: new google.maps.LatLng(myLat,myLong),
+        position: new google.maps.LatLng(theLat,theLong),
         draggable: false,
         map: map,
         animation: google.maps.Animation.DROP,
-        icon: incidentIcoResolutor('Me'),
+        icon: icoResolutor('Me'),
         title: 'Here Right Now!'
     }));
 }
@@ -129,42 +129,6 @@ clearPoisDGT = function () {
     for (var i = 0; i < poisDGT.length; i++) {
         poisDGT[i].setMap(null);
     }
-}
-
-incidentIcoResolutor = function(typeInc) {
-    var ico;
-
-    switch (typeInc){
-        case ('Me'):
-            ico = 'img/me.png';
-            break;
-        case ('Camara'):
-            ico = 'img/Camara.png';
-            break;
-        case ('SensorMeteorologico'):
-            ico ='img/sensorMetorologico.png';
-            break;
-        case ('SensorTrafico'):
-            ico='img/sensorTrafico.png';
-            break;
-        case('OBRAS'):
-            ico = 'img/Obras.png';
-            break;
-        case ('OTROS'):
-            ico = 'img/Otros.png';
-            break;
-        case ('METEOROL�GICO'):
-            ico = 'img/Meteorologico.png';
-            break;
-        case ('RETENCI�N / CONGESTI�N'):
-            ico = 'img/Retencion.png';
-            break;
-        case ('Panel_CMS'):
-            ico = 'img/panel.png';
-            break;
-    }
-
-    return ico;
 }
 
 /* For public transportation layer */
@@ -350,7 +314,7 @@ addMarker = function(latlng) {
         draggable: true,
         map: map,
         animation: google.maps.Animation.DROP,
-        icon: 'http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png'
+        icon: icoResolutor('Marker')
     }));
 }
 clearMarkers = function() {
@@ -364,6 +328,48 @@ clearWaypoints = function() {
     origin = null;
     destination = null;
     waypoints = [];
+}
+
+/* to select the type of ico for the marker */
+//TODO: esta funcion con segundo parametro opcional no me termina de convencer
+icoResolutor = function(typeInc, typeInc2) {
+    var icoType = (typeInc=='Incidencia')? typeInc2:typeInc;
+    var ico;
+
+    switch (icoType){
+        case ('Me'):
+            ico = 'img/me.png';
+            break;
+        case ('Marker'):
+            ico ='http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png';
+            break;
+        case ('Camara'):
+            ico = 'img/Camara.png';
+            break;
+        case ('SensorMeteorologico'):
+            ico ='img/sensorMetorologico.png';
+            break;
+        case ('SensorTrafico'):
+            ico='img/sensorTrafico.png';
+            break;
+        case('OBRAS'):
+            ico = 'img/Obras.png';
+            break;
+        case ('OTROS'):
+            ico = 'img/Otros.png';
+            break;
+        case ('METEOROL�GICO'):
+            ico = 'img/Meteorologico.png';
+            break;
+        case ('RETENCI�N / CONGESTI�N'):
+            ico = 'img/Retencion.png';
+            break;
+        case ('Panel_CMS'):
+            ico = 'img/panel.png';
+            break;
+    }
+
+    return ico;
 }
 
 
