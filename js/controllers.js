@@ -61,8 +61,6 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
             success(function(data, status) {
                 $scope.status = status;
                 $scope.datos = data;
-
-                //TODO: quitar esto de aqui , es cohesionar totalmente el codigo !!!!
                 $scope.generateMarks();
             }).
             error(function(data, status) {
@@ -72,6 +70,7 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
     }
 
     $scope.updateJson = function (){
+        alert('zoom'+$scope.fltr_zoom);
         $scope.url ='dataModels/dgtProxy.php?'+
             'Camaras=' + $scope.fltr_camaras +
             '&IncidenciasEVENTOS=' + $scope.fltr_eventos +
@@ -92,13 +91,13 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
             '&zoom=' + getMapZoom($scope.mapObj);
 
         alert($scope.url);
-
         //$scope.getJson();
     }
 
     $scope.createMap = function() {
         $scope.mapObj = mapServiceProvider();
         if (navigator.geolocation){
+            //TODO: quitar esto de aqui , es cohesionar totalmente el codigo !!!!
             getMyPosition();
         }
         //TODO: quitar esto de aqui , es cohesionar totalmente el codigo !!!!
@@ -111,8 +110,6 @@ function trafficFilterCtrl ($scope, $http, $templateCache) {
         var lng;
         var ico;
         var title;
-
-        //clearPoisDGT();
 
         while(i<=$scope.datos.length-1){
 

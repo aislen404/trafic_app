@@ -1,4 +1,4 @@
-var map;
+var objMap;
 var theMap =document.getElementById('map_canvas');
 var theLat = 40.418889;     // Madrid City Center Latitude
 var theLong = -3.691944;    // Madrid City Center Longitude
@@ -63,10 +63,20 @@ mapServiceProvider = function() {
         }
     }
 
-    map = new google.maps.Map(theMap,myOptions);
+    objMap = new google.maps.Map(theMap,myOptions);
 
     // we need recover the object in the trafficFilterCtrl to bind this side with the controller
-    return map;
+
+    /*
+    objMap.onZoomChange = function (){
+        theZoom = getMapZoom(objMap);
+        alert('theZoom'+theZoom);
+        //rootScope.fltr_zoom= theZoom;
+        //rootScope.$apply();
+        updateJson();
+    }*/
+
+    return objMap;
 
 }
 
@@ -76,11 +86,8 @@ getMyPosition = function (){
         function (position) {
             theLat = position.coords.latitude;
             theLong = position.coords.longitude;
-            theZoom = 12;
 
-            mapServiceProvider();
             addI();
-
             return true;
         },
         function (error)
@@ -104,14 +111,18 @@ getMyPosition = function (){
     );
 }
 addI = function (){
+    var pos = new google.maps.LatLng(theLat,theLong);
     I.push(new google.maps.Marker({
-        position: new google.maps.LatLng(theLat,theLong),
+        position: pos,
         draggable: false,
-        map: map,
+        map: objMap,
         animation: google.maps.Animation.DROP,
         icon: icoResolutor('Me'),
         title: 'Here Right Now!'
     }));
+    theZoom = 12;
+    objMap.panTo(pos);
+    objMap.setZoom(theZoom);
 }
 
 /* For POIS retrived of DGT services */
@@ -119,7 +130,7 @@ addPoisDGT = function (lat,lng,icon,title) {
     poisDGT.push(new google.maps.Marker({
         position: new google.maps.LatLng(lat,lng),
         draggable: false,
-        map: map,
+        map: objMap,
         animation: google.maps.Animation.DROP,
         icon: icon,
         title: title
@@ -144,7 +155,7 @@ transitLayerToogle = function (){
 
 addTransitLayer = function(){
     transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
+    transitLayer.setMap(objMap);
 }
 
 clearTransitLayer = function(){ transitLayer.setMap(null);}
@@ -161,7 +172,7 @@ trafficLayerToogle = function (){
 }
 addTrafficLayer = function(){
     trafficLayer = new google.maps.TrafficLayer();
-    trafficLayer.setMap(map);
+    trafficLayer.setMap(objMap);
 }
 clearTrafficLayer =function(){ trafficLayer.setMap(null); }
 
@@ -181,10 +192,10 @@ addWeatherLayer = function (){
         temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
         windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
      });
-     weatherLayer.setMap(map);
+     weatherLayer.setMap(objMap);
 
      cloudLayer = new google.maps.weather.CloudLayer();
-     cloudLayer.setMap(map);
+     cloudLayer.setMap(objMap);
 }
 clearWeatherLayer = function (){
     weatherLayer.setMap(null);
@@ -194,11 +205,11 @@ clearWeatherLayer = function (){
 /* For Route Planning layer */
 addDirectionsLayer = function (){
     directionsLayer = new google.maps.DirectionsRenderer({
-        map: map,
+        map: objMap,
         preserveViewport: true,
         draggable: true
     });
-    directionsLayer.setMap(map);
+    directionsLayer.setMap(objMap);
     directionsLayer.setPanel(directionDisplay);
 
     directionsService = new google.maps.DirectionsService();
@@ -222,8 +233,8 @@ addDirectionsLayer = function (){
     });
 }
 clearDirectionsLayer = function(){
-    directionsLayer = new google.maps.DirectionsRenderer();
-    directionsLayer.setMap(map);
+    //directionsLayer = new google.maps.DirectionsRenderer();
+    directionsLayer.setMap(objMap);
     directionDisplay.innerHTML='';
 }
 
@@ -295,8 +306,8 @@ resetRoute = function() {
     clearWaypoints();
     directionsLayer.setMap(null);
     directionsLayer.setPanel(null);
-    directionsLayer = new google.maps.DirectionsRenderer();
-    directionsLayer.setMap(map);
+    //directionsLayer = new google.maps.DirectionsRenderer();
+    directionsLayer.setMap(objMap);
     directionsLayer.setPanel(directionDisplay);
 }
 /* undo last movement of a mark in the Route planning */
@@ -375,8 +386,8 @@ icoResolutor = function(typeInc, typeInc2) {
 
 
 /* generic in geo - May be will be used in the DGT services to get the parameters needed in the query*/
-getMapLatNS =  function(objMap){ return objMap.getBounds().getNorthEast().lat(); }
-getMapLongNS =  function(objMap){ return objMap.getBounds().getNorthEast().lng(); }
-getMapLatSW =  function(objMap){ return objMap.getBounds().getSouthWest().lat(); }
-getMapLongSW =  function(objMap){ return objMap.getBounds().getSouthWest().lng(); }
-getMapZoom =  function(objMap){ return objMap.getZoom(); }
+getMapLatNS =  function(x){ return x.getBounds().getNorthEast().lat(); }
+getMapLongNS =  function(x){ return x.getBounds().getNorthEast().lng(); }
+getMapLatSW =  function(x){ return x.getBounds().getSouthWest().lat(); }
+getMapLongSW =  function(x){ return x.getBounds().getSouthWest().lng(); }
+getMapZoom =  function(x){ return x.getZoom(); }
