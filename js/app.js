@@ -1,7 +1,21 @@
-'use strict';
-
 /* App Module */
-angular.module('trafic_app', ['traficFilters']).
-    config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/'});
-}]);
+(function () {
+
+    'use strict';
+
+    var app ;
+
+    app = angular.module ('trafic_app', ['trafic_app.filters','trafic_app.mapRoutingDirections','trafic_app.directives','trafic_app.controllers']);
+
+    app.config ( function ($routeProvider) {
+        return $routeProvider.otherwise({redirectTo: '/'});
+    });
+
+    app.run (function ($rootScope){
+
+        return true;
+
+    });
+
+}).call(this);
+
