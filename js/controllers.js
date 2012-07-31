@@ -1,48 +1,38 @@
 /* Controllers */
 (function () {
-
     'use strict';
 
     var module;
 
     module = angular.module ('trafic_app.controllers',[]);
 
-
-    module.controller('traficCtrl', function ($scope, mapServiceProvider,queryDgt,addPoisDGT) {
-
+    module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceProvider,addPoisDGT) {
 
         $scope.mapObj;
-
-        /* contexto general de los datos de las peticiones de los servicios de la DGT */
         $scope.datos;
-
 
         $scope.BeganToBegin = function (){
             $scope.createMap();
+            $scope.getDatos();
+            $scope.setDgtMarks();
 
-            //TODO: estas sentencias de JQuery FUERA DE AQUI
-            //$('.accordion').collapse();
             $('.dropdown-toggle').dropdown();
-        }
-
-        $scope.getDatos = function(){
-            $scope.datos = queryDgt.get();
-        }
-
-        $scope.updateJson = function (){
-
         }
 
         $scope.createMap = function() {
             $scope.mapObj = mapServiceProvider;
-            $scope.getDatos();
+            console.log ('reponse de mapServiceProvider: ',$scope.mapObj);
         }
 
-        $scope.generateMarks = function() {
-
-                //addPoisDGT;
-
+        $scope.getDatos = function(){
+            $scope.datos = dgtServiceProvider.query();
+            console.log ('response de dgtServiceProvider.query(): ',$scope.datos);
         }
+
+        $scope.setDgtMarks = function(){
+            console.log ('response de setDgtMarks: ',addPoisDGT);
+        }
+
     });
 
 }).call(this);

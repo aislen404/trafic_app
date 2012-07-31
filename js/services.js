@@ -1,10 +1,9 @@
 /*Services for map */
-
     'use strict';
 
     var module;
 
-    module = angular.module('trafic_app.services',[]);
+    module = angular.module('trafic_app.services',['ngResource']);
 
     module.factory('mapServiceProvider', function (){
         var myOptions = {
@@ -17,51 +16,34 @@
         return mapa;
     });
 
+    module.factory('dgtServiceProvider', function ($resource){
 
-    module.factory('queryDgt',['$http', function ($http){
-
-        /* $scope.url ='dataModels/dgtProxy.php?'+'Camaras=' + $scope.fltr_camaras +'&IncidenciasEVENTOS=' + $scope.fltr_eventos +
+        /* var URL ='dataModels/dgtProxy.php?'+'Camaras=' + $scope.fltr_camaras +'&IncidenciasEVENTOS=' + $scope.fltr_eventos +
          '&IncidenciasMETEOROLOGICA=' + $scope.fltr_meteorologia +'&IncidenciasOBRAS=' + $scope.fltr_obras +'&IncidenciasOTROS=' + $scope.fltr_otros +
          '&IncidenciasPUERTOS=' + $scope.fltr_puertos +'&IncidenciasRETENCION=' + $scope.fltr_retencion +'&Paneles=' + $scope.fltr_paneles +
          '&SensoresMeteorologico=' + $scope.fltr_est_meteorologica +'&SensoresTrafico=' + $scope.fltr_trafico +'&accion=' + "getElementos" +
          '&latNS=' + $scope.fltr_latNS + '&latSW=' + $scope.fltr_latSW + '&longNS=' + $scope.fltr_longNS +'&longSW=' + $scope.fltr_longSW +
-         '&niveles=' + $scope.fltr_niveles +'&zoom=' + $scope.fltr_zoom;
-         */
+         '&niveles=' + $scope.fltr_niveles +'&zoom=' + $scope.fltr_zoom;*/
 
-        var queryDgt = {
-            get: function (){
-                var URL = 'dataModels/BuscarElementosServlet_0.json';
+        var URL = 'dataModels/BuscarElementosServlet_0.json';
 
-                return $http({method: 'GET', url: URL}).
-                    success(function(data, status) {
-                        alert (status);
-                        alert (data);
-                        console.log('Entries loaded from server:', data);
-                    }).
-                    error(function(data, status) {
-                        alert ( data || "Request failed");
-                        alert ( status);
-                        console.log('FAILED: NOT DATA loaded from server:', status);
-                    });
-            }
-        };
+        return $resource(URL, {}, {
+            query: {method:'GET', params:{}, isArray:true}
+        });
 
-        return queryDgt;
+    });
 
-    }]);
-
-
-    /* For POIS retrived of DGT services */
-    module.factory('addPoisDGT', function ($rootScope) {
+    // For POIS retrived of DGT services
+    module.factory('addPoisDGT', function () {
          var i=0;
          var lat;
          var lng;
          var ico;
          var title;
 
-/*         while(i<=$rootScope.datos.length-1){
+        /*while(i<=$rootScope.length-1){
 
-             lat=$rootScope.datos[i].lat;
+             lat=$rootScope[i].lat;
              lng=$rootScope.datos[i].lng;
              ico = icoResolutor($rootScope.datos[i].tipo,$rootScope.datos[i].tipoInci);
              title = $rootScope.datos[i].tipo+" : "+ $rootScope.datos[i].alias;
@@ -75,9 +57,12 @@
                  title: title
              }));
 
+             alert (lat);
+
              i++;
          }*/
-    });
+        return true;
+    }]);
 
 
 
