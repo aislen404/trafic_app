@@ -61,7 +61,7 @@ mapObject = (function() {
             return this.positionTrackingOff();
         }
     };
-    mapObject.positionTrackingOn = function() {
+    mapObject.prototype.positionTrackingOn = function() {
         var geoLoc, options, watchID;
         if (!this.nav) {
             this.nav = window.navigator;
@@ -82,14 +82,14 @@ mapObject = (function() {
             return this.positionTracking.state = true;
         }
     };
-    mapObject.positionTrackRefresh = function() {
+    mapObject.prototype.positionTrackRefresh = function() {
         var pos;
         pos = window.pos;
         if (pos) {
             return this.mapInstance.panTo(new google.maps.LatLng(pos.lat(), pos.lng()));
         }
     };
-    mapObject.positionTrackingOff = function(watchID) {
+    mapObject.prototype.positionTrackingOff = function(watchID) {
         window.navigator.geolocation.clearWatch(watchID);
         try {
             window.userPositionMarker.setMap(null);
