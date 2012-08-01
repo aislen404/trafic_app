@@ -13,7 +13,6 @@
 
     app.run (function ($rootScope){
 
-
         return true;
 
     });

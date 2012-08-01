@@ -42,6 +42,17 @@ var oldDirections=[];
 
 /* Google Map object creator*/
 
+poisDGT.push(new google.maps.Marker({
+    position: new google.maps.LatLng(lat,lng),
+    draggable: false,
+    map: objMap,
+    animation: google.maps.Animation.DROP,
+    icon: icon,
+    title: title
+}));
+
+
+
 function clearPoisDGT () {
     for (var i = 0; i < poisDGT.length; i++) {
         poisDGT[i].setMap(null);
@@ -188,15 +199,3 @@ function clearWaypoints () {
     waypoints = [];
 }
 
-/* to select the type of ico for the marker */
-//TODO: esta funcion con segundo parametro opcional no me termina de convencer
-
-
-
-
-/* generic in geo - May be will be used in the DGT services to get the parameters needed in the query*/
-function getMapLatNS (x){ return x.getBounds().getNorthEast().lat(); }
-function getMapLongNS (x){ return x.getBounds().getNorthEast().lng(); }
-function getMapLatSW (x){ return x.getBounds().getSouthWest().lat(); }
-function getMapLongSW (x){ return x.getBounds().getSouthWest().lng(); }
-function getMapZoom (x){ return x.getZoom(); }

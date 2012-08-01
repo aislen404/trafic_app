@@ -18,6 +18,7 @@
 
     module.factory('dgtServiceProvider', function ($resource){
 
+        var respuesta;
         /* var URL ='dataModels/dgtProxy.php?'+'Camaras=' + $scope.fltr_camaras +'&IncidenciasEVENTOS=' + $scope.fltr_eventos +
          '&IncidenciasMETEOROLOGICA=' + $scope.fltr_meteorologia +'&IncidenciasOBRAS=' + $scope.fltr_obras +'&IncidenciasOTROS=' + $scope.fltr_otros +
          '&IncidenciasPUERTOS=' + $scope.fltr_puertos +'&IncidenciasRETENCION=' + $scope.fltr_retencion +'&Paneles=' + $scope.fltr_paneles +
@@ -27,41 +28,26 @@
 
         var URL = 'dataModels/BuscarElementosServlet_0.json';
 
-        return $resource(URL, {}, {
+        respuesta = $resource(URL, {}, {
             query: {method:'GET', params:{}, isArray:true}
         });
 
+        console.log('response de module.factory("dgtServiceProvider") -->', respuesta);
+
+        return respuesta;
     });
 
     // For POIS retrived of DGT services
-    module.factory('addPoisDGT', function () {
-         var i=0;
-         var lat;
-         var lng;
-         var ico;
-         var title;
+    module.factory('markServiceProvider', function () {
+       /* var myOptions = {
+        }
 
-        /*while(i<=$rootScope.length-1){
+        var mark = new markObject (myOptions);
 
-             lat=$rootScope[i].lat;
-             lng=$rootScope.datos[i].lng;
-             ico = icoResolutor($rootScope.datos[i].tipo,$rootScope.datos[i].tipoInci);
-             title = $rootScope.datos[i].tipo+" : "+ $rootScope.datos[i].alias;
 
-             poisDGT.push(new google.maps.Marker({
-                 position: new google.maps.LatLng(lat,lng),
-                 draggable: false,
-                 map: objMap,
-                 animation: google.maps.Animation.DROP,
-                 icon: icon,
-                 title: title
-             }));
 
-             alert (lat);
-
-             i++;
-         }*/
-        return true;
+        return mark;*/
+        return true
     });
 
 
