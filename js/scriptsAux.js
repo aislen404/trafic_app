@@ -61,7 +61,7 @@ mapObject = (function() {
             return this.positionTrackingOff();
         }
     };
-    mapObject.prototype.positionTrackingOn = function() {
+    mapObject.positionTrackingOn = function() {
         var geoLoc, options, watchID;
         if (!this.nav) {
             this.nav = window.navigator;
@@ -82,14 +82,14 @@ mapObject = (function() {
             return this.positionTracking.state = true;
         }
     };
-    mapObject.prototype.positionTrackRefresh = function() {
+    mapObject.positionTrackRefresh = function() {
         var pos;
         pos = window.pos;
         if (pos) {
-            return this.mapInstance.setCenter(new google.maps.LatLng(pos.lat(), pos.lng()));
+            return this.mapInstance.panTo(new google.maps.LatLng(pos.lat(), pos.lng()));
         }
     };
-    mapObject.prototype.positionTrackingOff = function(watchID) {
+    mapObject.positionTrackingOff = function(watchID) {
         window.navigator.geolocation.clearWatch(watchID);
         try {
             window.userPositionMarker.setMap(null);
@@ -158,6 +158,14 @@ mapObject = (function() {
         this.weatherLayerInstance.setMap(null);
         this.cloudLayerInstance.cloudLayer.setMap(null);
     }
+
+    /* generic in geo - May be will be used in the DGT services to get the parameters needed in the query*/
+    mapObject.prototype.getLatNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lat(); }
+    mapObject.prototype.getLongNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lng(); }
+    mapObject.prototype.getLatSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lat(); }
+    mapObject.prototype.getLongSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lng(); }
+    mapObject.prototype.getZoom = function (){ return  this.mapInstance.getZoom(); }
+
 
     //Callback controls for Geolocation
     geoSuccessCallback = function(position) {

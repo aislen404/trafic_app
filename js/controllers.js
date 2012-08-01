@@ -33,6 +33,16 @@
             console.log ('response de setDgtMarks: ',addPoisDGT);
         }
 
+        $scope.meteoToggle = function (){
+            mapServiceProvider.weatherToogle();
+            console.log('response de mapServiceProvider.weatherToogle(): ');
+        }
+
+        $scope.trafficToogle = function (){
+            mapServiceProvider.trafficToogle();
+            console.log('response de mapServiceProvider.trafficToogle(): ');
+        }
+
     });
 
 }).call(this);

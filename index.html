@@ -64,7 +64,7 @@
                                 <!--<span class="toggle span1">Meteo</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_8">
-                                        <input id="prm_8" name="prm_8" type="checkbox" onclick="javascript:weatherLayerToogle();">
+                                        <input id="prm_8" name="prm_8" type="checkbox" ng-click="meteoToggle()">
                                         <span>Meteo</span>
                                     </label>
                                 </div>
@@ -74,7 +74,7 @@
                                 <!--<span class="toggle span1">Trafico</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label class="check" for="prm_9">
-                                        <input id="prm_9" name="prm_9" type="checkbox" onclick="javascript:trafficLayerToogle();">
+                                        <input id="prm_9" name="prm_9" type="checkbox" ng-click="trafficToogle()">
                                         <span>Trafico</span>
                                     </label>
                                 </div>
@@ -239,7 +239,7 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=weather"></script>
 <script src="lib/angular/angular.min.js"></script>
 <script src="lib/angular/angular-resource.min.js"></script>
 <script src="lib/jquery/jquery-1.7.2.min.js"></script>

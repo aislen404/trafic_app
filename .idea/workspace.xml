@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services.js" afterPath="$PROJECT_DIR$/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scriptsAux.js" afterPath="$PROJECT_DIR$/js/scriptsAux.js" />
     </list>
     <ignored path="trafic_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,20 +36,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="40" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
+            <state line="42" column="76" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.7178683">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="5" selection-start="2210" selection-end="2210" vertical-scroll-proportion="0.94186044">
-              <folding />
+            <state line="5" column="63" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#1432#2210#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,35 +59,40 @@
       <file leaf-file-name="scriptsAux.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/scriptsAux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="0" selection-start="5164" selection-end="5164" vertical-scroll-proportion="0.0">
+            <state line="109" column="23" selection-start="3891" selection-end="3910" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#643#1666#0" expanded="false" />
                 <element signature="e#2092#2337#0" expanded="false" />
-                <element signature="e#2395#3100#0" expanded="false" />
-                <element signature="e#3160#3332#0" expanded="false" />
-                <element signature="e#3398#3609#0" expanded="false" />
-                <element signature="e#3685#3920#0" expanded="false" />
-                <element signature="e#3973#4116#0" expanded="false" />
-                <element signature="e#4170#4232#0" expanded="false" />
-                <element signature="e#4305#4540#0" expanded="false" />
-                <element signature="e#4593#4736#0" expanded="false" />
-                <element signature="e#4790#4853#0" expanded="false" />
-                <element signature="e#4927#5163#0" expanded="false" />
-                <element signature="e#5216#5657#0" expanded="false" />
-                <element signature="e#5909#6499#0" expanded="false" />
-                <element signature="e#6540#7139#0" expanded="false" />
-                <element signature="e#7217#8417#0" expanded="false" />
-                <element signature="e#8483#9349#0" expanded="false" />
+                <element signature="e#2385#3090#0" expanded="false" />
+                <element signature="e#3140#3308#0" expanded="false" />
+                <element signature="e#3364#3575#0" expanded="false" />
+                <element signature="e#3651#3886#0" expanded="false" />
+                <element signature="e#3939#4082#0" expanded="false" />
+                <element signature="e#4136#4198#0" expanded="false" />
+                <element signature="e#4271#4506#0" expanded="false" />
+                <element signature="e#4559#4702#0" expanded="false" />
+                <element signature="e#4756#4819#0" expanded="false" />
+                <element signature="e#4893#5129#0" expanded="false" />
+                <element signature="e#5182#5623#0" expanded="false" />
+                <element signature="e#5677#5789#0" expanded="false" />
+                <element signature="e#6508#7098#0" expanded="false" />
+                <element signature="e#7139#7738#0" expanded="false" />
+                <element signature="e#7816#9016#0" expanded="false" />
+                <element signature="e#9082#9948#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ddd.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/ddd.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="34" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="73" column="80" selection-start="3946" selection-end="3946" vertical-scroll-proportion="-5.0833335">
+              <folding>
+                <element signature="tag#li#2;tag#ul#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+                <element signature="tag#li#4;tag#ul#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+                <element signature="tag#li#6;tag#ul#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,10 +127,10 @@
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/../angular-google-maps/public/js/services.js" />
         <option value="$PROJECT_DIR$/js/ddd.js" />
-        <option value="$PROJECT_DIR$/js/scriptsAux.js" />
+        <option value="$PROJECT_DIR$/js/services.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
-        <option value="$PROJECT_DIR$/js/services.js" />
+        <option value="$PROJECT_DIR$/js/scriptsAux.js" />
       </list>
     </option>
   </component>
@@ -154,30 +164,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Tests" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trafic_app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -240,6 +226,30 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Tests" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trafic_app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,16 +267,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../angular-google-maps/public/js" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="149" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="943" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="941" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="943" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="147" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="144" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
+    <property name="FullScreen" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -287,8 +297,8 @@
   <component name="RunManager" selected="JavaScript Debug.services.js">
     <configuration default="false" name="services.js" type="JavascriptDebugSession" factoryName="Local" temporary="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" value="file://$PROJECT_DIR$/js/services.js" />
+        <option name="engineId" value="firefox" />
+        <option name="fileUrl" value="file://https://particulares.gruposantander.es/CHCLIC_ENS/Estatico/ALP_CHCLIC_PreChclicCorehab_E/Recursos/HabitosConsumo2.html" />
       </JSDebuggerConfigurationSettings>
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -362,13 +372,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2659176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16978776" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15666902" sideWeight="0.39700374" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15666902" sideWeight="0.5942572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16978776" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21524347" sideWeight="0.33333334" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21524347" sideWeight="0.48813984" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39950064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -494,58 +504,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="243" column="50" selection-start="12954" selection-end="12954" vertical-scroll-proportion="0.64">
-          <folding />
-        </state>
+        <state line="13" column="28" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ddd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="34" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/scriptsAux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="0" selection-start="5164" selection-end="5164" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#643#1666#0" expanded="false" />
-            <element signature="e#2092#2337#0" expanded="false" />
-            <element signature="e#2395#3100#0" expanded="false" />
-            <element signature="e#3160#3332#0" expanded="false" />
-            <element signature="e#3398#3609#0" expanded="false" />
-            <element signature="e#3685#3920#0" expanded="false" />
-            <element signature="e#3973#4116#0" expanded="false" />
-            <element signature="e#4170#4232#0" expanded="false" />
-            <element signature="e#4305#4540#0" expanded="false" />
-            <element signature="e#4593#4736#0" expanded="false" />
-            <element signature="e#4790#4853#0" expanded="false" />
-            <element signature="e#4927#5163#0" expanded="false" />
-            <element signature="e#5216#5657#0" expanded="false" />
-            <element signature="e#5909#6499#0" expanded="false" />
-            <element signature="e#6540#7139#0" expanded="false" />
-            <element signature="e#7217#8417#0" expanded="false" />
-            <element signature="e#8483#9349#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="40" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0">
+        <state line="154" column="26" selection-start="4048" selection-end="4051" vertical-scroll-proportion="0.3328877">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="5" selection-start="2210" selection-end="2210" vertical-scroll-proportion="0.94186044">
+        <state line="5" column="63" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1432#2210#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="80" selection-start="3946" selection-end="3946" vertical-scroll-proportion="-5.0833335">
+          <folding>
+            <element signature="tag#li#2;tag#ul#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#li#4;tag#ul#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#li#6;tag#ul#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scriptsAux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="23" selection-start="3891" selection-end="3910" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#643#1666#0" expanded="false" />
+            <element signature="e#2092#2337#0" expanded="false" />
+            <element signature="e#2385#3090#0" expanded="false" />
+            <element signature="e#3140#3308#0" expanded="false" />
+            <element signature="e#3364#3575#0" expanded="false" />
+            <element signature="e#3651#3886#0" expanded="false" />
+            <element signature="e#3939#4082#0" expanded="false" />
+            <element signature="e#4136#4198#0" expanded="false" />
+            <element signature="e#4271#4506#0" expanded="false" />
+            <element signature="e#4559#4702#0" expanded="false" />
+            <element signature="e#4756#4819#0" expanded="false" />
+            <element signature="e#4893#5129#0" expanded="false" />
+            <element signature="e#5182#5623#0" expanded="false" />
+            <element signature="e#5677#5789#0" expanded="false" />
+            <element signature="e#6508#7098#0" expanded="false" />
+            <element signature="e#7139#7738#0" expanded="false" />
+            <element signature="e#7816#9016#0" expanded="false" />
+            <element signature="e#9082#9948#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="76" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.7178683">
           <folding />
         </state>
       </provider>
