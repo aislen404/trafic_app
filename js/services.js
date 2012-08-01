@@ -1,54 +1,78 @@
 /*Services for map */
-    'use strict';
+'use strict';
 
-    var module;
+var module;
+var mapa;
 
-    module = angular.module('trafic_app.services',['ngResource']);
+module = angular.module('trafic_app.services',['ngResource']);
 
-    module.factory('mapServiceProvider', function (){
-        var myOptions = {
+module.factory('mapServiceProvider', function (){
+    var myOptions = {
+    }
+
+    mapa = new mapObject (myOptions);
+
+    mapa.positionTrack();
+
+    return mapa;
+});
+
+module.factory('dgtServiceProvider', function ($http){
+
+    var i=0;                //counter
+    var lat,lng,ico,title;  //data details  for marks
+    var datos;              //data of http load
+    var method ='GET';      //method for http load
+
+    //var URL = 'dataModels/BuscarElementosServlet_0.json'; //URL of the service
+
+    return {
+        call:function (fltr_camaras,fltr_eventos,fltr_meteorologia,fltr_obras,fltr_otros,fltr_puertos,fltr_retencion,fltr_paneles){
+
+            //TODO: PROBLEMAS CON EL GETBOUND DEL OBJMAP
+
+            var fltr_latNS;// = mapa.getLatNS();
+            var fltr_latSW;// = mapa.getLatSW();
+            var fltr_longNS;// = mapa.getLongNS();
+            var fltr_longSW;// = mapa.getLongSW();
+            var fltr_zoom;// = mapa.getZoom();
+
+            var URL ='dataModels/dgtProxy.php?'+ 'Camaras=' + fltr_camaras +'&IncidenciasEVENTOS=' + fltr_eventos +
+                '&IncidenciasMETEOROLOGICA=' + fltr_meteorologia +'&IncidenciasOBRAS=' + fltr_obras +'&IncidenciasOTROS=' + fltr_otros +
+                '&IncidenciasPUERTOS=' + fltr_puertos +'&IncidenciasRETENCION=' + fltr_retencion +'&Paneles=' + fltr_paneles +
+                '&SensoresMeteorologico=false&SensoresTrafico=false&accion=' + "getElementos" +
+                '&latNS=' + fltr_latNS + '&latSW=' + fltr_latSW + '&longNS=' + fltr_longNS +'&longSW=' + fltr_longSW +
+                '&niveles=true&zoom=' + fltr_zoom;
+
+            /*
+            $http({method: method, url: URL}).
+                success(function(data, status) {
+                    datos = data;
+                    while(i<=datos.length-1){
+                        lat=datos[i].lat;
+                        lng=datos[i].lng;
+                        ico = icoResolutor(datos[i].tipo,datos[i].tipoInci);
+                        title = datos[i].tipo+" : "+ datos[i].alias;
+
+                        // THE MOTHER OF THE LAMB
+                        console.log ('poisDGT.push',lat,lng,ico,title,objMap);
+
+                        i++;
+                    }
+                    return status;
+                }).
+                error(function(data, status) {
+                    return status;
+                });
+            */
+            // TODO:ANOTHER MOTHER OF THE LAMB
+            console.log('refreshCall:function',URL);
+
+            return true;
         }
+    };
+});
 
-        var mapa = new mapObject (myOptions);
-
-        mapa.positionTrack();
-
-        return mapa;
-    });
-
-    module.factory('dgtServiceProvider', function ($resource){
-
-        var respuesta;
-        /* var URL ='dataModels/dgtProxy.php?'+'Camaras=' + $scope.fltr_camaras +'&IncidenciasEVENTOS=' + $scope.fltr_eventos +
-         '&IncidenciasMETEOROLOGICA=' + $scope.fltr_meteorologia +'&IncidenciasOBRAS=' + $scope.fltr_obras +'&IncidenciasOTROS=' + $scope.fltr_otros +
-         '&IncidenciasPUERTOS=' + $scope.fltr_puertos +'&IncidenciasRETENCION=' + $scope.fltr_retencion +'&Paneles=' + $scope.fltr_paneles +
-         '&SensoresMeteorologico=' + $scope.fltr_est_meteorologica +'&SensoresTrafico=' + $scope.fltr_trafico +'&accion=' + "getElementos" +
-         '&latNS=' + $scope.fltr_latNS + '&latSW=' + $scope.fltr_latSW + '&longNS=' + $scope.fltr_longNS +'&longSW=' + $scope.fltr_longSW +
-         '&niveles=' + $scope.fltr_niveles +'&zoom=' + $scope.fltr_zoom;*/
-
-        var URL = 'dataModels/BuscarElementosServlet_0.json';
-
-        respuesta = $resource(URL, {}, {
-            query: {method:'GET', params:{}, isArray:true}
-        });
-
-        console.log('response de module.factory("dgtServiceProvider") -->', respuesta);
-
-        return respuesta;
-    });
-
-    // For POIS retrived of DGT services
-    module.factory('markServiceProvider', function () {
-       /* var myOptions = {
-        }
-
-        var mark = new markObject (myOptions);
-
-
-
-        return mark;*/
-        return true
-    });
 
 
 

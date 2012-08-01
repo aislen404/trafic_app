@@ -6,6 +6,18 @@
  * To change this template use File | Settings | File Templates.
  */
 
+/** MENDA XXXX DE URL *//
+
+/* var URL ='dataModels/dgtProxy.php?'+'Camaras=' + $scope.fltr_camaras +'&IncidenciasEVENTOS=' + $scope.fltr_eventos +
+ '&IncidenciasMETEOROLOGICA=' + $scope.fltr_meteorologia +'&IncidenciasOBRAS=' + $scope.fltr_obras +'&IncidenciasOTROS=' + $scope.fltr_otros +
+ '&IncidenciasPUERTOS=' + $scope.fltr_puertos +'&IncidenciasRETENCION=' + $scope.fltr_retencion +'&Paneles=' + $scope.fltr_paneles +
+ '&SensoresMeteorologico=' + $scope.fltr_est_meteorologica +'&SensoresTrafico=' + $scope.fltr_trafico +'&accion=' + "getElementos" +
+ '&latNS=' + $scope.fltr_latNS + '&latSW=' + $scope.fltr_latSW + '&longNS=' + $scope.fltr_longNS +'&longSW=' + $scope.fltr_longSW +
+ '&niveles=' + $scope.fltr_niveles +'&zoom=' + $scope.fltr_zoom;*/
+
+/*respuesta = $resource(URL, {}, {
+ query: {method:'GET', params:{}, isArray:true}
+ });*/
 
 /* The mega script */
 var objMap;

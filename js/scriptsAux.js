@@ -1,6 +1,6 @@
 mapObject = (function() {
     var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-    var geoSuccessCallback, geolocationError,icoResolutor, _this = this;
+    var geoSuccessCallback, geolocationError, _this = this;
 
     function mapObject(options) {
 
@@ -207,47 +207,6 @@ mapObject = (function() {
         return msg;
     };
 
-    //return the icon type
-    icoResolutor = function (typeInc, typeInc2) {
-        var icoType = (typeInc=='Incidencia')? typeInc2:typeInc;
-        var ico;
-
-        switch (icoType){
-            case ('Me'):
-                ico = 'img/me.png';
-                break;
-            case ('Marker'):
-                ico ='http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png';
-                break;
-            case ('Camara'):
-                ico = 'img/Camara.png';
-                break;
-            case ('SensorMeteorologico'):
-                ico ='img/sensorMetorologico.png';
-                break;
-            case ('SensorTrafico'):
-                ico='img/sensorTrafico.png';
-                break;
-            case('OBRAS'):
-                ico = 'img/Obras.png';
-                break;
-            case ('OTROS'):
-                ico = 'img/Otros.png';
-                break;
-            case ('METEOROL�GICO'):
-                ico = 'img/Meteorologico.png';
-                break;
-            case ('RETENCI�N / CONGESTI�N'):
-                ico = 'img/Retencion.png';
-                break;
-            case ('Panel_CMS'):
-                ico = 'img/panel.png';
-                break;
-        }
-
-        return ico;
-    }
-
     return mapObject;
 
 }).call(this);
@@ -265,3 +224,44 @@ InfoWindow = (function() {
 }).call(this);
 
 
+//AUXILIAR FUNCTION TO RESOLVE THE ICO FOR MARKS
+//return the icon type
+icoResolutor = function (typeInc, typeInc2) {
+    var icoType = (typeInc=='Incidencia')? typeInc2:typeInc;
+    var ico;
+
+    switch (icoType){
+        case ('Me'):
+            ico = 'img/me.png';
+            break;
+        case ('Marker'):
+            ico ='http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png';
+            break;
+        case ('Camara'):
+            ico = 'img/Camara.png';
+            break;
+        case ('SensorMeteorologico'):
+            ico ='img/sensorMetorologico.png';
+            break;
+        case ('SensorTrafico'):
+            ico='img/sensorTrafico.png';
+            break;
+        case('OBRAS'):
+            ico = 'img/Obras.png';
+            break;
+        case ('OTROS'):
+            ico = 'img/Otros.png';
+            break;
+        case ('METEOROL�GICO'):
+            ico = 'img/Meteorologico.png';
+            break;
+        case ('RETENCI�N / CONGESTI�N'):
+            ico = 'img/Retencion.png';
+            break;
+        case ('Panel_CMS'):
+            ico = 'img/panel.png';
+            break;
+    }
+
+    return ico;
+}
