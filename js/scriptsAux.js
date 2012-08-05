@@ -1,12 +1,11 @@
 mapObject = (function() {
-    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-    var geoSuccessCallback, geolocationError, _this = this;
+    var geoSuccessCallback, geolocationError;
 
     function mapObject(options) {
 
         var theLat = 40.418889;     // Madrid City Center Latitude
         var theLong = -3.691944;    // Madrid City Center Longitude
-        var theZoom = 6;            // First Zoom
+        var theZoom = 9;            // First Zoom
 
         this.theMap = document.getElementById('map_canvas');
 
@@ -14,6 +13,7 @@ mapObject = (function() {
         this.trafficLayer = false;
         this.transitLayer = false;
         this.weatherLayer = false;
+        this.mapInstance = null;
 
        var myOptions = {
            zoom: theZoom,
@@ -43,13 +43,7 @@ mapObject = (function() {
             }
         }
 
-        this.positionTrack = __bind(this.positionTrack, this);
-        this.trafficToogle = __bind(this.trafficToogle, this);
-        this.transitToogle = __bind(this.transitToogle, this);
-        this.weatherToogle = __bind(this.weatherToogle, this);
-
         this.mapInstance = new google.maps.Map(this.theMap,myOptions);
-
     }
 
     // Geolocation and Tracking position

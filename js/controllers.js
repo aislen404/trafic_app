@@ -35,9 +35,12 @@
 
         // Load DGT service response to the trafic controller model
         $scope.getDatos = function(){
-            dgtServiceProvider.call($scope.fltr_camaras,$scope.fltr_eventos,$scope.fltr_meteorologia,$scope.fltr_obras,$scope.fltr_otros,$scope.fltr_puertos,$scope.fltr_retencion,$scope.fltr_paneles);
+            dgtServiceProvider.firstCall($scope.mapObj,$scope.fltr_camaras,$scope.fltr_eventos,$scope.fltr_meteorologia,$scope.fltr_obras,$scope.fltr_otros,$scope.fltr_puertos,$scope.fltr_retencion,$scope.fltr_paneles);
         }
 
+        $scope.refreshDatos = function(){
+            dgtServiceProvider.refreshCall($scope.mapObj,$scope.fltr_camaras,$scope.fltr_eventos,$scope.fltr_meteorologia,$scope.fltr_obras,$scope.fltr_otros,$scope.fltr_puertos,$scope.fltr_retencion,$scope.fltr_paneles);
+        }
         // Control Checkbox for Weather Layer
         $scope.meteoToggle = function (){
             mapServiceProvider.weatherToogle();
