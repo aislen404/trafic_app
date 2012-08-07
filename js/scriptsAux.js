@@ -48,8 +48,8 @@ mapObject = (function() {
     }
 
     //For register the events triggered in the controller.
-    mapObject.prototype.registerEvent = function (ev,callB){
-        return google.maps.event.addListener(this.mapInstance, ev,callB);
+    mapObject.prototype.registerMapEvent = function (ev,callBack){
+        return google.maps.event.addListener(this.mapInstance, ev,callBack);
     }
 
     // Geolocation and Tracking position

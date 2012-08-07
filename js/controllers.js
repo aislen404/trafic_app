@@ -33,19 +33,16 @@
         $scope.createMap = function() {
             $scope.mapObj = mapServiceProvider;
 
-
             // Setting map event control for zoom changes
-            $scope.mapObj.registerEvent('zoom_changed',function(){
-
-                $scope.refreshDatos();
-                //console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
+            $scope.mapObj.registerMapEvent('zoom_changed',function(){
+                //$scope.refreshDatos();
+                console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
             });
 
             //Setting map event control for bounds changes
             $scope.mapObj.registerEvent('bounds_changed',function(){
-
-                $scope.refreshDatos();
-               // console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());
+                //$scope.refreshDatos();
+               console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());
             });
 
         }
