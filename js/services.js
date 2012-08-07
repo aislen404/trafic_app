@@ -23,6 +23,7 @@ module.factory('dgtServiceProvider', function ($http){
     var lat,lng,ico,title;  //data details  for marks
     var datos;              //data of http load
     var method ='GET';      //method for http load
+    var URL;
 
     var fltr_latNS = 40.69625781921317;// objMap.getLatNS();
     var fltr_latSW =  40.177824065238816;// objMap.getLatSW();
@@ -41,7 +42,7 @@ module.factory('dgtServiceProvider', function ($http){
 
             fltr_zoom = objMap.getZoom();
 
-            var URL ='dataModels/dgtProxy.php?'+ 'Camaras=' + fltr_camaras +'&IncidenciasEVENTOS=' + fltr_eventos +
+            URL ='dataModels/dgtProxy.php?'+ 'Camaras=' + fltr_camaras +'&IncidenciasEVENTOS=' + fltr_eventos +
                 '&IncidenciasMETEOROLOGICA=' + fltr_meteorologia +'&IncidenciasOBRAS=' + fltr_obras +'&IncidenciasOTROS=' + fltr_otros +
                 '&IncidenciasPUERTOS=' + fltr_puertos +'&IncidenciasRETENCION=' + fltr_retencion +'&Paneles=' + fltr_paneles +
                 '&SensoresMeteorologico=false&SensoresTrafico=false&accion=' + "getElementos" +
@@ -61,7 +62,7 @@ module.factory('dgtServiceProvider', function ($http){
             fltr_longSW = objMap.getLongSW();
             fltr_zoom = objMap.getZoom();
 
-            var URL ='dataModels/dgtProxy.php?'+ 'Camaras=' + fltr_camaras +'&IncidenciasEVENTOS=' + fltr_eventos +
+            URL ='dataModels/dgtProxy.php?'+ 'Camaras=' + fltr_camaras +'&IncidenciasEVENTOS=' + fltr_eventos +
                 '&IncidenciasMETEOROLOGICA=' + fltr_meteorologia +'&IncidenciasOBRAS=' + fltr_obras +'&IncidenciasOTROS=' + fltr_otros +
                 '&IncidenciasPUERTOS=' + fltr_puertos +'&IncidenciasRETENCION=' + fltr_retencion +'&Paneles=' + fltr_paneles +
                 '&SensoresMeteorologico=false&SensoresTrafico=false&accion=' + "getElementos" +

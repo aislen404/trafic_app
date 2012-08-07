@@ -17,6 +17,7 @@
         $scope.fltr_puertos = false;
         $scope.fltr_retencion = false;
         $scope.fltr_paneles = false;
+        $scope.zoom = null;
 
         $scope.mapObj = null;
 
@@ -31,6 +32,22 @@
         // Control the Creation of Map
         $scope.createMap = function() {
             $scope.mapObj = mapServiceProvider;
+
+
+            // Setting map event control for zoom changes
+            $scope.mapObj.registerEvent('zoom_changed',function(){
+
+                $scope.refreshDatos();
+                //console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
+            });
+
+            //Setting map event control for bounds changes
+            $scope.mapObj.registerEvent('bounds_changed',function(){
+
+                $scope.refreshDatos();
+               // console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());
+            });
+
         }
 
         // Load DGT service response to the trafic controller model
@@ -50,6 +67,7 @@
         $scope.trafficToogle = function (){
             mapServiceProvider.trafficToogle();
         }
+
 
     });
 

@@ -72,6 +72,7 @@ mapServiceProvider = function() {
 
     objMap = new google.maps.Map(theMap,myOptions);
 
+
     // we need recover the object in the trafficFilterCtrl to bind this side with the controller
 
     /*

@@ -5,7 +5,7 @@ mapObject = (function() {
 
         var theLat = 40.418889;     // Madrid City Center Latitude
         var theLong = -3.691944;    // Madrid City Center Longitude
-        var theZoom = 9;            // First Zoom
+        this.theZoom = 9;            // First Zoom
 
         this.theMap = document.getElementById('map_canvas');
 
@@ -16,7 +16,7 @@ mapObject = (function() {
         this.mapInstance = null;
 
        var myOptions = {
-           zoom: theZoom,
+           zoom: this.theZoom,
            center: new google.maps.LatLng(theLat, theLong),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: true,
@@ -44,6 +44,12 @@ mapObject = (function() {
         }
 
         this.mapInstance = new google.maps.Map(this.theMap,myOptions);
+
+    }
+
+    //For register the events triggered in the controller.
+    mapObject.prototype.registerEvent = function (ev,callB){
+        return google.maps.event.addListener(this.mapInstance, ev,callB);
     }
 
     // Geolocation and Tracking position
@@ -159,7 +165,6 @@ mapObject = (function() {
     mapObject.prototype.getLatSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lat(); }
     mapObject.prototype.getLongSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lng(); }
     mapObject.prototype.getZoom = function (){ return  this.mapInstance.getZoom(); }
-
 
     //Callback controls for Geolocation
     geoSuccessCallback = function(position) {
