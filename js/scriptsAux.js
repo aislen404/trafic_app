@@ -1,3 +1,39 @@
+markerObject = (function (){
+    function markerObject () {
+
+    }
+
+    markerObject.prototype.registerMapEvent = function (ev,callBack){
+        return google.maps.event.addListener(this.markerInstance, ev ,callBack);
+    }
+
+    markerObject.prototype.add = function(options){
+        var myOptions = {
+            position: new google.maps.LatLng(options.lat,options.lng),
+            draggable: options.draggable,
+            map: options.map,
+            animation: options.animation,
+            icon: icoResolutor(options.icon),
+            title: options.title
+        }
+        this.markerInstance = new google.maps.Marker(myOptions);
+        return this.markerInstance;
+    }
+
+    markerObject.prototype.clearMark = function (mark){
+        mark.setMap(null);
+    }
+
+    markerObject.prototype.clearMarkArray = function (markArray){
+        for (var i = 0; i < markArray.length; i++) {
+            markArray[i].setMap(null);
+        }
+    }
+
+    return markerObject;
+
+}).call(this);
+
 mapObject = (function() {
     var geoSuccessCallback, geolocationError;
 
