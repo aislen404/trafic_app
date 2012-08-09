@@ -9,8 +9,8 @@
     module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceProvider) {
 
         // initialization of model bindings
-        $scope.fltr_camaras = false;
-        $scope.fltr_eventos = false;
+        $scope.fltr_camaras = true;
+        $scope.fltr_eventos = true;
         $scope.fltr_meteorologia = false;
         $scope.fltr_obras = false;
         $scope.fltr_otros = false;
@@ -35,15 +35,14 @@
 
             // Setting map event control for zoom changes
             $scope.mapObj.registerMapEvent('zoom_changed',function(){
-                //$scope.refreshDatos();
+                $scope.refreshDatos();
                 console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
             });
 
             //Setting map event control for bounds changes
-            $scope.mapObj.registerEvent('bounds_changed',function(){
-                //$scope.refreshDatos();
-               console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());
-            });
+            $scope.mapObj.registerMapEvent('bounds_changed',function(){
+                $scope.refreshDatos();
+                console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());            });
 
         }
 

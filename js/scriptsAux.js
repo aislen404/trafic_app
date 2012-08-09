@@ -1,33 +1,26 @@
 markerObject = (function (){
-    function markerObject () {
+    function markerObject (options) {
 
+        var myOptions = {
+            position: new google.maps.LatLng(options.lat,options.lng),
+            draggable: options.draggable,
+            map: options.objMap.mapInstance,
+            icon: icoResolutor(options.icon_a,options.icon_b),
+            title: options.title
+        }
+
+        this.markerInstance = new google.maps.Marker(myOptions);
     }
 
+    //For register the events
     markerObject.prototype.registerMapEvent = function (ev,callBack){
         return google.maps.event.addListener(this.markerInstance, ev ,callBack);
     }
 
-    markerObject.prototype.add = function(options){
-        var myOptions = {
-            position: new google.maps.LatLng(options.lat,options.lng),
-            draggable: options.draggable,
-            map: options.map,
-            animation: options.animation,
-            icon: icoResolutor(options.icon),
-            title: options.title
-        }
-        this.markerInstance = new google.maps.Marker(myOptions);
-        return this.markerInstance;
-    }
-
-    markerObject.prototype.clearMark = function (mark){
-        mark.setMap(null);
-    }
-
-    markerObject.prototype.clearMarkArray = function (markArray){
-        for (var i = 0; i < markArray.length; i++) {
-            markArray[i].setMap(null);
-        }
+    //Delete this mark
+    markerObject.prototype.clearMark = function (){
+        console.log('markerObject.prototype.clearMark',this.markerInstance);
+        this.markerInstance.setMap(null);
     }
 
     return markerObject;
@@ -83,7 +76,7 @@ mapObject = (function() {
 
     }
 
-    //For register the events triggered in the controller.
+    //For register the events
     mapObject.prototype.registerMapEvent = function (ev,callBack){
         return google.maps.event.addListener(this.mapInstance, ev,callBack);
     }
@@ -237,8 +230,6 @@ mapObject = (function() {
             case error.UNKNOWN_ERROR:
                 msg += error.code;
         }
-
-        alert (msg);
         return msg;
     };
 
