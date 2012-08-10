@@ -183,11 +183,11 @@ mapObject = (function() {
     }
 
     /* generic in geo - May be will be used in the DGT services to get the parameters needed in the query*/
-    mapObject.prototype.getLatNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lat(); }
-    mapObject.prototype.getLongNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lng(); }
-    mapObject.prototype.getLatSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lat(); }
-    mapObject.prototype.getLongSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lng(); }
-    mapObject.prototype.getZoom = function (){ return  this.mapInstance.getZoom(); }
+    mapObject.prototype.getLatNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lat(); };
+    mapObject.prototype.getLongNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lng(); };
+    mapObject.prototype.getLatSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lat(); };
+    mapObject.prototype.getLongSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lng(); };
+    mapObject.prototype.getZoom = function (){ return  this.mapInstance.getZoom(); };
 
     //Callback controls for Geolocation
     geoSuccessCallback = function(position) {

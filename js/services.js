@@ -6,11 +6,13 @@ var httpRequester;
 var markerCreator;
 var clusterCreator;
 
+var objMarkerCluster; //TODO: Esto no me mola aqui pero ni un cacho, no puede ser un objeto de mapa global
+
 module = angular.module('trafic_app.services',['ngResource']);
 
 module.factory('mapServiceProvider', function (){
     var myOptions = {
-    }
+    };
     var mapa = new mapObject (myOptions);
 
     mapa.positionTrack();
@@ -33,7 +35,6 @@ module.factory('dgtServiceProvider', function ($http){
     };
 });
 
-// TODO:ANOTHER MOTHER OF THE LAMB
 httpRequester = function ($http,method, URL,objMap,filtros) {
     var dato,tipo,filter,i=0;
     var poisDGT = [];
@@ -59,7 +60,7 @@ httpRequester = function ($http,method, URL,objMap,filtros) {
         error(function(data, status) {
             return false;
         });
-}
+};
 
 markerCreator = function (dato,objMap){
     var myOptions = {
@@ -69,21 +70,29 @@ markerCreator = function (dato,objMap){
         objMap: objMap,
         icon: dato.tipo,
         title: dato.tipo+" : "+ dato.alias
-    }
+    };
     var markObject = new markerObject (myOptions);
     markObject.registerMapEvent ('click',function(){
         alert(myOptions.title);
-    })
+    });
     return markObject.markerInstance;
-}
+};
 
 clusterCreator = function (objMap,markers){
-    var myOptions = {
-        gridSize: 50,
-        maxZoom: 19
+
+    try{
+        objMarkerCluster.clearMarkers();
+    }catch(err){
+        console.log('Error en la inicializacion del cluster de markers',err.number);
     }
 
-    return new MarkerClusterer(objMap, markers, myOptions);
-}
+    var myOptions = {
+        gridSize: 50,
+        maxZoom: 12
+    };
+
+    objMarkerCluster = new MarkerClusterer(objMap, markers, myOptions);
+    return objMarkerCluster;
+};
 
 

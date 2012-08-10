@@ -1,67 +1,68 @@
 /* Controllers */
-(function () {
-    'use strict';
+'use strict';
 
-    var module;
+var module;
 
-    module = angular.module ('trafic_app.controllers',[]);
+module = angular.module ('trafic_app.controllers',[]);
 
-    module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceProvider) {
+module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceProvider) {
 
-        // initialization of model bindings
-        $scope.fltr_camaras = true;
-        $scope.fltr_paneles = true;
-        $scope.fltr_estMeteorologia = false;
-        $scope.fltr_sensorTrafico = false;
+    // initialization of model-view bindings
+    $scope.fltr_camaras = true;
+    $scope.fltr_paneles = true;
+    $scope.fltr_estMeteorologia = false;
+    $scope.fltr_sensorTrafico = false;
 
-        $scope.mapObj = null;
+    // map object
+    $scope.mapObj = null;
 
-        // Main function in ng-init
-        $scope.BeganToBegin = function (){
-            $scope.createMap();
-            $scope.getDatos();
+    // Main function in ng-init
+    $scope.BeganToBegin = function (){
+        $scope.createMap();
+        $scope.getDatos();
 
-            $('.dropdown-toggle').dropdown();
-        }
+        //no other line of JQuery !!
+        $('.dropdown-toggle').dropdown();
+    };
 
-        // Control the Creation of Map
-        $scope.createMap = function() {
-            $scope.mapObj = mapServiceProvider;
+    // Control the creation of map
+    $scope.createMap = function() {
+        $scope.mapObj = mapServiceProvider;
 
-            // Setting map event control for zoom changes
-            $scope.mapObj.registerMapEvent('zoom_changed',function(){
+        // Setting map event control for zoom changes
+        $scope.mapObj.registerMapEvent('zoom_changed',function(){
+            //console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
+        });
 
-                console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
-            });
+        //Setting map event control for bounds changes
+        $scope.mapObj.registerMapEvent('bounds_changed',function(){
+            //console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());
+        });
+    };
 
-            //Setting map event control for bounds changes
-            $scope.mapObj.registerMapEvent('bounds_changed',function(){
+    // Load DGT service response to the trafic controller model
+    $scope.getDatos = function(){
 
-                console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());            });
+        //Array for filter in model-view bindings
+        var filtros =[];
 
-        }
+        //Setting filter in the array
+        if($scope.fltr_camaras){filtros.push('Camara');}
+        if($scope.fltr_paneles){filtros.push('Panel_CMS');filtros.push('Panel_PSG');}
+        if($scope.fltr_estMeteorologia){filtros.push('SensorMeteorologico');}
+        if($scope.fltr_sensorTrafico){filtros.push('SensorTrafico');}
 
-        // Load DGT service response to the trafic controller model
-        $scope.getDatos = function(){
-            var filtros =[];
+        //Call data service provider
+        dgtServiceProvider.call($scope.mapObj,filtros);
+    };
 
-            if($scope.fltr_camaras){filtros.push('Camara');};
-            if($scope.fltr_paneles){filtros.push('Panel_CMS');filtros.push('Panel_PSG');};
-            if($scope.fltr_estMeteorologia){filtros.push('SensorMeteorologico');};
-            if($scope.fltr_sensorTrafico){filtros.push('SensorTrafico');};
+    // Control-view checkbox for weather layer
+    $scope.meteoToggle = function (){
+        mapServiceProvider.weatherToogle();
+    };
 
-            dgtServiceProvider.call($scope.mapObj,filtros);
-        }
-
-        // Control Checkbox for Weather Layer
-        $scope.meteoToggle = function (){
-            mapServiceProvider.weatherToogle();
-        }
-
-        // Control Checkbox for Traffic Density Layer
-        $scope.trafficToogle = function (){
-            mapServiceProvider.trafficToogle();
-        }
-    });
-
-}).call(this);
+    // Control-view checkbox for traffic density layer
+    $scope.trafficToogle = function (){
+        mapServiceProvider.trafficToogle();
+    };
+});
