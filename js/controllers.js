@@ -10,14 +10,9 @@
 
         // initialization of model bindings
         $scope.fltr_camaras = true;
-        $scope.fltr_eventos = true;
-        $scope.fltr_meteorologia = false;
-        $scope.fltr_obras = false;
-        $scope.fltr_otros = false;
-        $scope.fltr_puertos = false;
-        $scope.fltr_retencion = false;
-        $scope.fltr_paneles = false;
-        $scope.zoom = null;
+        $scope.fltr_paneles = true;
+        $scope.fltr_estMeteorologia = false;
+        $scope.fltr_sensorTrafico = false;
 
         $scope.mapObj = null;
 
@@ -35,25 +30,29 @@
 
             // Setting map event control for zoom changes
             $scope.mapObj.registerMapEvent('zoom_changed',function(){
-                $scope.refreshDatos();
+
                 console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
             });
 
             //Setting map event control for bounds changes
             $scope.mapObj.registerMapEvent('bounds_changed',function(){
-                $scope.refreshDatos();
+
                 console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());            });
 
         }
 
         // Load DGT service response to the trafic controller model
         $scope.getDatos = function(){
-            dgtServiceProvider.firstCall($scope.mapObj,$scope.fltr_camaras,$scope.fltr_eventos,$scope.fltr_meteorologia,$scope.fltr_obras,$scope.fltr_otros,$scope.fltr_puertos,$scope.fltr_retencion,$scope.fltr_paneles);
+            var filtros =[];
+
+            if($scope.fltr_camaras){filtros.push('Camara');};
+            if($scope.fltr_paneles){filtros.push('Panel_CMS');filtros.push('Panel_PSG');};
+            if($scope.fltr_estMeteorologia){filtros.push('SensorMeteorologico');};
+            if($scope.fltr_sensorTrafico){filtros.push('SensorTrafico');};
+
+            dgtServiceProvider.call($scope.mapObj,filtros);
         }
 
-        $scope.refreshDatos = function(){
-            dgtServiceProvider.refreshCall($scope.mapObj,$scope.fltr_camaras,$scope.fltr_eventos,$scope.fltr_meteorologia,$scope.fltr_obras,$scope.fltr_otros,$scope.fltr_puertos,$scope.fltr_retencion,$scope.fltr_paneles);
-        }
         // Control Checkbox for Weather Layer
         $scope.meteoToggle = function (){
             mapServiceProvider.weatherToogle();
@@ -63,8 +62,6 @@
         $scope.trafficToogle = function (){
             mapServiceProvider.trafficToogle();
         }
-
-
     });
 
 }).call(this);

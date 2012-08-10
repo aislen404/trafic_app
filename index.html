@@ -46,7 +46,7 @@
                                 <!--<span class="toggle span1">Camaras</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_0">
-                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="refreshDatos()">
+                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="getDatos()">
                                         <span>Camaras</span>
                                     </label>
                                 </div>
@@ -54,8 +54,8 @@
                             <li>
                                 <!--<span class="toggle span1">Paneles</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_7">
-                                        <input id="prm_7" name="prm_7" type="checkbox" ng-model="fltr_paneles" ng-change="refreshDatos()">
+                                    <label for="prm_1">
+                                        <input id="prm_1" name="prm_1" type="checkbox" ng-model="fltr_paneles" ng-change="getDatos()">
                                         <span>Paneles</span>
                                     </label>
                                 </div>
@@ -63,8 +63,8 @@
                             <li>
                                 <!--<span class="toggle span1">Meteo</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_8">
-                                        <input id="prm_8" name="prm_8" type="checkbox" ng-click="meteoToggle()">
+                                    <label for="prm_2">
+                                        <input id="prm_2" name="prm_2" type="checkbox" ng-click="meteoToggle()">
                                         <span>Meteo</span>
                                     </label>
                                 </div>
@@ -73,8 +73,8 @@
                             <li>
                                 <!--<span class="toggle span1">Trafico</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label class="check" for="prm_9">
-                                        <input id="prm_9" name="prm_9" type="checkbox" ng-click="trafficToogle()">
+                                    <label class="check" for="prm_3">
+                                        <input id="prm_3" name="prm_3" type="checkbox" ng-click="trafficToogle()">
                                         <span>Trafico</span>
                                     </label>
                                 </div>
@@ -85,73 +85,34 @@
 
                     <li class="divider-vertical"></li>
 
-                    <!-- DGT Incidents filters-->
+                    <!-- DGT Sensors filters-->
                     <li class="dropdown" id="menu3">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
                             <i class="icon-warning-sign icon-white"></i>
-                            Incidencias
+                            Otros
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <!--<span class="toggle span1">Eventos</span>-->
+                                <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label id="lbl_prm_1" for="prm_1" class="checkbox">
-                                        <input id="prm_1" type="checkbox" ng-model="fltr_eventos" ng-change="refreshDatos()">
-                                        <span>Eventos</span>
+                                    <label id="lbl_prm_4" for="prm_4" class="checkbox">
+                                        <input id="prm_4" type="checkbox" ng-model="fltr_estMeteorologia" ng-change="getDatos()">
+                                        <span>Est. Meteorologica</span>
                                     </label>
                                 </div>
-
                             </li>
                             <li>
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label id="lbl_prm_2" for="prm_2" class="checkbox">
-                                        <input id="prm_2" type="checkbox" ng-model="fltr_meteorologia" ng-change="refreshDatos()">
-                                        <span>Meteorologia</span>
+                                    <label id="lbl_prm_5" for="prm_5" class="checkbox">
+                                        <input id="prm_5" type="checkbox" ng-model="fltr_sensorTrafico" ng-change="getDatos()">
+                                        <span>Sensor Trafico</span>
                                     </label>
                                 </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_meteorologia:'METEOROL�GICO' }} </p> -->
                             </li>
-                            <li>
-                                <!--<span class="toggle span1">Obras</span>-->
-                                <div class="iphone-toggle-buttons">
-                                    <label id="lbl_prm_3" for="prm_3" class="checkbox">
-                                        <input id="prm_3" type="checkbox" ng-model="fltr_obras" ng-change="refreshDatos()">
-                                        <span>Obras</span>
-                                    </label>
-                                </div>
-                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_obras:'OBRAS' }} </p> -->
-                            </li>
-                            <li>
-                                <!--<span class="toggle span1">Otros</span>-->
-                                <div class="iphone-toggle-buttons">
-                                    <label id="lbl_prm_4" for="prm_4" class="checkbox">
-                                        <input id="prm_4" type="checkbox" ng-model="fltr_otros" ng-change="refreshDatos()">
-                                        <span>Otros</span>
-                                    </label>
-                                </div>
-                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_otros:'OTROS' }} </p> -->
-                            </li>
-                            <li>
-                                <!--<span class="toggle span1">Puertos</span>-->
-                                <div class="iphone-toggle-buttons">
-                                <label id="lbl_prm_5" for="prm_5" class="checkbox">
-                                    <input id="prm_5" type="checkbox" ng-model="fltr_puertos" ng-change="refreshDatos()">
-                                    <span>Puertos</span>
-                                </label>
-                                </div>
-                            </li>
-                            <li>
-                                <!--<span class="toggle span1">Retenciones</span>-->
-                                <div class="iphone-toggle-buttons">
-                                <label id="lbl_prm_6" for="prm_6" class="checkbox">
-                                    <input id="prm_6" type="checkbox" ng-model="fltr_retencion" ng-change="refreshDatos()">
-                                    <span>Retenciones</span>
-                                </label>
-                                </div>
-                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_retencion:'RETENCI�N / CONGESTI�N' }} </p> -->
-                            </li>
+
                         </ul>
                     </li>
 
@@ -240,6 +201,7 @@
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=weather"></script>
+<script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
 <script src="lib/angular/angular.min.js"></script>
 <script src="lib/angular/angular-resource.min.js"></script>
 <script src="lib/jquery/jquery-1.7.2.min.js"></script>

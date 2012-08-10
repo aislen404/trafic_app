@@ -5,7 +5,7 @@ markerObject = (function (){
             position: new google.maps.LatLng(options.lat,options.lng),
             draggable: options.draggable,
             map: options.objMap.mapInstance,
-            icon: icoResolutor(options.icon_a,options.icon_b),
+            icon: icoResolutor(options.icon),
             title: options.title
         }
 
@@ -15,12 +15,6 @@ markerObject = (function (){
     //For register the events
     markerObject.prototype.registerMapEvent = function (ev,callBack){
         return google.maps.event.addListener(this.markerInstance, ev ,callBack);
-    }
-
-    //Delete this mark
-    markerObject.prototype.clearMark = function (){
-        console.log('markerObject.prototype.clearMark',this.markerInstance);
-        this.markerInstance.setMap(null);
     }
 
     return markerObject;
@@ -249,14 +243,12 @@ InfoWindow = (function() {
 
 }).call(this);
 
-
 //AUXILIAR FUNCTION TO RESOLVE THE ICO FOR MARKS
 //return the icon type
-icoResolutor = function (typeInc, typeInc2) {
-    var icoType = (typeInc=='Incidencia')? typeInc2:typeInc;
+icoResolutor = function (type) {
     var ico;
 
-    switch (icoType){
+    switch (type){
         case ('Me'):
             ico = 'img/me.png';
             break;
@@ -272,6 +264,12 @@ icoResolutor = function (typeInc, typeInc2) {
         case ('SensorTrafico'):
             ico='img/sensorTrafico.png';
             break;
+        case ('Panel_CMS'):
+            ico = 'img/panel.png';
+            break;
+        case ('Panel_PSG'):
+            ico = 'img/panel.png';
+            break;
         case('OBRAS'):
             ico = 'img/Obras.png';
             break;
@@ -283,9 +281,6 @@ icoResolutor = function (typeInc, typeInc2) {
             break;
         case ('RETENCI�N / CONGESTI�N'):
             ico = 'img/Retencion.png';
-            break;
-        case ('Panel_CMS'):
-            ico = 'img/panel.png';
             break;
     }
 
