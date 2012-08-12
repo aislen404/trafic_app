@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dataModels/BuscarElementosServlet_0.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dataModels/BuscarElementosServlet_1.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dataModels/BuscarElementosServlet_2.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dataModels/BuscarElementosServlet_3.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scriptsAux.js" afterPath="$PROJECT_DIR$/js/scriptsAux.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services.js" afterPath="$PROJECT_DIR$/js/services.js" />
     </list>
     <ignored path="trafic_app.iws" />
@@ -34,10 +30,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="56" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="33" column="36" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,7 +39,25 @@
       <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="50" selection-start="1835" selection-end="1886" vertical-scroll-proportion="0.39922482">
+            <state line="70" column="48" selection-start="1746" selection-end="1746" vertical-scroll-proportion="0.12790698">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filters.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/filters.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="35" selection-start="140" selection-end="156" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="183" column="63" selection-start="9627" selection-end="9627" vertical-scroll-proportion="-5.7083335">
               <folding />
             </state>
           </provider>
@@ -111,11 +123,11 @@
         <option value="$PROJECT_DIR$/js/ddd.js" />
         <option value="$PROJECT_DIR$/js/ffd.js" />
         <option value="$PROJECT_DIR$/js/scriptAuxOLD.js" />
+        <option value="$PROJECT_DIR$/js/scriptsAux.js" />
         <option value="$PROJECT_DIR$/js/filters.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/js/services.js" />
-        <option value="$PROJECT_DIR$/js/scriptsAux.js" />
       </list>
     </option>
   </component>
@@ -254,16 +266,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../angular-google-maps/public/js" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="149" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="941" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="943" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="941" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="147" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="144" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -486,57 +498,35 @@
         <state line="130" column="17" selection-start="3643" selection-end="3643" vertical-scroll-proportion="0.019379845" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/filters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.48449612" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="0" selection-start="10434" selection-end="10488" vertical-scroll-proportion="0.7" />
+        <state line="183" column="63" selection-start="9627" selection-end="9627" vertical-scroll-proportion="-5.7083335">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/scriptsAux.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="85" selection-start="6948" selection-end="6948" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#92#340#0" expanded="false" />
-            <element signature="e#512#600#0" expanded="false" />
-            <element signature="e#1202#2230#0" expanded="false" />
-            <element signature="e#2406#2490#0" expanded="false" />
-            <element signature="e#2584#2829#0" expanded="false" />
-            <element signature="e#2887#3592#0" expanded="false" />
-            <element signature="e#3652#3820#0" expanded="false" />
-            <element signature="e#3886#4097#0" expanded="false" />
-            <element signature="e#4173#4408#0" expanded="false" />
-            <element signature="e#4461#4604#0" expanded="false" />
-            <element signature="e#4658#4720#0" expanded="false" />
-            <element signature="e#4793#5028#0" expanded="false" />
-            <element signature="e#5081#5224#0" expanded="false" />
-            <element signature="e#5278#5341#0" expanded="false" />
-            <element signature="e#5415#5651#0" expanded="false" />
-            <element signature="e#5704#6145#0" expanded="false" />
-            <element signature="e#6199#6311#0" expanded="false" />
-            <element signature="e#7034#7624#0" expanded="false" />
-            <element signature="e#7665#8242#0" expanded="false" />
-            <element signature="e#8309#9175#0" expanded="false" />
-            <element signature="e#9293#10367#0" expanded="false" />
-          </folding>
+        <state line="189" column="85" selection-start="6948" selection-end="6948" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/filters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="35" selection-start="140" selection-end="156" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="56" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="33" column="36" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="50" selection-start="1835" selection-end="1886" vertical-scroll-proportion="0.39922482">
+        <state line="70" column="48" selection-start="1746" selection-end="1746" vertical-scroll-proportion="0.12790698">
           <folding />
         </state>
       </provider>

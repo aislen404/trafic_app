@@ -31,12 +31,12 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceP
 
         // Setting map event control for zoom changes
         $scope.mapObj.registerMapEvent('zoom_changed',function(){
-            //console.log ('[EVENT] ON ZOOM CHANGE --> ',$scope.mapObj.getZoom());
+            //console.log ('[EVENT] ZOOM:',$scope.mapObj.getZoom());
         });
 
         //Setting map event control for bounds changes
         $scope.mapObj.registerMapEvent('bounds_changed',function(){
-            //console.log ('[EVENT] ON BOUNDS CHANGE --> ',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());
+            //console.log ('[EVENT] BOUNDS:',$scope.mapObj.getLatNS(),$scope.mapObj.getLongNS(),$scope.mapObj.getLatSW(),$scope.mapObj.getLongSW());
         });
     };
 
