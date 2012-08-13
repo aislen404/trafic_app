@@ -46,7 +46,7 @@
                                 <!--<span class="toggle span1">Camaras</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_0">
-                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="getDatos()">
+                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="initData()">
                                         <span>Camaras</span>
                                     </label>
                                 </div>
@@ -55,7 +55,7 @@
                                 <!--<span class="toggle span1">Paneles</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_1">
-                                        <input id="prm_1" name="prm_1" type="checkbox" ng-model="fltr_paneles" ng-change="getDatos()">
+                                        <input id="prm_1" name="prm_1" type="checkbox" ng-model="fltr_paneles" ng-change="initData()">
                                         <span>Paneles</span>
                                     </label>
                                 </div>
@@ -68,7 +68,6 @@
                                         <span>Meteo</span>
                                     </label>
                                 </div>
-                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_est_meteorologica:'SensorMeteorologico' }} </p> -->
                             </li>
                             <li>
                                 <!--<span class="toggle span1">Trafico</span>-->
@@ -78,7 +77,6 @@
                                         <span>Trafico</span>
                                     </label>
                                 </div>
-                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p> -->
                             </li>
                         </ul>
                     </li>
@@ -97,20 +95,21 @@
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_4" for="prm_4" class="checkbox">
-                                        <input id="prm_4" type="checkbox" ng-model="fltr_estMeteorologia" ng-change="getDatos()">
+                                        <input id="prm_4" type="checkbox" ng-model="fltr_estMeteorologia" ng-change="initData()">
                                         <span>Est. Meteorologica</span>
                                     </label>
                                 </div>
+                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_est_meteorologica:'SensorMeteorologico' }} </p> -->
                             </li>
                             <li>
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_5" for="prm_5" class="checkbox">
-                                        <input id="prm_5" type="checkbox" ng-model="fltr_sensorTrafico" ng-change="getDatos()">
+                                        <input id="prm_5" type="checkbox" ng-model="fltr_sensorTrafico" ng-change="initData()">
                                         <span>Sensor Trafico</span>
                                     </label>
                                 </div>
-                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_meteorologia:'METEOROL�GICO' }} </p> -->
+                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p> -->
                             </li>
 
                         </ul>
@@ -181,18 +180,18 @@
 
         <!--Route content-->
         <div class="span4 well">
-            <div id="directionsPanel" ng-model="directionsPanel"></div>
+            <div id="directionsPanel"></div>
         </div>
 
         <!-- Footer content , only for develop version -->
-        <!--
+
         <div class="span11 well">
             <div>
                 <p>http response data:</p>
                 <p ng-repeat="dato in datos">{{dato.tipo}} : {{dato.alias}}</p>
             </div>
         </div>
-        -->
+
     </div>
 </div>
 

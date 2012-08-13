@@ -5,13 +5,14 @@ var module;
 
 module = angular.module ('trafic_app.controllers',[]);
 
-module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceProvider) {
+module.controller('traficCtrl', function ($scope, mapServiceProvider,dataServiceProvider,poiServiceCreator) {
 
     // initialization of model-view bindings
     $scope.fltr_camaras = true;
     $scope.fltr_paneles = true;
     $scope.fltr_estMeteorologia = false;
     $scope.fltr_sensorTrafico = false;
+    $scope.datos;
 
     // map object
     $scope.mapObj = null;
@@ -19,7 +20,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceP
     // Main function in ng-init
     $scope.BeganToBegin = function (){
         $scope.createMap();
-        $scope.getDatos();
+        $scope.initData();
 
         //no other line of JQuery !!
         $('.dropdown-toggle').dropdown();
@@ -41,20 +42,41 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dgtServiceP
     };
 
     // Load DGT service response to the trafic controller model
-    $scope.getDatos = function(){
-
-        //Array for filter in model-view bindings
-        var filtros =[];
-
-        //Setting filter in the array
-        if($scope.fltr_camaras){filtros.push('Camara');}
-        if($scope.fltr_paneles){filtros.push('Panel_CMS');filtros.push('Panel_PSG');}
-        if($scope.fltr_estMeteorologia){filtros.push('SensorMeteorologico');}
-        if($scope.fltr_sensorTrafico){filtros.push('SensorTrafico');}
-
-        //Call data service provider
-        dgtServiceProvider.call($scope.mapObj,filtros);
+    $scope.initData = function(){
+        $scope.camaras();
+        $scope.paneles();
+        $scope.meteo();
+        $scope.sensor();
     };
+
+    $scope.camaras = function (){
+        if($scope.fltr_camaras){
+            $scope.loadData('__camaras');
+        }
+    };
+    $scope.paneles = function (){
+        if($scope.fltr_paneles){
+            $scope.loadData('__paneles');
+        }
+    };
+    $scope.meteo = function (){
+        if($scope.fltr_estMeteorologia){
+            $scope.loadData('__meteo');
+        }
+    };
+    $scope.sensor = function (){
+        if($scope.fltr_sensorTrafico){
+            $scope.loadData('__sensores');
+        }
+    };
+
+    $scope.loadData = function (file){
+        //Call data service provider
+        $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+            //Call marker service creator
+            poiServiceCreator.create(data,$scope.mapObj);
+        });
+    }
 
     // Control-view checkbox for weather layer
     $scope.meteoToggle = function (){
