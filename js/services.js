@@ -4,8 +4,7 @@
 var module;
 var markerCreator;
 var clusterCreator;
-var objMarkerCluster; //TODO: Esto no me mola aqui pero ni un cacho, no puede ser un objeto de mapa global
-
+ //TODO: Esto no me mola aqui pero ni un cacho, no puede ser un objeto de mapa global
 
 module = angular.module('trafic_app.services',['ngResource']);
 
@@ -24,26 +23,59 @@ module.factory('dataServiceProvider', function ($resource){
     });
 });
 
-module.factory('gasServiceProvider', function ($resource){
-    console.log('gasServiceProvider');
-    return $resource('dataModels/gasolineras.json',{
-        query: {method:'GET'}
-    });
-});
 
 module.factory('poiServiceCreator',function (){
-    var dato,tipo;
+    var dato;
 
     return {
-        create: function (data,objMap,n){
-            n = [];
-            //Refill the array with the news POIS
+        createCamerasCluster: function (data,objMap){
+            var poisCamera = new Array();
+            var myOptions = {
+                gridSize: 50,
+                maxZoom: 12
+            };
             for (dato in data){
-                tipo = data[dato].tipo;
-                n.push(markerCreator(data[dato],objMap));//Create markers
+                poisCamera.push(markerCreator(data[dato],objMap));
             }
-            //Cluster of markers
-            clusterCreator (objMap.mapInstance,n);
+
+            return clusterCreator (objMap.mapInstance,poisCamera,myOptions);
+        },
+        createPanelsCluster: function (data,objMap){
+            var poisPanels = new Array();
+            var myOptions = {
+                gridSize: 75,
+                maxZoom: 13
+            };
+
+            for (dato in data){
+                poisPanels.push(markerCreator(data[dato],objMap));
+            }
+
+            return clusterCreator (objMap.mapInstance,poisPanels,myOptions);
+        },
+        createMeteoCluster: function (data,objMap){
+            var poisMeteo = new Array();
+            var myOptions = {
+                gridSize: 100,
+                maxZoom: 14
+            };
+
+            for (dato in data){
+                poisMeteo.push(markerCreator(data[dato],objMap));
+            }
+            return clusterCreator (objMap.mapInstance,poisMeteo,myOptions);
+        },
+        createSensoresCluster: function (data,objMap){
+            var poisSensores = new Array();
+            var myOptions = {
+                gridSize: 100,
+                maxZoom: 14
+            };
+
+            for (dato in data){
+                poisSensores.push(markerCreator(data[dato],objMap));
+            }
+            return clusterCreator (objMap.mapInstance,poisSensores,myOptions);
         }
     };
 });
@@ -68,20 +100,6 @@ markerCreator = function (dato,objMap){
 
 //TODO: this will we abstracted to scriptAux, who really implement the google API.
 //Cluster creator
-clusterCreator = function (objMap,markers){
-    //Is needed clear all the markers before repaint it.
-    try{
-        objMarkerCluster.clearMarkers();
-    }catch(err){
-        console.log('Error en la inicializacion del cluster de markers',err.number);
-    }
-
-    var myOptions = {
-        gridSize: 50,
-        maxZoom: 12
-    };
-
-    objMarkerCluster = new MarkerClusterer(objMap, markers, myOptions);
+clusterCreator = function (objMap,markers,myOptions){
+    return new MarkerClusterer(objMap, markers, myOptions);
 };
-
-

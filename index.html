@@ -46,7 +46,7 @@
                                 <!--<span class="toggle span1">Camaras</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_0">
-                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="initData()">
+                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="camarasToogle()">
                                         <span>Camaras</span>
                                     </label>
                                 </div>
@@ -55,7 +55,7 @@
                                 <!--<span class="toggle span1">Paneles</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_1">
-                                        <input id="prm_1" name="prm_1" type="checkbox" ng-model="fltr_paneles" ng-change="initData()">
+                                        <input id="prm_1" name="prm_1" type="checkbox" ng-model="fltr_paneles" ng-change="panelesToogle()">
                                         <span>Paneles</span>
                                     </label>
                                 </div>
@@ -64,7 +64,7 @@
                                 <!--<span class="toggle span1">Meteo</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_2">
-                                        <input id="prm_2" name="prm_2" type="checkbox" ng-click="meteoToggle()">
+                                        <input id="prm_2" name="prm_2" type="checkbox" ng-model="fltr_meteo" ng-change="meteoToggle()">
                                         <span>Meteo</span>
                                     </label>
                                 </div>
@@ -73,7 +73,7 @@
                                 <!--<span class="toggle span1">Trafico</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label class="check" for="prm_3">
-                                        <input id="prm_3" name="prm_3" type="checkbox" ng-click="trafficToogle()">
+                                        <input id="prm_3" name="prm_3" type="checkbox" ng-model="fltr_trafico" ng-change="trafficToogle()">
                                         <span>Trafico</span>
                                     </label>
                                 </div>
@@ -95,7 +95,7 @@
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_4" for="prm_4" class="checkbox">
-                                        <input id="prm_4" type="checkbox" ng-model="fltr_estMeteorologia" ng-change="initData()">
+                                        <input id="prm_4" type="checkbox" ng-model="fltr_estMeteorologia" ng-change="estMeteoToogle()">
                                         <span>Est. Meteorologica</span>
                                     </label>
                                 </div>
@@ -105,7 +105,7 @@
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label id="lbl_prm_5" for="prm_5" class="checkbox">
-                                        <input id="prm_5" type="checkbox" ng-model="fltr_sensorTrafico" ng-change="initData()">
+                                        <input id="prm_5" type="checkbox" ng-model="fltr_sensorTrafico" ng-change="sensoresToogle()">
                                         <span>Sensor Trafico</span>
                                     </label>
                                 </div>

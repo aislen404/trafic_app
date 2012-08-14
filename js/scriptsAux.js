@@ -175,12 +175,14 @@ mapObject = (function() {
             windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
         });
         this.weatherLayerInstance.setMap(this.mapInstance);
-        this.cloudLayerInstance = new google.maps.weather.CloudLayer();
-        this.cloudLayerInstance.setMap(this.mapInstance);
+
+        //TODO: en algun momento me dio un undefined y las comente
+        //this.cloudLayerInstance = new google.maps.weather.CloudLayer();
+        //this.cloudLayerInstance.setMap(this.mapInstance);
     }
     mapObject.prototype.weatherLayerOff = function (){
         this.weatherLayerInstance.setMap(null);
-        this.cloudLayerInstance.cloudLayer.setMap(null);
+        //this.cloudLayerInstance.cloudLayer.setMap(null);
     }
 
     /* generic in geo - May be will be used in the DGT services to get the parameters needed in the query*/

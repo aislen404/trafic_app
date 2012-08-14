@@ -10,8 +10,12 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     // initialization of model-view bindings
     $scope.fltr_camaras = true;
     $scope.fltr_paneles = true;
-    $scope.fltr_estMeteorologia = false;
-    $scope.fltr_sensorTrafico = false;
+    $scope.fltr_estMeteorologia = true;
+    $scope.fltr_sensorTrafico = true;
+    $scope.fltr_meteo = true;
+    $scope.fltr_trafico = true;
+
+
     $scope.datos;
 
     // map object
@@ -42,49 +46,79 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     };
 
     // Load DGT service response to the trafic controller model
+    //TODO: meter a fltr_meteo y fltr_camera
+
     $scope.initData = function(){
-        $scope.camaras();
-        $scope.paneles();
-        $scope.meteo();
-        $scope.sensor();
+        $scope.camarasToogle();
+        $scope.panelesToogle();
+        $scope.estMeteoToogle();
+        $scope.sensoresToogle();
+        $scope.meteoToggle();
+        $scope.trafficToogle();
     };
 
-    $scope.camaras = function (){
+    $scope.camarasToogle = function (){
         if($scope.fltr_camaras){
-            $scope.loadData('__camaras');
+            var file = '__camaras';
+            $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+                $scope.camerasCluster = poiServiceCreator.createCamerasCluster(data,$scope.mapObj);
+                return data;
+            });
+        }else{
+            try { $scope.camerasCluster.clearMarkers();}catch(e){console.log('No cameras initialized true')}
         }
     };
-    $scope.paneles = function (){
+
+    $scope.panelesToogle = function (){
         if($scope.fltr_paneles){
-            $scope.loadData('__paneles');
+            var file = '__paneles';
+            $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+                $scope.panelsCluster = poiServiceCreator.createPanelsCluster(data,$scope.mapObj);
+                return data;
+            });
+        }else{
+            try { $scope.panelsCluster.clearMarkers();}catch(e){console.log('No panels initialized true')}
         }
     };
-    $scope.meteo = function (){
+
+    $scope.estMeteoToogle = function (){
         if($scope.fltr_estMeteorologia){
-            $scope.loadData('__meteo');
+            var file = '__meteo';
+            $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+                $scope.meteoCluster = poiServiceCreator.createMeteoCluster(data,$scope.mapObj);
+                return data;
+            });
+        }else{
+            try { $scope.meteoCluster.clearMarkers();}catch(e){console.log('No panels initialized true')}
         }
     };
-    $scope.sensor = function (){
+
+    $scope.sensoresToogle = function (){
         if($scope.fltr_sensorTrafico){
-            $scope.loadData('__sensores');
+            var file = '__sensores';
+            $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+                $scope.sensoresCluster = poiServiceCreator.createSensoresCluster(data,$scope.mapObj);
+                return data;
+            });
+        }else{
+            try { $scope.sensoresCluster.clearMarkers();}catch(e){console.log('No sensors initialized true')}
+
         }
+    };
+
+    $scope.meteoToggle = function (){
+        mapServiceProvider.weatherToogle();
+    };
+
+    $scope.trafficToogle = function (){
+        mapServiceProvider.trafficToogle();
     };
 
     $scope.loadData = function (file){
         //Call data service provider
         $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
             //Call marker service creator
-            poiServiceCreator.create(data,$scope.mapObj,file);
+            poiServiceCreator.create(data,$scope.mapObj);
         });
     }
-
-    // Control-view checkbox for weather layer
-    $scope.meteoToggle = function (){
-        mapServiceProvider.weatherToogle();
-    };
-
-    // Control-view checkbox for traffic density layer
-    $scope.trafficToogle = function (){
-        mapServiceProvider.trafficToogle();
-    };
 });
