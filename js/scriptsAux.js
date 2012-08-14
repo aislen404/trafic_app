@@ -109,6 +109,7 @@ mapObject = (function() {
         var pos;
         pos = window.pos;
         if (pos) {
+            console.log('pos.lat(), pos.lng()'+pos.lat()+','+ pos.lng());
             return this.mapInstance.panTo(new google.maps.LatLng(pos.lat(), pos.lng()));
         }
     };

@@ -74,7 +74,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         //Call data service provider
         $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
             //Call marker service creator
-            poiServiceCreator.create(data,$scope.mapObj);
+            poiServiceCreator.create(data,$scope.mapObj,file);
         });
     }
 

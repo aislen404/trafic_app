@@ -24,19 +24,26 @@ module.factory('dataServiceProvider', function ($resource){
     });
 });
 
+module.factory('gasServiceProvider', function ($resource){
+    console.log('gasServiceProvider');
+    return $resource('dataModels/gasolineras.json',{
+        query: {method:'GET'}
+    });
+});
+
 module.factory('poiServiceCreator',function (){
-    var dato,tipo,filter,i=0;
+    var dato,tipo;
 
     return {
-        create: function (data,objMap){
-            var poisDGT = [];
+        create: function (data,objMap,n){
+            n = [];
             //Refill the array with the news POIS
             for (dato in data){
                 tipo = data[dato].tipo;
-                poisDGT.push(markerCreator(data[dato],objMap));//Create markers
+                n.push(markerCreator(data[dato],objMap));//Create markers
             }
             //Cluster of markers
-            clusterCreator (objMap.mapInstance,poisDGT);
+            clusterCreator (objMap.mapInstance,n);
         }
     };
 });
