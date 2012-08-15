@@ -21,6 +21,16 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     // map object
     $scope.mapObj = null;
 
+    //direction layers
+    $scope.directionLayer = false;
+
+    $scope.route_mode='driving';
+    $scope.route_highways=true;
+    $scope.route_tolls=true;
+    $scope.route_optimize=true;
+
+    $scope.waypoints=[];
+
     // Main function in ng-init
     $scope.BeganToBegin = function (){
         $scope.createMap();
@@ -51,8 +61,8 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     $scope.initData = function(){
         $scope.camarasToogle();
         $scope.panelesToogle();
-        $scope.estMeteoToogle();
-        $scope.sensoresToogle();
+        $scope.sensMeteoToogle();
+        $scope.sensTrafficToogle();
     };
 
     $scope.camarasToogle = function (){
@@ -79,7 +89,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         }
     };
 
-    $scope.estMeteoToogle = function (){
+    $scope.sensMeteoToogle = function (){
         if($scope.fltr_estMeteorologia){
             var file = '__meteo';
             $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
@@ -91,7 +101,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         }
     };
 
-    $scope.sensoresToogle = function (){
+    $scope.sensTrafficToogle = function (){
         if($scope.fltr_sensorTrafico){
             var file = '__sensores';
             $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
@@ -104,19 +114,119 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         }
     };
 
+    //TODO: meter a fltr_meteo y fltr_camera, no esta metido en binding del model
     $scope.meteoToggle = function (){
-        mapServiceProvider.weatherToogle();
+        $scope.mapObj.weatherToogle();
     };
 
     $scope.trafficToogle = function (){
-        mapServiceProvider.trafficToogle();
+        $scope.mapObj.trafficToogle();
     };
 
-    $scope.loadData = function (file){
-        //Call data service provider
-        $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
-            //Call marker service creator
-            poiServiceCreator.create(data,$scope.mapObj);
-        });
-    }
+    //TODO: escribe las funciones PUTO VAGO !!!
+    $scope.createRoute = function(){
+        var originOptions,destinationOptions;
+
+        if (!$scope.directionLayer){
+
+            $scope.mapObj.addDirectionsLayer();
+
+            console.log('$scope.mapObj.addDirectionsLayer()');
+
+            $scope.mapObj.registerMapEvent('click',function(event){
+
+                if ($scope.origin == null) {
+                    $scope.origin = event.latLng;
+                    originOptions = {
+                        position:$scope.origin,
+                        draggable: false,
+                        tipo:  'Marker',
+                        title: 'origen'
+                    };
+                    poiServiceCreator.createGenericPoi(originOptions,$scope.mapObj);
+                    console.log('originOptions',originOptions);
+                } else if ($scope.destination == null) {
+                    $scope.destination = event.latLng;
+                    destinationOptions = {
+                        position:$scope.destination,
+                        draggable: false,
+                        tipo:  'Marker',
+                        title: 'destino 1'
+                    };
+                    console.log('destinationOptions',destinationOptions);
+                    poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
+
+                } else {
+                    if ($scope.waypoints.length < 5) {
+                        $scope.waypoints.push({ location: $scope.destination, stopover: true });
+                        $scope.destination = event.latLng;
+                        destinationOptions = {
+                            position:$scope.destination,
+                            draggable: false,
+                            tipo:  'Marker',
+                            title: 'destino'+ $scope.waypoints.length
+                        };
+                        console.log('destinationOptions',destinationOptions);
+                        poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
+
+                    } else {
+                        alert("Maximum number of waypoints reached");
+                    }
+                }
+
+            });
+            $scope.directionLayer = true;
+        }
+    };
+
+    $scope.calcRoute = function() {
+        if($scope.directionLayer){
+            if ($scope.origin == null) {
+                alert("Click on the map to add a start point");
+                return;
+            }
+            if ($scope.destination == null) {
+                alert("Click on the map to add an end point");
+                return;
+            }
+
+            var mode;
+            switch ( $scope.route_mode ) {
+                case "bicycling":
+                    mode = google.maps.DirectionsTravelMode.BICYCLING;
+                    break;
+                case "driving":
+                    mode = google.maps.DirectionsTravelMode.DRIVING;
+                    break;
+                case "walking":
+                    mode = google.maps.DirectionsTravelMode.WALKING;
+                    break;
+            }
+
+            var request = {
+                origin: $scope.origin,
+                destination: $scope.destination,
+                waypoints: $scope.waypoints,
+                travelMode: mode,
+                optimizeWaypoints: $scope.route_optimize,
+                avoidHighways: $scope.route_highways,
+                avoidTolls: $scope.route_tolls
+            };
+
+            $scope.mapObj.calculateDirectionsLayer(request);
+
+            //$scope.mapObj.clearMarkers();
+        }
+    };
+
+    $scope.updateRoute = function(){
+        if($scope.directionLayer){
+            $scope.calcRoute();
+        }
+    };
+
+    $scope.resetRoute = function() {
+        $scope.mapObj.clearDirectionsLayer();
+    };
+
 });

@@ -164,6 +164,9 @@ module.factory('poiServiceCreator',function (){
                 poisSensores.push(markerCreator(data[dato],objMap));
             }
             return clusterCreator (objMap.mapInstance,poisSensores,myOptions);
+        },
+        createGenericPoi: function (data,objMap){
+            return markerCreator (data,objMap);
         }
     };
 });
@@ -174,11 +177,13 @@ markerCreator = function (dato,objMap){
     var myOptions = {
         lat:dato.lat,
         lng:dato.lng,
+        position:dato.position,
         draggable: false,
         objMap: objMap,
         icon: dato.tipo,
         title: dato.tipo+" : "+ dato.alias
     };
+    console.log('myOptions',myOptions);
     var markObject = new markerObject (myOptions);
     markObject.registerMapEvent ('click',function(){
         alert(myOptions.title);

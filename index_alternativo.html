@@ -37,6 +37,7 @@
                     <!-- DGT Info filters & google layers -->
                     <li class="dropdown" id="menu2">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
+                            <i class="icon-info-sign icon-white"></i>
                             Información
                             <b class="caret"></b>
                         </a>
@@ -44,47 +45,73 @@
                             <li>
                                 <!--<span class="toggle span1">Camaras</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_0" class="checkbox"><span><i class="icon-camera"></i> Camaras</span></label>
-                                    <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="camarasToogle()">
+                                    <label for="prm_0">
+                                        <input  id="prm_0" name="prm_0" type="checkbox" ng-model="fltr_camaras" ng-change="camarasToogle()">
+                                        <span>Camaras</span>
+                                    </label>
                                 </div>
                             </li>
                             <li>
                                 <!--<span class="toggle span1">Paneles</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_1" class="checkbox"><span><i class="icon-info-sign"></i> Paneles</span></label>
-                                    <input id="prm_1" name="prm_1" type="checkbox" ng-model="fltr_paneles" ng-change="panelesToogle()">
+                                    <label for="prm_1">
+                                        <input id="prm_1" name="prm_1" type="checkbox" ng-model="fltr_paneles" ng-change="panelesToogle()">
+                                        <span>Paneles</span>
+                                    </label>
                                 </div>
                             </li>
                             <li>
                                 <!--<span class="toggle span1">Meteo</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_2" class="checkbox"><span><i class="icon-asterisk"></i> Prev. Meteorologica</span></label>
-                                    <input id="prm_2" name="prm_2" type="checkbox" ng-model="fltr_meteo" ng-change="meteoToggle()">
+                                    <label for="prm_2">
+                                        <input id="prm_2" name="prm_2" type="checkbox" ng-model="fltr_meteo" ng-change="meteoToggle()">
+                                        <span>Meteo</span>
+                                    </label>
                                 </div>
                             </li>
                             <li>
                                 <!--<span class="toggle span1">Trafico</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_3" class="checkbox"><span><i class="icon-road"></i> Densidad Trafico</span></label>
-                                    <input id="prm_3" name="prm_3" type="checkbox" ng-model="fltr_trafico" ng-change="trafficToogle()">
+                                    <label class="check" for="prm_3">
+                                        <input id="prm_3" name="prm_3" type="checkbox" ng-model="fltr_trafico" ng-change="trafficToogle()">
+                                        <span>Trafico</span>
+                                    </label>
                                 </div>
                             </li>
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- DGT Sensors filters-->
+                    <li class="dropdown" id="menu3">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
+                            <i class="icon-warning-sign icon-white"></i>
+                            Otros
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
                             <li>
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_4" class="checkbox"><span><i class="icon-flag"></i> Sensor Meteorologico</span></label>
-                                    <input id="prm_4" type="checkbox" ng-model="fltr_estMeteorologia" ng-change="sensMeteoToogle()">
+                                    <label id="lbl_prm_4" for="prm_4" class="checkbox">
+                                        <input id="prm_4" type="checkbox" ng-model="fltr_estMeteorologia" ng-change="estMeteoToogle()">
+                                        <span>Est. Meteorologica</span>
+                                    </label>
                                 </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_est_meteorologica:'SensorMeteorologico' }} </p> -->
                             </li>
                             <li>
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
-                                    <label for="prm_5" class="checkbox"><span><i class="icon-eye-open"></i> Sensor Trafico</span></label>
-                                    <input id="prm_5" type="checkbox" ng-model="fltr_sensorTrafico" ng-change="sensTrafficToogle()">
+                                    <label id="lbl_prm_5" for="prm_5" class="checkbox">
+                                        <input id="prm_5" type="checkbox" ng-model="fltr_sensorTrafico" ng-change="sensoresToogle()">
+                                        <span>Sensor Trafico</span>
+                                    </label>
                                 </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p> -->
                             </li>
+
                         </ul>
                     </li>
 
@@ -93,6 +120,7 @@
                     <!-- Route planning form -->
                     <li class="dropdown" id="menu4">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu4">
+                            <i class="icon-road icon-white"></i>
                             Route Planning
                             <b class="caret"></b>
                         </a>
@@ -100,7 +128,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <label for="route_mode" class="span1 checkbox">Modo</label>
-                                <select id="route_mode" class="span2" ng-model="route_mode" ng-change="updateRoute()">
+                                <select id="route_mode" class="span2" onchange="updateRoute()">
                                     <option value="driving">Conduciendo</option>
                                     <option value="walking">Andando</option>
                                     <option value="bicycling">Bicicleta</option>
@@ -108,22 +136,30 @@
                             </li>
                             <li>
                                 <label id="lbl_route_highways" for="route_highways" class="checkbox span1">Autopistas</label>
-                                <input id="route_highways" type="checkbox" ng-model="route_highways" ng-change="updateRoute()" checked>
+                                <input id="route_highways" type="checkbox" onchange="updateRoute()" checked>
                             </li>
                             <li>
                                 <label id="lbl_route_tolls" for="route_tolls" class="checkbox span1">Peajes</label>
-                                <input id="route_tolls" type="checkbox" ng-model="route_tolls" ng-change="updateRoute()">
+                                <input id="route_tolls" type="checkbox" onchange="updateRoute()">
                             </li>
                             <li>
                                 <label id="lbl_route_optimize" for="route_optimize" class="checkbox span1">Optimizada</label>
-                                <input id="route_optimize" type="checkbox" ng-model="route_optimize" ng-change="updateRoute()" checked>
+                                <input id="route_optimize" type="checkbox" onchange="updateRoute()" checked>
                             </li>
                             <li>
-                                <input type="button" value="Crear" class="btn btn-primary" ng-click="createRoute()">
-                                <input type="button" value="Calcular" class="btn btn-success" ng-click="calcRoute()">
-                                <input type="button" value="Limpiar" class="btn btn-danger" ng-click="resetRoute()">
+                                <input type="button" value="Crear" class="btn btn-primary" onclick="createRoute()">
+                                <input type="button" value="Calcular" class="btn btn-success" onclick="calcRoute()">
+                                <input type="button" value="Deshacer" class="btn btn-warning" onclick="undoRoute()">
+                                <input type="button" value="Limpiar" class="btn btn-danger" onclick="resetRoute()">
                             </li>
                         </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- Status notice badge -->
+                    <li>
+                        <span class="navbar-text label label-info">Status : {{status}}</span>
                     </li>
                 </ul>
             </div>
@@ -144,7 +180,7 @@
 
         <!--Route content-->
         <div class="span4 well">
-            <div id="directionsPanel" ng-model="directionsPanel"></div>
+            <div id="directionsPanel"></div>
         </div>
 
         <!-- Footer content , only for develop version -->

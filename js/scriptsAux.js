@@ -38,6 +38,8 @@ mapObject = (function() {
         this.weatherLayer = false;
         this.mapInstance = null;
 
+        this.directionDisplay = document.getElementById('directionsPanel');
+
        var myOptions = {
            zoom: this.theZoom,
            center: new google.maps.LatLng(theLat, theLong),
@@ -109,7 +111,6 @@ mapObject = (function() {
         var pos;
         pos = window.pos;
         if (pos) {
-            console.log('pos.lat(), pos.lng()'+pos.lat()+','+ pos.lng());
             return this.mapInstance.panTo(new google.maps.LatLng(pos.lat(), pos.lng()));
         }
     };
@@ -185,7 +186,39 @@ mapObject = (function() {
         //this.cloudLayerInstance.cloudLayer.setMap(null);
     }
 
-    /* generic in geo - May be will be used in the DGT services to get the parameters needed in the query*/
+    //Directions layer
+    mapObject.prototype.addDirectionsLayer = function (){
+        this.directionsLayer = new google.maps.DirectionsRenderer({
+            map: this.mapInstance,
+            preserveViewport: true,
+            draggable: true
+        });
+
+        this.directionsLayer.setMap(this.mapInstance);
+        this.directionsLayer.setPanel(this.directionDisplay);
+
+        this.directionsService = new google.maps.DirectionsService();
+
+        return this.directionsLayer;
+    }
+
+    mapObject.prototype.clearDirectionsLayer = function(){
+        this.directionsLayer.setMap(null);
+        this.directionsLayer.setPanel(null);
+
+        this.directionsLayer.setMap(this.mapInstance);
+        this.directionsLayer.setPanel(this.directionDisplay);
+    }
+
+    mapObject.prototype.calculateDirectionsLayer = function(request){
+        this.directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                this.directionsLayer.setDirections(response);
+            }
+        });
+    }
+
+    // generic in geo - May be will be used in the DGT services to get the parameters needed in the query
     mapObject.prototype.getLatNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lat(); };
     mapObject.prototype.getLongNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lng(); };
     mapObject.prototype.getLatSW = function (){ return  this.mapInstance.getBounds().getSouthWest().lat(); };
@@ -256,7 +289,7 @@ icoResolutor = function (type) {
             ico = 'img/me.png';
             break;
         case ('Marker'):
-            ico ='http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png';
+            ico ='img/default.png';
             break;
         case ('Camara'):
             ico = 'img/camaras.png';
