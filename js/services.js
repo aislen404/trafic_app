@@ -183,11 +183,12 @@ markerCreator = function (dato,objMap){
         icon: dato.tipo,
         title: dato.tipo+" : "+ dato.alias
     };
-    console.log('myOptions',myOptions);
     var markObject = new markerObject (myOptions);
+
     markObject.registerMapEvent ('click',function(){
         alert(myOptions.title);
     });
+
     return markObject.markerInstance;
 };
 

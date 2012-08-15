@@ -7,9 +7,10 @@ markerObject = (function (){
             map: options.objMap.mapInstance,
             icon: icoResolutor(options.icon),
             title: options.title
-        }
+        };
 
         this.markerInstance = new google.maps.Marker(myOptions);
+        console.log('this.markerInstance',this.markerInstance);
     }
 
     //For register the events
@@ -38,9 +39,7 @@ mapObject = (function() {
         this.weatherLayer = false;
         this.mapInstance = null;
 
-        this.directionDisplay = document.getElementById('directionsPanel');
-
-       var myOptions = {
+        var myOptions = {
            zoom: this.theZoom,
            center: new google.maps.LatLng(theLat, theLong),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -188,6 +187,7 @@ mapObject = (function() {
 
     //Directions layer
     mapObject.prototype.addDirectionsLayer = function (){
+        this.directionDisplay = document.getElementById('directionsPanel');
         this.directionsLayer = new google.maps.DirectionsRenderer({
             map: this.mapInstance,
             preserveViewport: true,
@@ -198,25 +198,23 @@ mapObject = (function() {
         this.directionsLayer.setPanel(this.directionDisplay);
 
         this.directionsService = new google.maps.DirectionsService();
-
-        return this.directionsLayer;
-    }
-
+    };
     mapObject.prototype.clearDirectionsLayer = function(){
         this.directionsLayer.setMap(null);
         this.directionsLayer.setPanel(null);
 
         this.directionsLayer.setMap(this.mapInstance);
         this.directionsLayer.setPanel(this.directionDisplay);
-    }
-
+    };
     mapObject.prototype.calculateDirectionsLayer = function(request){
+        console.log('calculateDirectionsLayer --> request',request);
         this.directionsService.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 this.directionsLayer.setDirections(response);
+                console.log('calculateDirectionsLayer --> response',response);
             }
         });
-    }
+    };
 
     // generic in geo - May be will be used in the DGT services to get the parameters needed in the query
     mapObject.prototype.getLatNS = function (){ return  this.mapInstance.getBounds().getNorthEast().lat(); };

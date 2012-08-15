@@ -14,7 +14,10 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     $scope.fltr_sensorTrafico = false;
     $scope.fltr_meteo = false;
     $scope.fltr_trafico = false;
-
+    $scope.route_mode='driving';
+    $scope.route_highways=true;
+    $scope.route_tolls=true;
+    $scope.route_optimize=true;
 
     $scope.datos;
 
@@ -23,12 +26,6 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 
     //direction layers
     $scope.directionLayer = false;
-
-    $scope.route_mode='driving';
-    $scope.route_highways=true;
-    $scope.route_tolls=true;
-    $scope.route_optimize=true;
-
     $scope.waypoints=[];
 
     // Main function in ng-init
@@ -57,7 +54,6 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 
     // Load DGT service response to the trafic controller model
     //TODO: meter a fltr_meteo y fltr_camera
-
     $scope.initData = function(){
         $scope.camarasToogle();
         $scope.panelesToogle();
@@ -123,7 +119,6 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         $scope.mapObj.trafficToogle();
     };
 
-    //TODO: escribe las funciones PUTO VAGO !!!
     $scope.createRoute = function(){
         var originOptions,destinationOptions;
 
@@ -143,7 +138,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                         tipo:  'Marker',
                         title: 'origen'
                     };
-                    poiServiceCreator.createGenericPoi(originOptions,$scope.mapObj);
+                    poiServiceCreator.createGenericPoi(originOptions,$scope.mapObj); //TODO: Esto no furula
                     console.log('originOptions',originOptions);
                 } else if ($scope.destination == null) {
                     $scope.destination = event.latLng;
@@ -154,10 +149,10 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                         title: 'destino 1'
                     };
                     console.log('destinationOptions',destinationOptions);
-                    poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
+                    poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj); //TODO: Esto no furula
 
                 } else {
-                    if ($scope.waypoints.length < 5) {
+                    if ($scope.waypoints.length <= 5) {
                         $scope.waypoints.push({ location: $scope.destination, stopover: true });
                         $scope.destination = event.latLng;
                         destinationOptions = {
@@ -167,14 +162,14 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                             title: 'destino'+ $scope.waypoints.length
                         };
                         console.log('destinationOptions',destinationOptions);
-                        poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
+                        poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj); //TODO: Esto no furula
 
                     } else {
                         alert("Maximum number of waypoints reached");
                     }
                 }
-
             });
+
             $scope.directionLayer = true;
         }
     };

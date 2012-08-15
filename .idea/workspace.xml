@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index_alternativo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scriptsAux.js" afterPath="$PROJECT_DIR$/js/scriptsAux.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services.js" afterPath="$PROJECT_DIR$/js/services.js" />
@@ -38,20 +36,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="41" selection-start="5194" selection-end="5194" vertical-scroll-proportion="0.0">
+            <state line="28" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.41860464">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#815#957#0" expanded="false" />
-                <element signature="e#1712#1853#0" expanded="false" />
-                <element signature="e#2045#2189#0" expanded="false" />
-                <element signature="e#2372#2805#0" expanded="false" />
-                <element signature="e#2848#3284#0" expanded="false" />
-                <element signature="e#3329#3777#0" expanded="false" />
-                <element signature="e#3898#3944#0" expanded="false" />
-                <element signature="e#3985#4031#0" expanded="false" />
+                <element signature="e#812#954#0" expanded="false" />
+                <element signature="e#1026#1564#0" expanded="false" />
+                <element signature="e#1708#1849#0" expanded="false" />
+                <element signature="e#1890#2327#0" expanded="false" />
+                <element signature="e#2041#2185#0" expanded="false" />
+                <element signature="e#2368#2801#0" expanded="false" />
+                <element signature="e#2844#3280#0" expanded="false" />
+                <element signature="e#3325#3773#0" expanded="false" />
+                <element signature="e#3894#3940#0" expanded="false" />
+                <element signature="e#3981#4027#0" expanded="false" />
+                <element signature="e#4065#6316#0" expanded="false" />
+                <element signature="e#6353#7640#0" expanded="false" />
+                <element signature="e#7678#7762#0" expanded="false" />
+                <element signature="e#7800#7853#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -60,8 +64,11 @@
       <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="0" selection-start="4188" selection-end="4188" vertical-scroll-proportion="0.0">
+            <state line="5" column="19" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
               <folding>
+                <element signature="e#354#466#0" expanded="false" />
+                <element signature="e#595#715#0" expanded="false" />
+                <element signature="e#642#711#0" expanded="false" />
                 <element signature="e#848#1861#0" expanded="false" />
                 <element signature="e#920#1659#0" expanded="false" />
                 <element signature="e#1914#3006#0" expanded="false" />
@@ -69,51 +76,45 @@
                 <element signature="e#3058#4186#0" expanded="false" />
                 <element signature="e#3129#3986#0" expanded="false" />
                 <element signature="e#4241#5363#0" expanded="false" />
-                <element signature="e#4315#5157#0" expanded="false" />
+                <element signature="e#5413#5472#0" expanded="false" />
+                <element signature="e#5541#5951#0" expanded="false" />
+                <element signature="e#6107#6170#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scriptsAux.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="scriptsAux.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/scriptsAux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="13" selection-start="7174" selection-end="7174" vertical-scroll-proportion="0.45335084">
+            <state line="20" column="24" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#1279#2307#0" expanded="false" />
-                <element signature="e#2483#2567#0" expanded="false" />
-                <element signature="e#2661#2906#0" expanded="false" />
-                <element signature="e#2964#3669#0" expanded="false" />
-                <element signature="e#3729#3897#0" expanded="false" />
-                <element signature="e#3963#4174#0" expanded="false" />
-                <element signature="e#4250#4485#0" expanded="false" />
-                <element signature="e#4538#4681#0" expanded="false" />
-                <element signature="e#4735#4797#0" expanded="false" />
-                <element signature="e#5492#5728#0" expanded="false" />
-                <element signature="e#5781#6294#0" expanded="false" />
-                <element signature="e#6348#6462#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scriptAuxOLD.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/scriptAuxOLD.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="329" column="0" selection-start="9054" selection-end="9290" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1133#2457#0" expanded="false" />
-                <element signature="e#2503#3322#0" expanded="false" />
-                <element signature="e#3341#3697#0" expanded="false" />
-                <element signature="e#3782#4022#0" expanded="false" />
-                <element signature="e#4050#4139#0" expanded="false" />
-                <element signature="e#4211#4371#0" expanded="false" />
-                <element signature="e#4401#4488#0" expanded="false" />
-                <element signature="e#4615#4775#0" expanded="false" />
-                <element signature="e#4804#4891#0" expanded="false" />
-                <element signature="e#5021#5181#0" expanded="false" />
-                <element signature="e#5211#5549#0" expanded="false" />
-                <element signature="e#5581#5644#0" expanded="false" />
+                <element signature="e#65#477#0" expanded="false" />
+                <element signature="e#92#340#0" expanded="false" />
+                <element signature="e#577#665#0" expanded="false" />
+                <element signature="e#814#2375#0" expanded="false" />
+                <element signature="e#1268#2296#0" expanded="false" />
+                <element signature="e#2472#2556#0" expanded="false" />
+                <element signature="e#2650#2895#0" expanded="false" />
+                <element signature="e#2953#3658#0" expanded="false" />
+                <element signature="e#3718#3886#0" expanded="false" />
+                <element signature="e#3952#4163#0" expanded="false" />
+                <element signature="e#4239#4474#0" expanded="false" />
+                <element signature="e#4527#4670#0" expanded="false" />
+                <element signature="e#4724#4786#0" expanded="false" />
+                <element signature="e#4859#5094#0" expanded="false" />
+                <element signature="e#5147#5290#0" expanded="false" />
+                <element signature="e#5344#5407#0" expanded="false" />
+                <element signature="e#5481#5717#0" expanded="false" />
+                <element signature="e#5770#6283#0" expanded="false" />
+                <element signature="e#6337#6451#0" expanded="false" />
+                <element signature="e#6532#6983#0" expanded="false" />
+                <element signature="e#7042#7255#0" expanded="false" />
+                <element signature="e#7325#7704#0" expanded="false" />
+                <element signature="e#8426#9016#0" expanded="false" />
+                <element signature="e#9057#9634#0" expanded="false" />
+                <element signature="e#9701#10567#0" expanded="false" />
+                <element signature="e#10685#11685#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -154,8 +155,8 @@
         <option value="$PROJECT_DIR$/dataModels/gasolineras.json" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/services.js" />
-        <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/js/scriptsAux.js" />
+        <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -195,13 +196,13 @@
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
-      <showMembers />
+      <showMembers ProjectPane="true" />
       <showModules />
       <showLibraryContents ProjectPane="true" />
       <hideEmptyPackages />
       <abbreviatePackageNames />
       <autoscrollToSource />
-      <autoscrollFromSource />
+      <autoscrollFromSource ProjectPane="true" />
       <sortByType />
     </navigator>
     <panes>
@@ -393,10 +394,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28339577" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16978776" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15102328" sideWeight="0.36329588" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15384616" sideWeight="0.0" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19195484" sideWeight="0.6716604" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19195484" sideWeight="0.3196005" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45440495" sideWeight="0.96586347" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19195484" sideWeight="0.6679151" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -480,11 +481,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="http://structurals.sov.pre.corp/SVG_Servicing_ENS/BtoChannelDriver.ssobto?dse_operationName=CINTRA_OPHome&amp;dse_threadId=4&amp;dse_parentContextName=&amp;dse_processorState=initial&amp;dse_nextEventName=start&amp;in.nomAg=DESKTOP-SERVICING&amp;paramCC.language=F">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="http://structurals.sov.pre.corp/SVG_Servicing_ENS/BtoChannelDriver.ssobto?dse_operationName=CINTRA_OPMenu&amp;dse_threadId=12&amp;dse_parentContextName=&amp;dse_processorState=initial&amp;dse_nextEventName=start&amp;OPMenu.nombresAgregadores.0.nom=INTRAPRIVSOV-SERVICING&amp;OPMenu.nombresAgregadores.0.tAg=IAN-C-PORTAL&amp;OPMenu.mostrarBuscador=N&amp;OPMenu.mostrarAccountArea=S&amp;OPMenu.nombreFormatoPorDefecto=UNDEFINED&amp;OPMenu.hayQueUsarFormatoPorDefecto=S&amp;OPMenu.idioma=F&amp;OPMenu.imagenCorp=N&amp;OPMenu.literalhome=In�cio&amp;OPMenu.tiposAgregadores.portal=IAN-C-PORTAL&amp;OPMenu.tiposAgregadores.menu=IAN1-SOV-SP&amp;OPMenu.tiposAgregadores.buscador=&amp;OPMenu.tiposAgregadores.buscadorAvanzado=&amp;OPMenu.tiposAgregadores.logoPortal=IAN-C-LOGO&amp;OPMenu.tiposAgregadores.urlInicio=IAN-C-INICIO&amp;OPMenu.tiposAgregadores.opAreaCuenta=IAN-C-ACCOUNT&amp;OPMenu.tiposAgregadores.opComposicion=IAN-C-COMPOSI&amp;OPMenu.datosAccountArea.cuenta=&amp;OPMenu.datosAccountArea.tipoCuenta=&amp;OPMenu.datosAccountArea.seleccion=">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
@@ -537,9 +533,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="0" selection-start="5729" selection-end="5729" vertical-scroll-proportion="-17.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/scriptAuxOLD.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="329" column="0" selection-start="9054" selection-end="9290" vertical-scroll-proportion="0.0">
+        <state line="329" column="0" selection-start="9054" selection-end="9290" vertical-scroll-proportion="2.2790697">
           <folding>
             <element signature="e#1133#2457#0" expanded="false" />
             <element signature="e#2503#3322#0" expanded="false" />
@@ -557,34 +560,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="5729" selection-end="5729" vertical-scroll-proportion="-17.5">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+    <entry file="file://$PROJECT_DIR$/js/scriptsAux.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="41" selection-start="5194" selection-end="5194" vertical-scroll-proportion="0.0">
+        <state line="20" column="24" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#815#957#0" expanded="false" />
-            <element signature="e#1712#1853#0" expanded="false" />
-            <element signature="e#2045#2189#0" expanded="false" />
-            <element signature="e#2372#2805#0" expanded="false" />
-            <element signature="e#2848#3284#0" expanded="false" />
-            <element signature="e#3329#3777#0" expanded="false" />
-            <element signature="e#3898#3944#0" expanded="false" />
-            <element signature="e#3985#4031#0" expanded="false" />
+            <element signature="e#65#477#0" expanded="false" />
+            <element signature="e#92#340#0" expanded="false" />
+            <element signature="e#577#665#0" expanded="false" />
+            <element signature="e#814#2375#0" expanded="false" />
+            <element signature="e#1268#2296#0" expanded="false" />
+            <element signature="e#2472#2556#0" expanded="false" />
+            <element signature="e#2650#2895#0" expanded="false" />
+            <element signature="e#2953#3658#0" expanded="false" />
+            <element signature="e#3718#3886#0" expanded="false" />
+            <element signature="e#3952#4163#0" expanded="false" />
+            <element signature="e#4239#4474#0" expanded="false" />
+            <element signature="e#4527#4670#0" expanded="false" />
+            <element signature="e#4724#4786#0" expanded="false" />
+            <element signature="e#4859#5094#0" expanded="false" />
+            <element signature="e#5147#5290#0" expanded="false" />
+            <element signature="e#5344#5407#0" expanded="false" />
+            <element signature="e#5481#5717#0" expanded="false" />
+            <element signature="e#5770#6283#0" expanded="false" />
+            <element signature="e#6337#6451#0" expanded="false" />
+            <element signature="e#6532#6983#0" expanded="false" />
+            <element signature="e#7042#7255#0" expanded="false" />
+            <element signature="e#7325#7704#0" expanded="false" />
+            <element signature="e#8426#9016#0" expanded="false" />
+            <element signature="e#9057#9634#0" expanded="false" />
+            <element signature="e#9701#10567#0" expanded="false" />
+            <element signature="e#10685#11685#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="0" selection-start="4188" selection-end="4188" vertical-scroll-proportion="0.0">
+        <state line="5" column="19" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
           <folding>
+            <element signature="e#354#466#0" expanded="false" />
+            <element signature="e#595#715#0" expanded="false" />
+            <element signature="e#642#711#0" expanded="false" />
             <element signature="e#848#1861#0" expanded="false" />
             <element signature="e#920#1659#0" expanded="false" />
             <element signature="e#1914#3006#0" expanded="false" />
@@ -592,27 +615,32 @@
             <element signature="e#3058#4186#0" expanded="false" />
             <element signature="e#3129#3986#0" expanded="false" />
             <element signature="e#4241#5363#0" expanded="false" />
-            <element signature="e#4315#5157#0" expanded="false" />
+            <element signature="e#5413#5472#0" expanded="false" />
+            <element signature="e#5541#5951#0" expanded="false" />
+            <element signature="e#6107#6170#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/scriptsAux.js">
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="13" selection-start="7174" selection-end="7174" vertical-scroll-proportion="0.45335084">
+        <state line="28" column="0" selection-start="717" selection-end="717" vertical-scroll-proportion="0.41860464">
           <folding>
-            <element signature="e#1279#2307#0" expanded="false" />
-            <element signature="e#2483#2567#0" expanded="false" />
-            <element signature="e#2661#2906#0" expanded="false" />
-            <element signature="e#2964#3669#0" expanded="false" />
-            <element signature="e#3729#3897#0" expanded="false" />
-            <element signature="e#3963#4174#0" expanded="false" />
-            <element signature="e#4250#4485#0" expanded="false" />
-            <element signature="e#4538#4681#0" expanded="false" />
-            <element signature="e#4735#4797#0" expanded="false" />
-            <element signature="e#5492#5728#0" expanded="false" />
-            <element signature="e#5781#6294#0" expanded="false" />
-            <element signature="e#6348#6462#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#812#954#0" expanded="false" />
+            <element signature="e#1026#1564#0" expanded="false" />
+            <element signature="e#1708#1849#0" expanded="false" />
+            <element signature="e#1890#2327#0" expanded="false" />
+            <element signature="e#2041#2185#0" expanded="false" />
+            <element signature="e#2368#2801#0" expanded="false" />
+            <element signature="e#2844#3280#0" expanded="false" />
+            <element signature="e#3325#3773#0" expanded="false" />
+            <element signature="e#3894#3940#0" expanded="false" />
+            <element signature="e#3981#4027#0" expanded="false" />
+            <element signature="e#4065#6316#0" expanded="false" />
+            <element signature="e#6353#7640#0" expanded="false" />
+            <element signature="e#7678#7762#0" expanded="false" />
+            <element signature="e#7800#7853#0" expanded="false" />
           </folding>
         </state>
       </provider>
