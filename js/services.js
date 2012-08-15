@@ -32,7 +32,29 @@ module.factory('poiServiceCreator',function (){
             var poisCamera = new Array();
             var myOptions = {
                 gridSize: 50,
-                maxZoom: 12
+                maxZoom: 12,
+                styles: [{
+                url: 'img/camaras_green.png',
+                height: 32,
+                width: 32,
+                anchor: [8,0],
+                textColor: '#000',
+                textSize: 11
+            }, {
+                url: 'img/camaras_yellow.png',
+                height: 42,
+                width: 42,
+                anchor: [14,0],
+                textColor: '#000',
+                textSize: 12
+            }, {
+                url: 'img/camaras_red.png',
+                height: 52,
+                width: 52,
+                anchor: [20,0],
+                textColor: '#000',
+                textSize: 13
+            }]
             };
             for (dato in data){
                 poisCamera.push(markerCreator(data[dato],objMap));
@@ -44,7 +66,29 @@ module.factory('poiServiceCreator',function (){
             var poisPanels = new Array();
             var myOptions = {
                 gridSize: 75,
-                maxZoom: 13
+                maxZoom: 13,
+                styles: [{
+                    url: 'img/panel_green.png',
+                    height: 32,
+                    width: 32,
+                    anchor: [8,0],
+                    textColor: '#000',
+                    textSize: 11
+                }, {
+                    url: 'img/panel_yellow.png',
+                    height: 42,
+                    width: 42,
+                    anchor: [12,0],
+                    textColor: '#000',
+                    textSize: 12
+                }, {
+                    url: 'img/panel_red.png',
+                    height: 52,
+                    width: 52,
+                    anchor: [17,0],
+                    textColor: '#000',
+                    textSize: 13
+                }]
             };
 
             for (dato in data){
@@ -57,7 +101,29 @@ module.factory('poiServiceCreator',function (){
             var poisMeteo = new Array();
             var myOptions = {
                 gridSize: 100,
-                maxZoom: 14
+                maxZoom: 14,
+                styles: [{
+                    url: 'img/sensorMetorologico_green.png',
+                    height: 32,
+                    width: 32,
+                    anchor: [8,0],
+                    textColor: '#000',
+                    textSize: 11
+                }, {
+                    url: 'img/sensorMetorologico_yellow.png',
+                    height: 42,
+                    width: 42,
+                    anchor: [14,0],
+                    textColor: '#000',
+                    textSize: 12
+                }, {
+                    url: 'img/sensorMetorologico_red.png',
+                    height: 52,
+                    width: 52,
+                    anchor: [20,0],
+                    textColor: '#000',
+                    textSize: 13
+                }]
             };
 
             for (dato in data){
@@ -69,7 +135,29 @@ module.factory('poiServiceCreator',function (){
             var poisSensores = new Array();
             var myOptions = {
                 gridSize: 100,
-                maxZoom: 14
+                maxZoom: 14,
+                styles: [{
+                    url: 'img/sensorTrafico_green.png',
+                    height: 32,
+                    width: 32,
+                    anchor: [8,0],
+                    textColor: '#000',
+                    textSize: 11
+                }, {
+                    url: 'img/sensorTrafico_yellow.png',
+                    height: 42,
+                    width: 42,
+                    anchor: [14,0],
+                    textColor: '#000',
+                    textSize: 12
+                }, {
+                    url: 'img/sensorTrafico_red.png',
+                    height: 52,
+                    width: 52,
+                    anchor: [20,0],
+                    textColor: '#000',
+                    textSize: 13
+                }]
             };
 
             for (dato in data){

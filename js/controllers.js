@@ -8,12 +8,12 @@ module = angular.module ('trafic_app.controllers',[]);
 module.controller('traficCtrl', function ($scope, mapServiceProvider,dataServiceProvider,poiServiceCreator) {
 
     // initialization of model-view bindings
-    $scope.fltr_camaras = true;
-    $scope.fltr_paneles = true;
-    $scope.fltr_estMeteorologia = true;
-    $scope.fltr_sensorTrafico = true;
-    $scope.fltr_meteo = true;
-    $scope.fltr_trafico = true;
+    $scope.fltr_camaras = false;
+    $scope.fltr_paneles = false;
+    $scope.fltr_estMeteorologia = false;
+    $scope.fltr_sensorTrafico = false;
+    $scope.fltr_meteo = false;
+    $scope.fltr_trafico = false;
 
 
     $scope.datos;
@@ -53,8 +53,6 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         $scope.panelesToogle();
         $scope.estMeteoToogle();
         $scope.sensoresToogle();
-        $scope.meteoToggle();
-        $scope.trafficToogle();
     };
 
     $scope.camarasToogle = function (){

@@ -259,7 +259,7 @@ icoResolutor = function (type) {
             ico ='http://maps.google.com/mapfiles/marker' + String.fromCharCode(markers.length + 65) + '.png';
             break;
         case ('Camara'):
-            ico = 'img/Camara.png';
+            ico = 'img/camaras.png';
             break;
         case ('SensorMeteorologico'):
             ico ='img/sensorMetorologico.png';
