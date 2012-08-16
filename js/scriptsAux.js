@@ -2,7 +2,9 @@ markerObject = (function (){
     function markerObject (options) {
 
         var myOptions = {
-            position: new google.maps.LatLng(options.lat,options.lng),
+            position: options.position,
+            lat:options.lat,
+            lng:options.lng,
             draggable: options.draggable,
             map: options.objMap.mapInstance,
             icon: icoResolutor(options.icon),
@@ -10,7 +12,6 @@ markerObject = (function (){
         };
 
         this.markerInstance = new google.maps.Marker(myOptions);
-        console.log('this.markerInstance',this.markerInstance);
     }
 
     //For register the events
@@ -32,6 +33,7 @@ mapObject = (function() {
         this.theZoom = 9;            // First Zoom
 
         this.theMap = document.getElementById('map_canvas');
+        this.theDirectionsPanel = document.getElementById('directionsPanel');
 
         this.positionTracking = false;
         this.trafficLayer = false;
@@ -68,6 +70,11 @@ mapObject = (function() {
         }
 
         this.mapInstance = new google.maps.Map(this.theMap,myOptions);
+
+        //TODO: Revisarse el tema de los this y var en el global del objeto , ponerle coherencia XDD!!
+        //For directions Service
+        var directionsLayerInstance;
+        var directionsServiceInstance = new google.maps.DirectionsService();
 
     }
 
@@ -186,32 +193,27 @@ mapObject = (function() {
     }
 
     //Directions layer
+    //TODO: Implement Undo feature.
     mapObject.prototype.addDirectionsLayer = function (){
-        this.directionDisplay = document.getElementById('directionsPanel');
-        this.directionsLayer = new google.maps.DirectionsRenderer({
-            map: this.mapInstance,
+        directionsServiceInstance = new google.maps.DirectionsService()
+        directionsLayerInstance = new google.maps.DirectionsRenderer({
             preserveViewport: true,
+            map:this.mapInstance,
             draggable: true
         });
-
-        this.directionsLayer.setMap(this.mapInstance);
-        this.directionsLayer.setPanel(this.directionDisplay);
-
-        this.directionsService = new google.maps.DirectionsService();
+        directionsLayerInstance.setPanel(this.theDirectionsPanel);
     };
     mapObject.prototype.clearDirectionsLayer = function(){
-        this.directionsLayer.setMap(null);
-        this.directionsLayer.setPanel(null);
+        directionsLayerInstance.setMap(null);
+        directionsLayerInstance.setPanel(null);
 
-        this.directionsLayer.setMap(this.mapInstance);
-        this.directionsLayer.setPanel(this.directionDisplay);
+        directionsLayerInstance.setMap(this.mapInstance);
+        directionsLayerInstance.setPanel(this.theDirectionsPanel);
     };
     mapObject.prototype.calculateDirectionsLayer = function(request){
-        console.log('calculateDirectionsLayer --> request',request);
-        this.directionsService.route(request, function(response, status) {
+        directionsServiceInstance.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
-                this.directionsLayer.setDirections(response);
-                console.log('calculateDirectionsLayer --> response',response);
+                directionsLayerInstance.setDirections(response);
             }
         });
     };

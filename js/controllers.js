@@ -69,7 +69,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                 return data;
             });
         }else{
-            try { $scope.camerasCluster.clearMarkers();}catch(e){console.log('No cameras initialized true')}
+            try { $scope.camerasCluster.clearMarkers();}catch(e){}
         }
     };
 
@@ -81,7 +81,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                 return data;
             });
         }else{
-            try { $scope.panelsCluster.clearMarkers();}catch(e){console.log('No panels initialized true')}
+            try { $scope.panelsCluster.clearMarkers();}catch(e){}
         }
     };
 
@@ -93,7 +93,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                 return data;
             });
         }else{
-            try { $scope.meteoCluster.clearMarkers();}catch(e){console.log('No panels initialized true')}
+            try { $scope.meteoCluster.clearMarkers();}catch(e){}
         }
     };
 
@@ -105,7 +105,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                 return data;
             });
         }else{
-            try { $scope.sensoresCluster.clearMarkers();}catch(e){console.log('No sensors initialized true')}
+            try { $scope.sensoresCluster.clearMarkers();}catch(e){}
 
         }
     };
@@ -126,20 +126,20 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 
             $scope.mapObj.addDirectionsLayer();
 
-            console.log('$scope.mapObj.addDirectionsLayer()');
-
             $scope.mapObj.registerMapEvent('click',function(event){
 
                 if ($scope.origin == null) {
                     $scope.origin = event.latLng;
                     originOptions = {
                         position:$scope.origin,
+                        lat:$scope.origin.lat,
+                        lng:$scope.origin.lng,
                         draggable: false,
                         tipo:  'Marker',
                         title: 'origen'
                     };
-                    poiServiceCreator.createGenericPoi(originOptions,$scope.mapObj); //TODO: Esto no furula
-                    console.log('originOptions',originOptions);
+
+                    poiServiceCreator.createGenericPoi(originOptions,$scope.mapObj);
                 } else if ($scope.destination == null) {
                     $scope.destination = event.latLng;
                     destinationOptions = {
@@ -148,8 +148,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                         tipo:  'Marker',
                         title: 'destino 1'
                     };
-                    console.log('destinationOptions',destinationOptions);
-                    poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj); //TODO: Esto no furula
+                    poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
 
                 } else {
                     if ($scope.waypoints.length <= 5) {
@@ -161,8 +160,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                             tipo:  'Marker',
                             title: 'destino'+ $scope.waypoints.length
                         };
-                        console.log('destinationOptions',destinationOptions);
-                        poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj); //TODO: Esto no furula
+                        poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
 
                     } else {
                         alert("Maximum number of waypoints reached");
