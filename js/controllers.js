@@ -7,26 +7,41 @@ module = angular.module ('trafic_app.controllers',[]);
 
 module.controller('traficCtrl', function ($scope, mapServiceProvider,dataServiceProvider,poiServiceCreator) {
 
-    // initialization of model-view bindings
+// --------- initialization of model-view bindings  --------- \\
+
+    //filter for info filters & google layers
     $scope.fltr_camaras = false;
     $scope.fltr_paneles = false;
     $scope.fltr_estMeteorologia = false;
     $scope.fltr_sensorTrafico = false;
     $scope.fltr_meteo = false;
     $scope.fltr_trafico = false;
+
+    //filter for route planning form
     $scope.route_mode='driving';
     $scope.route_highways=true;
     $scope.route_tolls=true;
     $scope.route_optimize=true;
 
+    //the dataset
     $scope.datos;
 
     // map object
     $scope.mapObj = null;
 
-    //direction layers
+    //direction layer
     $scope.directionLayer = false;
     $scope.waypoints=[];
+    $scope.origin = null;
+    $scope.destination = null;
+
+    //Marker clusters
+    $scope.camerasCluster;
+    $scope.panelsCluster;
+    $scope.meteoCluster;
+    $scope.sensoresCluster;
+    $scope.wayPointsCluster=[];
+
 
     // Main function in ng-init
     $scope.BeganToBegin = function (){
@@ -39,6 +54,8 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 
     // Control the creation of map
     $scope.createMap = function() {
+
+        //calling the servce for create a map to display the datasets
         $scope.mapObj = mapServiceProvider;
 
         // Setting map event control for zoom changes
@@ -52,8 +69,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         });
     };
 
-    // Load DGT service response to the trafic controller model
-    //TODO: meter a fltr_meteo y fltr_camera
+    // Firts time load data
     $scope.initData = function(){
         $scope.camarasToogle();
         $scope.panelesToogle();
@@ -61,119 +77,151 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         $scope.sensTrafficToogle();
     };
 
+// --------- Controls for info --------- \\
+    // Cameras control
     $scope.camarasToogle = function (){
         if($scope.fltr_camaras){
-            var file = '__camaras';
+
+            var file = '__camaras';//file name for data load
+
+            //calling the service for data load , the only parameter is the name of the file with the JSON data
             $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+
+                //calling the marker service creator to create a especific cluster for this kind of element
                 $scope.camerasCluster = poiServiceCreator.createCamerasCluster(data,$scope.mapObj);
                 return data;
             });
         }else{
-            try { $scope.camerasCluster.clearMarkers();}catch(e){}
+            try { $scope.camerasCluster.clearMarkers();}catch(e){} //clearMarkers is a method of MarkerCluster
         }
     };
 
+    // Panels control
     $scope.panelesToogle = function (){
         if($scope.fltr_paneles){
-            var file = '__paneles';
+
+            var file = '__paneles';//file name for data load
+
+            //calling the service for data load , the only parameter is the name of the file with the JSON data
             $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+
+                //calling the marker service creator to create a especific cluster for this kind of element
                 $scope.panelsCluster = poiServiceCreator.createPanelsCluster(data,$scope.mapObj);
                 return data;
             });
         }else{
-            try { $scope.panelsCluster.clearMarkers();}catch(e){}
+            try { $scope.panelsCluster.clearMarkers();}catch(e){} //clearMarkers is a method of MarkerCluster
         }
     };
 
+    // Meteo sensor control
     $scope.sensMeteoToogle = function (){
         if($scope.fltr_estMeteorologia){
-            var file = '__meteo';
+
+            var file = '__meteo'; //file name for data load
+
+            //calling the service for data load , the only parameter is the name of the file with the JSON data
             $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+
+                //calling the marker service creator to create a especific cluster for this kind of element
                 $scope.meteoCluster = poiServiceCreator.createMeteoCluster(data,$scope.mapObj);
                 return data;
             });
         }else{
-            try { $scope.meteoCluster.clearMarkers();}catch(e){}
+            try { $scope.meteoCluster.clearMarkers();}catch(e){} //clearMarkers is a method of MarkerCluster
         }
     };
 
+    // Traffic sensors control
     $scope.sensTrafficToogle = function (){
         if($scope.fltr_sensorTrafico){
-            var file = '__sensores';
+
+            var file = '__sensores'; //file name for data load
+
+            //calling the service for data load , the only parameter is the name of the file with the JSON data
             $scope.datos= dataServiceProvider.query({file:file} ,function(data) {
+
+
+                //calling the marker service creator to create a especific cluster for this kind of element
                 $scope.sensoresCluster = poiServiceCreator.createSensoresCluster(data,$scope.mapObj);
                 return data;
             });
         }else{
-            try { $scope.sensoresCluster.clearMarkers();}catch(e){}
+            try { $scope.sensoresCluster.clearMarkers();}catch(e){} //clearMarkers is a method of MarkerCluster
 
         }
     };
 
-    //TODO: meter a fltr_meteo y fltr_camera, no esta metido en binding del model
+    // Weather [google layer]
     $scope.meteoToggle = function (){
         $scope.mapObj.weatherToogle();
     };
 
+    // Traffic density [google layer]
     $scope.trafficToogle = function (){
         $scope.mapObj.trafficToogle();
     };
 
+// --------- Controls for route planning --------- \\
+    // Init the direction routine and register click event to creater the route marks (waypoints)
     $scope.createRoute = function(){
         var originOptions,destinationOptions;
 
         if (!$scope.directionLayer){
 
+            //calling the method to create the directions layer and directions service
             $scope.mapObj.addDirectionsLayer();
 
+            //register click event
             $scope.mapObj.registerMapEvent('click',function(event){
-
+                // the first mark, the origin
                 if ($scope.origin == null) {
-                    $scope.origin = event.latLng;
+                    $scope.origin = event.latLng; // position for marker
                     originOptions = {
                         position:$scope.origin,
-                        lat:$scope.origin.lat,
-                        lng:$scope.origin.lng,
                         draggable: false,
-                        tipo:  'Marker',
+                        tipo:  'Origin',
                         title: 'origen'
                     };
-
-                    poiServiceCreator.createGenericPoi(originOptions,$scope.mapObj);
+                    $scope.wayPointsCluster.push(poiServiceCreator.createGenericPoi(originOptions,$scope.mapObj)); //calling the marker service to create a origin mark
                 } else if ($scope.destination == null) {
-                    $scope.destination = event.latLng;
+                    // the second mark, destination
+                    $scope.destination = event.latLng; // position for marker
                     destinationOptions = {
                         position:$scope.destination,
                         draggable: false,
-                        tipo:  'Marker',
+                        tipo:  'Destination',
                         title: 'destino 1'
                     };
-                    poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
-
+                    $scope.wayPointsCluster.push(poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj)); //calling the marker service to create a destination mark
                 } else {
-                    if ($scope.waypoints.length <= 5) {
-                        $scope.waypoints.push({ location: $scope.destination, stopover: true });
-                        $scope.destination = event.latLng;
+                    //the limit of 9 is a google limit for the service
+                    if ($scope.waypoints.length <= 9) {
+                        $scope.waypoints.push({ location: $scope.destination, stopover: true });// the others marks to waypoints
+                        $scope.destination = event.latLng; // position for marker
                         destinationOptions = {
                             position:$scope.destination,
                             draggable: false,
-                            tipo:  'Marker',
+                            tipo:  'Destination',
                             title: 'destino'+ $scope.waypoints.length
                         };
-                        poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj);
-
+                        $scope.wayPointsCluster.push(poiServiceCreator.createGenericPoi(destinationOptions,$scope.mapObj)); //calling the marker service to create a destination mark
                     } else {
                         alert("Maximum number of waypoints reached");
                     }
                 }
             });
 
+            //The direction layer is created , now we can create a waypoints, calculate, update , reset or undo
             $scope.directionLayer = true;
         }
     };
 
+    // Trigger the calculate process getting all the mandatory params needed for the request
     $scope.calcRoute = function() {
         if($scope.directionLayer){
+
+            //Without origin or any destination is not possible calculate no route.
             if ($scope.origin == null) {
                 alert("Click on the map to add a start point");
                 return;
@@ -196,6 +244,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                     break;
             }
 
+            //the request options, first 3 thru createRoute the rest with route planning form
             var request = {
                 origin: $scope.origin,
                 destination: $scope.destination,
@@ -206,18 +255,28 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
                 avoidTolls: $scope.route_tolls
             };
 
+            //Calling directly to the method of the map object
             $scope.mapObj.calculateDirectionsLayer(request);
 
-            //$scope.mapObj.clearMarkers();
+            //Needed to remove the temporal markers created by the user in the route
+            $scope.removeTemporalMarkers();
         }
     };
 
+    $scope.removeTemporalMarkers = function(){
+        for (var i = 0; i < $scope.wayPointsCluster.length; i++) {
+            $scope.wayPointsCluster[i].setMap(null);
+        }
+    };
+
+    //Recall the calcRoute routine
     $scope.updateRoute = function(){
         if($scope.directionLayer){
             $scope.calcRoute();
         }
     };
 
+    //Call directly the method of the map object for remove all waypoints and indications
     $scope.resetRoute = function() {
         $scope.mapObj.clearDirectionsLayer();
     };

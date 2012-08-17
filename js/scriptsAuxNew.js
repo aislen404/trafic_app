@@ -1,5 +1,3 @@
-//TODO: Solucionar el tema the los this. y var dentro del constructor del objeto y en sus metodos y propiedades heredadas. UNIFICACION.
-
 //The Marks
 markerObject = (function (){
     function markerObject (options) {
@@ -36,14 +34,10 @@ mapObject = (function() {
         var theLong = -3.691944;    // Madrid City Center Longitude
         this.theZoom = 9;            // First Zoom
 
-        this.theMap = document.getElementById('map_canvas');
-        this.theDirectionsPanel = document.getElementById('directionsPanel');
+        this.theMap = document.getElementById('map_canvas');                    //map div id
+        this.theDirectionsPanel = document.getElementById('directionsPanel');   //directions div id
 
         this.positionTracking = false;
-        this.trafficLayer = false;
-        this.transitLayer = false;
-        this.weatherLayer = false;
-        this.mapInstance = null;
 
         var myOptions = {
            zoom: this.theZoom,
@@ -73,18 +67,33 @@ mapObject = (function() {
             }
         }
 
+        //the instance of the map
         this.mapInstance = new google.maps.Map(this.theMap,myOptions);
 
-        //For directions Service
-        var directionsLayerInstance;
-        var directionsServiceInstance = new google.maps.DirectionsService();
+        //For traffic density service
+        this.trafficLayer = false;
+        this.trafficLayerInstance  = new google.maps.TrafficLayer();
 
+        //For public transport service
+        this.transitLayer = false;
+        this.transitLayerInstance = new google.maps.TransitLayer();
+
+        //For weather service
+        this.weatherLayer = false;
+        this.weatherLayerInstance = new google.maps.weather.WeatherLayer({
+            temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
+            windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
+        });
+
+        //For directions service
+        var directionsLayerInstance;
+        this.directionsServiceInstance = new google.maps.DirectionsService();
     }
 
     //For register the events
     mapObject.prototype.registerMapEvent = function (ev,callBack){
         return google.maps.event.addListener(this.mapInstance, ev,callBack);
-    }
+    };
 
     // Geolocation and Tracking position
     mapObject.prototype.positionTrack = function() {
@@ -140,15 +149,13 @@ mapObject = (function() {
             this.trafficLayer = false;
             return this.trafficLayerOff();
         }
-    }
+    };
     mapObject.prototype.trafficLayerOn = function (){
-        this.trafficLayerInstance = new google.maps.TrafficLayer();
         return this.trafficLayerInstance.setMap(this.mapInstance);
-
-    }
+    };
     mapObject.prototype.trafficLayerOff = function (){
         return this.trafficLayerInstance.setMap(null);
-    }
+    };
 
     //Transit layer
     mapObject.prototype.transitToogle = function (){
@@ -159,14 +166,13 @@ mapObject = (function() {
             this.transitLayer = false;
             return this.transitLayerOff();
         }
-    }
+    };
     mapObject.prototype.transitLayerOn = function (){
-        this.transitLayerInstance = new google.maps.TransitLayer();
         return  this.transitLayerInstance.setMap(this.mapInstance);
-    }
+    };
     mapObject.prototype.transitLayerOff = function (){
         return  this.transitLayerInstance.setMap(null);
-    }
+    };
 
     //Weather layer
     mapObject.prototype.weatherToogle = function () {
@@ -178,32 +184,29 @@ mapObject = (function() {
             return this.weatherLayerOff();
         }
 
-    }
+    };
     mapObject.prototype.weatherLayerOn = function (){
-        this.weatherLayerInstance = new google.maps.weather.WeatherLayer({
-            temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
-            windSpeedUnits: google.maps.weather.WindSpeedUnit.KILOMETERS_PER_HOUR
-        });
         this.weatherLayerInstance.setMap(this.mapInstance);
 
-        //TODO: en algun momento me dio un undefined y las comente
+        //TODO: Cloud layer?¿
         //this.cloudLayerInstance = new google.maps.weather.CloudLayer();
         //this.cloudLayerInstance.setMap(this.mapInstance);
-    }
+    };
     mapObject.prototype.weatherLayerOff = function (){
         this.weatherLayerInstance.setMap(null);
+
+        //TODO: Cloud layer?¿
         //this.cloudLayerInstance.cloudLayer.setMap(null);
-    }
+    };
 
     //Directions layer
     //TODO: Implement Undo feature.
     mapObject.prototype.addDirectionsLayer = function (){
-        directionsServiceInstance = new google.maps.DirectionsService()
         directionsLayerInstance = new google.maps.DirectionsRenderer({
             preserveViewport: true,
-            map:this.mapInstance,
             draggable: true
         });
+        directionsLayerInstance.setMap(this.mapInstance);
         directionsLayerInstance.setPanel(this.theDirectionsPanel);
     };
     mapObject.prototype.clearDirectionsLayer = function(){
@@ -214,7 +217,7 @@ mapObject = (function() {
         directionsLayerInstance.setPanel(this.theDirectionsPanel);
     };
     mapObject.prototype.calculateDirectionsLayer = function(request){
-        directionsServiceInstance.route(request, function(response, status) {
+        this.directionsServiceInstance.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsLayerInstance.setDirections(response);
             }

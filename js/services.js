@@ -4,32 +4,35 @@
 var module;
 var markerCreator;
 var clusterCreator;
- //TODO: Esto no me mola aqui pero ni un cacho, no puede ser un objeto de mapa global
 
 module = angular.module('trafic_app.services',['ngResource']);
 
-//These service create the map and trigger on the geolocalization.
+// --------- THE MAPS  --------- \\
+//These service create the map and trigger the geolocalization on.
 module.factory('mapServiceProvider', function (){
     var myOptions = {};
-    var mapa = new mapObject (myOptions);
-    mapa.positionTrack();
-    return mapa;
+    var mapa = new mapObject (myOptions);   //mapObject is an interface for google map API
+    mapa.positionTrack();                   //swicht on the geolocalization (if is available)
+    return mapa;                            //returning the google map object
 });
 
-//These service get data for the dgtServices and creates the POIS.
+// --------- THE DATASETS  --------- \\
+//These service only get data for the data sets, is AngularJS 100%
 module.factory('dataServiceProvider', function ($resource){
     return $resource('dataModels/:file', {}, {
         query: {method:'GET', params:{file:''}, isArray:true}
     });
 });
 
-
+// --------- THE POIS  --------- \\
+//These service generate all the POIS and clusters in especifics method for especifics elements
 module.factory('poiServiceCreator',function (){
     var dato;
 
     return {
+        //Camera cluster
         createCamerasCluster: function (data,objMap){
-            var poisCamera = new Array();
+            var poisCamera = new Array(); //array for the markers
             var myOptions = {
                 gridSize: 50,
                 maxZoom: 12,
@@ -55,15 +58,16 @@ module.factory('poiServiceCreator',function (){
                 textColor: '#000',
                 textSize: 13
             }]
-            };
+            }; //especific options for the cluster
             for (dato in data){
-                poisCamera.push(markerCreator(data[dato],objMap));
+                poisCamera.push(markerCreator(data[dato],objMap)); //create and store a new mark every time is a new data available
             }
 
-            return clusterCreator (objMap.mapInstance,poisCamera,myOptions);
+            return clusterCreator (objMap.mapInstance,poisCamera,myOptions); //create a cluster with all the markeres returned and stored
         },
+        //Panel cluster
         createPanelsCluster: function (data,objMap){
-            var poisPanels = new Array();
+            var poisPanels = new Array(); //array for the markers
             var myOptions = {
                 gridSize: 75,
                 maxZoom: 13,
@@ -89,16 +93,17 @@ module.factory('poiServiceCreator',function (){
                     textColor: '#000',
                     textSize: 13
                 }]
-            };
+            }; //especific options for the cluster
 
             for (dato in data){
-                poisPanels.push(markerCreator(data[dato],objMap));
+                poisPanels.push(markerCreator(data[dato],objMap)); //create and store a new mark every time is a new data available
             }
 
-            return clusterCreator (objMap.mapInstance,poisPanels,myOptions);
+            return clusterCreator (objMap.mapInstance,poisPanels,myOptions); //create a cluster with all the markeres returned and stored
         },
+        //Meteo sensors cluster
         createMeteoCluster: function (data,objMap){
-            var poisMeteo = new Array();
+            var poisMeteo = new Array(); //array for the markers
             var myOptions = {
                 gridSize: 100,
                 maxZoom: 14,
@@ -124,15 +129,16 @@ module.factory('poiServiceCreator',function (){
                     textColor: '#000',
                     textSize: 13
                 }]
-            };
+            }; //especific options for the cluster
 
             for (dato in data){
-                poisMeteo.push(markerCreator(data[dato],objMap));
+                poisMeteo.push(markerCreator(data[dato],objMap)); //create and store a new mark every time is a new data available
             }
-            return clusterCreator (objMap.mapInstance,poisMeteo,myOptions);
+            return clusterCreator (objMap.mapInstance,poisMeteo,myOptions); //create a cluster with all the markeres returned and stored
         },
+        //Traffic sensors cluster
         createSensoresCluster: function (data,objMap){
-            var poisSensores = new Array();
+            var poisSensores = new Array(); //array for the markers
             var myOptions = {
                 gridSize: 100,
                 maxZoom: 14,
@@ -158,20 +164,21 @@ module.factory('poiServiceCreator',function (){
                     textColor: '#000',
                     textSize: 13
                 }]
-            };
+            }; //especific options for the cluster
 
             for (dato in data){
-                poisSensores.push(markerCreator(data[dato],objMap));
+                poisSensores.push(markerCreator(data[dato],objMap)); //create and store a new mark every time is a new data available
             }
-            return clusterCreator (objMap.mapInstance,poisSensores,myOptions);
+            return clusterCreator (objMap.mapInstance,poisSensores,myOptions); //create a cluster with all the markeres returned and stored
         },
+        //Only ONE personalized POI per call
         createGenericPoi: function (data,objMap){
             return markerCreator (data,objMap);
         }
     };
 });
 
-
+// --------- THE AUX METHODS  --------- \\
 //Marker creator
 markerCreator = function (dato,objMap){
     var myOptions = {
@@ -182,13 +189,15 @@ markerCreator = function (dato,objMap){
         objMap: objMap,
         icon: dato.tipo,
         title: dato.tipo+" : "+ dato.alias
-    };
-    var markObject = new markerObject (myOptions);
+    };// retriving and matching the especific options for this marker
+    var markObject = new markerObject (myOptions);  //markerObject is an interface for google map API
 
+    //TODO: this will be in the controller NOT in the SERVICE
     markObject.registerMapEvent ('click',function(){
         alert(myOptions.title);
     });
 
+    //TODO: Why .markerInstance?
     return markObject.markerInstance;
 };
 
