@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/scriptsAux.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/scriptsAuxNew.js" afterPath="$PROJECT_DIR$/js/MapsAndMarkers.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index_alternativo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/scriptAuxOLD.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/others/html5slider.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/MapsAndMarkers.js" afterPath="$PROJECT_DIR$/js/MapsAndMarkers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
     </list>
     <ignored path="trafic_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,17 +28,7 @@
     <favorites_list name="trafic_app" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="42" selection-start="8497" selection-end="8497" vertical-scroll-proportion="0.36092266">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -56,22 +49,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/directives.js" />
         <option value="$PROJECT_DIR$/js/mapRoutingDirection.js" />
         <option value="structurals.sov.pre.corp/SVG_Servicing_ENS/Estatico/SVG_Servicing_LP/Html/PortalSVGServicing.html" />
         <option value="$PROJECT_DIR$/../angular-google-maps/public/js/services.js" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/js/ddd.js" />
         <option value="$PROJECT_DIR$/js/ffd.js" />
-        <option value="$PROJECT_DIR$/js/scriptAuxOLD.js" />
         <option value="$PROJECT_DIR$/js/filters.js" />
         <option value="$USER_HOME$/Desktop/gasolineras.pl.html" />
         <option value="$PROJECT_DIR$/dataModels/gasolineras.json" />
         <option value="$PROJECT_DIR$/js/scriptsAux.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/js/scriptsAuxNew.js" />
         <option value="$PROJECT_DIR$/js/services.js" />
+        <option value="$PROJECT_DIR$/js/scriptAuxOLD.js" />
+        <option value="$PROJECT_DIR$/js/controllers.js" />
+        <option value="$PROJECT_DIR$/js/MapsAndMarkers.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -153,30 +146,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trafic_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trafic_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trafic_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trafic_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -196,16 +165,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="149" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="941" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="943" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="941" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="147" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="144" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -305,12 +274,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28339577" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16978776" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.199012" sideWeight="0.5355805" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.199012" sideWeight="0.4556804" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30836454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.199012" sideWeight="0.37203497" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.199012" sideWeight="0.3108614" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17478152" sideWeight="0.96586347" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19195484" sideWeight="0.6679151" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -320,7 +290,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30836454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -421,11 +390,6 @@
         <state line="9" column="35" selection-start="140" selection-end="156" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index_alternativo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="67" selection-start="2229" selection-end="2229" vertical-scroll-proportion="0.3" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -446,64 +410,71 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/MapsAndMarkers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.2956636">
-          <folding>
-            <element signature="e#3383#3467#0" expanded="false" />
-            <element signature="e#3562#3807#0" expanded="false" />
-            <element signature="e#3865#4570#0" expanded="false" />
-            <element signature="e#4630#4798#0" expanded="false" />
-            <element signature="e#4864#5075#0" expanded="false" />
-            <element signature="e#5151#5386#0" expanded="false" />
-            <element signature="e#5440#5514#0" expanded="false" />
-            <element signature="e#5569#5631#0" expanded="false" />
-            <element signature="e#5705#5940#0" expanded="false" />
-            <element signature="e#5994#6069#0" expanded="false" />
-            <element signature="e#6124#6187#0" expanded="false" />
-            <element signature="e#6262#6498#0" expanded="false" />
-            <element signature="e#6552#6784#0" expanded="false" />
-            <element signature="e#6839#6984#0" expanded="false" />
-            <element signature="e#8701#9291#0" expanded="false" />
-            <element signature="e#9332#9909#0" expanded="false" />
-            <element signature="e#10960#12128#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="92" selection-start="191" selection-end="208" vertical-scroll-proportion="0.13797635">
-          <folding>
-            <element signature="e#1367#1976#0" expanded="false" />
-            <element signature="e#3038#3722#0" expanded="false" />
-            <element signature="e#3793#4481#0" expanded="false" />
-            <element signature="e#4557#5257#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="0" selection-start="7563" selection-end="7563" vertical-scroll-proportion="2.0542636">
-          <folding>
-            <element signature="e#2448#3726#0" expanded="false" />
-            <element signature="e#3810#5124#0" expanded="false" />
-            <element signature="e#5213#6521#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/scriptAuxOLD.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="339" column="0" selection-start="9319" selection-end="9404" vertical-scroll-proportion="0.8449612">
+        <state line="313" column="0" selection-start="8545" selection-end="8803" vertical-scroll-proportion="0.011627907">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.4387755">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="42" selection-start="8497" selection-end="8497" vertical-scroll-proportion="0.36092266">
+        <state line="9" column="20" selection-start="407" selection-end="407" vertical-scroll-proportion="0.2755102">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/MapsAndMarkers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="208" column="0" selection-start="7176" selection-end="7176" vertical-scroll-proportion="0.47248578">
+          <folding>
+            <element signature="e#3728#3973#0" expanded="false" />
+            <element signature="e#4031#4736#0" expanded="false" />
+            <element signature="e#4796#4964#0" expanded="false" />
+            <element signature="e#5030#5241#0" expanded="false" />
+            <element signature="e#5317#5552#0" expanded="false" />
+            <element signature="e#5606#5680#0" expanded="false" />
+            <element signature="e#5735#5797#0" expanded="false" />
+            <element signature="e#5871#6106#0" expanded="false" />
+            <element signature="e#6160#6235#0" expanded="false" />
+            <element signature="e#6290#6353#0" expanded="false" />
+            <element signature="e#6428#6664#0" expanded="false" />
+            <element signature="e#6718#6950#0" expanded="false" />
+            <element signature="e#7005#7150#0" expanded="false" />
+            <element signature="e#7232#7511#0" expanded="false" />
+            <element signature="e#7570#7967#0" expanded="false" />
+            <element signature="e#9001#9591#0" expanded="false" />
+            <element signature="e#9632#10209#0" expanded="false" />
+            <element signature="e#10276#11142#0" expanded="false" />
+            <element signature="e#11260#12428#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="288" column="0" selection-start="10820" selection-end="10820" vertical-scroll-proportion="0.8968872">
+          <folding>
+            <element signature="e#8807#8910#0" expanded="false" />
+            <element signature="e#8955#9057#0" expanded="false" />
+            <element signature="e#9093#9525#0" expanded="false" />
+            <element signature="e#9647#9988#0" expanded="false" />
+            <element signature="e#10524#10661#0" expanded="false" />
+            <element signature="e#10734#10818#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="199" column="32" selection-start="7365" selection-end="7365" vertical-scroll-proportion="0.60151803">
           <folding />
         </state>
       </provider>

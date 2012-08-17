@@ -6,9 +6,7 @@
     <title>Trafico</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
-   <!-- <link rel="stylesheet" href="css/bootstrap-toggle-animated.css">-->
     <link rel="stylesheet" href="css/app.css">
-
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="icos/favicon_yo.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icos/yo_144.png">
@@ -99,7 +97,7 @@
 
                         <ul class="dropdown-menu">
                             <li>
-                                <label for="route_mode" class="span1 checkbox">Modo</label>
+                                <label for="route_mode" class="checkbox">Modo</label>
                                 <select id="route_mode" class="span2" ng-model="route_mode" ng-change="updateRoute()">
                                     <option value="driving">Conduciendo</option>
                                     <option value="walking">Andando</option>
@@ -107,21 +105,21 @@
                                 </select>
                             </li>
                             <li>
-                                <label id="lbl_route_highways" for="route_highways" class="checkbox span1">Autopistas</label>
+                                <label id="lbl_route_highways" for="route_highways" class="checkbox">Autopistas</label>
                                 <input id="route_highways" type="checkbox" ng-model="route_highways" ng-change="updateRoute()" checked>
                             </li>
                             <li>
-                                <label id="lbl_route_tolls" for="route_tolls" class="checkbox span1">Peajes</label>
+                                <label id="lbl_route_tolls" for="route_tolls" class="checkbox">Peajes</label>
                                 <input id="route_tolls" type="checkbox" ng-model="route_tolls" ng-change="updateRoute()">
                             </li>
                             <li>
-                                <label id="lbl_route_optimize" for="route_optimize" class="checkbox span1">Optimizada</label>
+                                <label id="lbl_route_optimize" for="route_optimize" class="checkbox">Optimizada</label>
                                 <input id="route_optimize" type="checkbox" ng-model="route_optimize" ng-change="updateRoute()" checked>
                             </li>
                             <li>
-                                <input type="button" value="Crear" class="btn btn-primary" ng-click="createRoute()">
-                                <input type="button" value="Calcular" class="btn btn-success" ng-click="calcRoute()">
-                                <input type="button" value="Limpiar" class="btn btn-danger" ng-click="resetRoute()">
+                                <input id="createRoute" type="button" value="Crear" class="btn btn-primary" ng-click="createRoute()">
+                                <input id="calcRoute" type="button" value="Calcular" class="btn btn-success" ng-click="calcRoute()">
+                                <input id="resetRoute" type="button" value="Reiniciar" class="btn btn-danger" ng-click="resetRoute()">
                             </li>
                         </ul>
                     </li>
@@ -148,13 +146,14 @@
         </div>
 
         <!-- Footer content , only for develop version -->
+        <!--
         <div class="span11 well">
             <div>
                 <p>http response data:</p>
                 <p></p>
             </div>
         </div>
-
+        -->
     </div>
 </div>
 
@@ -174,6 +173,5 @@
 <script src="js/directives.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/MapsAndMarkers.js"></script>
-<script src="lib/others/html5slider.js"></script>
 </body>
 </html>

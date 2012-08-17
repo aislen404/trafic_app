@@ -96,6 +96,11 @@ mapObject = (function() {
         return google.maps.event.addListener(this.mapInstance, ev,callBack);
     };
 
+    //For UNregister the events
+    mapObject.prototype.unRegisterEvent = function (ev){
+        return google.maps.event.clearListeners(this.mapInstance,ev)
+    };
+
     // Geolocation and Tracking position
     mapObject.prototype.positionTrack = function() {
         if (!this.positionTracking.state) {
@@ -201,7 +206,6 @@ mapObject = (function() {
     };
 
     //Directions layer
-    //TODO: Implement Undo feature.
     mapObject.prototype.addDirectionsLayer = function (){
         directionsLayerInstance = new google.maps.DirectionsRenderer({
             preserveViewport: true,
@@ -211,11 +215,15 @@ mapObject = (function() {
         directionsLayerInstance.setPanel(this.theDirectionsPanel);
     };
     mapObject.prototype.clearDirectionsLayer = function(){
+        console.log('clearDirectionsLayer');
         directionsLayerInstance.setMap(null);
         directionsLayerInstance.setPanel(null);
 
+        directionsLayerInstance = new google.maps.DirectionsRenderer();
+
         directionsLayerInstance.setMap(this.mapInstance);
         directionsLayerInstance.setPanel(this.theDirectionsPanel);
+        console.log('clearDirectionsLayer finish');
     };
     mapObject.prototype.calculateDirectionsLayer = function(request){
         this.directionsServiceInstance.route(request, function(response, status) {

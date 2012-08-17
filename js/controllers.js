@@ -41,6 +41,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     $scope.meteoCluster;
     $scope.sensoresCluster;
     $scope.wayPointsCluster=[];
+    $scope.OLDwayPointsCluster = [];
 
 
     // Main function in ng-init
@@ -48,7 +49,6 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         $scope.createMap();
         $scope.initData();
 
-        //no other line of JQuery !!
         $('.dropdown-toggle').dropdown();
     };
 
@@ -168,7 +168,6 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
         var originOptions,destinationOptions;
 
         if (!$scope.directionLayer){
-
             //calling the method to create the directions layer and directions service
             $scope.mapObj.addDirectionsLayer();
 
@@ -214,6 +213,12 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 
             //The direction layer is created , now we can create a waypoints, calculate, update , reset or undo
             $scope.directionLayer = true;
+
+            //Hide the button !! prevent malicious or dumbs cliks
+            $('#createRoute').hide();
+
+        }else{
+            alert ('push the Blue ')
         }
     };
 
@@ -258,8 +263,14 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
             //Calling directly to the method of the map object
             $scope.mapObj.calculateDirectionsLayer(request);
 
+            //Unregistering the event for no more waypoints
+            $scope.mapObj.unRegisterEvent('click');
+
             //Needed to remove the temporal markers created by the user in the route
             $scope.removeTemporalMarkers();
+
+            //Hide the button !! prevent malicious or dumbs cliks
+            $('#calcRoute').hide();
         }
     };
 
@@ -278,6 +289,14 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 
     //Call directly the method of the map object for remove all waypoints and indications
     $scope.resetRoute = function() {
+        $scope.directionLayer = false;
+        $scope.waypoints=[];
+        $scope.origin = null;
+        $scope.destination = null;
+
+        $('#createRoute').show();
+        $('#calcRoute').show();
+
         $scope.mapObj.clearDirectionsLayer();
     };
 
