@@ -5,6 +5,8 @@ var module;
 var markerCreator;
 var clusterCreator;
 
+var getMeTheDetails;
+
 module = angular.module('trafic_app.services',['ngResource']);
 
 // --------- THE MAPS  --------- \\
@@ -194,12 +196,31 @@ markerCreator = function (dato,objMap){
 
     //TODO: this will be in the controller NOT in the SERVICE
     markObject.registerMapEvent ('click',function(){
-        alert(myOptions.title);
+
+        var codEle = dato.codEle;
+        var tipo = dato.tipo;
+        var uri= 'dataModels/dgtProxy.php?codEle='+codEle+'&tipo='+tipo;
+
+        if (tipo=='Camara'){getMeTheDetails (uri)};
+
     });
 
     //TODO: Why .markerInstance?
     return markObject.markerInstance;
 };
+
+getMeTheDetails = function (param){
+
+ var jqxhr = $.getJSON(param , function(data) {
+     //var s = data.fecha.split(' ');
+     //alert(data.imagen);
+     //alert (s[1]);
+     $('#response').html(JSON.stringify( data) );
+    })
+    .error(function() { alert("error"); })
+    .complete(function(data) {});
+};
+
 
 //TODO: this will we abstracted to scriptAux, who really implement the google API.
 //Cluster creator

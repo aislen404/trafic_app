@@ -10,7 +10,7 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 // --------- initialization of model-view bindings  --------- \\
 
     //filter for info filters & google layers
-    $scope.fltr_camaras = false;
+    $scope.fltr_camaras = true;
     $scope.fltr_paneles = false;
     $scope.fltr_estMeteorologia = false;
     $scope.fltr_sensorTrafico = false;
