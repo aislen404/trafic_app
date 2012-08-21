@@ -12,7 +12,8 @@
     });
 
     app.run (function ($rootScope){
-
+        $('.dropdown-toggle').dropdown();
+        $('#myModal').hide();
         return true;
 
     });

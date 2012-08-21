@@ -54,6 +54,14 @@ display: inline-block;
 float: left;
 }
 
+.modal {
+    left: 65%;
+    width: 350px;
+}
+#modal-body-timestamp{
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     body {
         padding-top: 55px;

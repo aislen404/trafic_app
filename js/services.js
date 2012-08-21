@@ -6,6 +6,7 @@ var markerCreator;
 var clusterCreator;
 
 var getMeTheDetails;
+var infoWindowForAllPurpose;
 
 module = angular.module('trafic_app.services',['ngResource']);
 
@@ -199,9 +200,13 @@ markerCreator = function (dato,objMap){
 
         var codEle = dato.codEle;
         var tipo = dato.tipo;
+
+
         var uri= 'dataModels/dgtProxy.php?codEle='+codEle+'&tipo='+tipo;
 
-        if (tipo=='Camara'){getMeTheDetails (uri)};
+        if(tipo=='Camara'){
+           getMeTheDetails (uri);
+        }
 
     });
 
@@ -210,17 +215,27 @@ markerCreator = function (dato,objMap){
 };
 
 getMeTheDetails = function (param){
-
  var jqxhr = $.getJSON(param , function(data) {
-     //var s = data.fecha.split(' ');
-     //alert(data.imagen);
-     //alert (s[1]);
-     $('#response').html(JSON.stringify( data) );
+        var img = 'http://www.dgt.es/camaras/'+data.imagen;
+        var tmpstp = data.fecha.split(' ');
+        var lstParams = {
+            imagen: img,
+            tiempo: tmpstp[1]
+        };
+        infoWindowForAllPurpose (lstParams);
+        $('#response').html(JSON.stringify( data) );
     })
-    .error(function() { alert("error"); })
-    .complete(function(data) {});
+    .error(function() {})
+    .complete(function() {});
+    console.log('response ',jqxhr);
 };
 
+infoWindowForAllPurpose = function (params){
+    $('#myModal').modal('toggle');
+    $('#modal-body-img').attr('src',params.imagen);
+    $('#modal-body-timestamp').html(params.tiempo);
+
+};
 
 //TODO: this will we abstracted to scriptAux, who really implement the google API.
 //Cluster creator

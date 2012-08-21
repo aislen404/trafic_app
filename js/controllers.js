@@ -48,8 +48,6 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     $scope.BeganToBegin = function (){
         $scope.createMap();
         $scope.initData();
-
-        $('.dropdown-toggle').dropdown();
     };
 
     // Control the creation of map
