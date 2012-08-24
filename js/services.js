@@ -213,21 +213,81 @@ markerCreator = function (dato,objMap){
 getMeTheDetails = function (param,type){
  var jqxhr = $.getJSON(param, type, function(data) {
 
-     var img,lstParams;
-     var tmpstp = data.fecha.split(' ');
+     var img,tmpstp,lstParams;
 
      switch (type) {
          case 'Camara':
-                 img = 'http://www.dgt.es/camaras/'+data.imagen;
-                 lstParams = {
-                     imagen: img,
-                     tiempo: tmpstp[1]
-                 };
-                 infoWindowForAllPurpose (lstParams);
-                 $('#response').html(JSON.stringify( data) );
+                img = 'http://www.dgt.es/camaras/'+data.imagen;
+                tmpstp= data.fecha.split(' ');
+                lstParams = {
+                    imagen: img,
+                    fecha: tmpstp[1],
+                    tipo: data.tipo
+                };
+                infoWindowForAllPurpose (lstParams);
+                $('#response').html(JSON.stringify( data) );
              break;
-         default:
+         case 'Panel_CMS':
+                lstParams = {
+                    mensaje1 : data.mensaje1 ,
+                    mensaje2 : data.mensaje2,
+                    tipo: data.tipo
+                };
+                infoWindowForAllPurpose (lstParams);
              $('#response').html(JSON.stringify( data) );
+             break;
+         case ('Panel_PSG'):
+                lstParams = {
+                    mensaje1 : data.mensaje1,
+                    mensaje2 : data.mensaje2,
+                    tipo: data.tipo
+                };
+                infoWindowForAllPurpose (lstParams);
+             $('#response').html(JSON.stringify( data) );
+             break;
+         case ('SensorMeteorologico'):
+             tmpstp= data.fecha.split(' ');
+             lstParams = {
+                    temp_rocio: data.temp_rocio,
+                    fecha: tmpstp[1],
+                    radiacion_global: data.radiacion_global,
+                    vel_viento: data.vel_viento,
+                    tipo_viento: data.tipo_viento,
+                    alt_agua: data.alt_agua,
+                    temperatura: data.temperatura,
+                    visibilidad: data.visibilidad,
+                    indiceMapa: data.indiceMapa,
+                    humedad:  data.humedad,
+                    i_Precipitaciones: data.i_Precipitaciones,
+                    n_Precipitacion: data.n_Precipitacion,
+                    salinidad: data.salinidad,
+                    t_congel: data.t_congel,
+                    tip_viento: data.tip_viento,
+                    tipo: data.tipo,
+                    tiempo_Presente: data.tiempo_Presente,
+                    c_Precipitaciones: data.c_Precipitaciones,
+                    dir_viento: data.dir_viento,
+                    t_subsuelo: data.t_subsuelo,
+                    presion_A: data.presion_A
+                };
+                infoWindowForAllPurpose (lstParams);
+             $('#response').html(JSON.stringify( data) );
+             break;
+         case ('SensorTrafico'):
+             tmpstp= data.fecha.split(' ');
+             lstParams = {
+                    ocupacion: data.ocupacion,
+                    fecha: tmpstp[1],
+                    composicion: data.composicion,
+                    tipo: data.tipo,
+                    intensidad: data.intensidad,
+                    velocidad: data.velocidad
+                };
+                infoWindowForAllPurpose (lstParams);
+             $('#response').html(JSON.stringify( data) );
+             break
+         default:
+             //$('#response').html(JSON.stringify( data) );
      }
     })
     .error(function() {})
@@ -236,11 +296,21 @@ getMeTheDetails = function (param,type){
 };
 
 infoWindowForAllPurpose = function (params){
-    $('#modal-body-img').attr('src','');
-    $('#myModal').modal('toggle');
-    $('#modal-body-img').attr('src',params.imagen);
-    $('#modal-body-timestamp').html(params.tiempo);
+    var param,bodyContent='';
 
+    $('#myModal').modal('toggle');
+
+    $('#modal-head-title').html('');
+    $('#modal-body-img').attr('src','');
+    $('#modal-body-content').html(bodyContent);
+
+    $('#modal-head-title').html(params.tipo);
+    if (params.imagen){$('#modal-body-img').attr('src',params.imagen);};
+    for (param in params){
+        console.log(param);
+        bodyContent += param+' : '+params[param]+'<br>';
+    }
+    $('#modal-body-content').html(bodyContent);
 };
 
 //TODO: this will we abstracted to scriptAux, who really implement the google API.
