@@ -200,13 +200,9 @@ markerCreator = function (dato,objMap){
 
         var codEle = dato.codEle;
         var tipo = dato.tipo;
-
-
         var uri= 'dataModels/dgtProxy.php?codEle='+codEle+'&tipo='+tipo;
 
-        if(tipo=='Camara'){
-           getMeTheDetails (uri);
-        }
+        getMeTheDetails (uri,tipo);
 
     });
 
@@ -214,16 +210,25 @@ markerCreator = function (dato,objMap){
     return markObject.markerInstance;
 };
 
-getMeTheDetails = function (param){
- var jqxhr = $.getJSON(param , function(data) {
-        var img = 'http://www.dgt.es/camaras/'+data.imagen;
-        var tmpstp = data.fecha.split(' ');
-        var lstParams = {
-            imagen: img,
-            tiempo: tmpstp[1]
-        };
-        infoWindowForAllPurpose (lstParams);
-        $('#response').html(JSON.stringify( data) );
+getMeTheDetails = function (param,type){
+ var jqxhr = $.getJSON(param, type, function(data) {
+
+     var img,lstParams;
+     var tmpstp = data.fecha.split(' ');
+
+     switch (type) {
+         case 'Camara':
+                 img = 'http://www.dgt.es/camaras/'+data.imagen;
+                 lstParams = {
+                     imagen: img,
+                     tiempo: tmpstp[1]
+                 };
+                 infoWindowForAllPurpose (lstParams);
+                 $('#response').html(JSON.stringify( data) );
+             break;
+         default:
+             $('#response').html(JSON.stringify( data) );
+     }
     })
     .error(function() {})
     .complete(function() {});
@@ -231,6 +236,7 @@ getMeTheDetails = function (param){
 };
 
 infoWindowForAllPurpose = function (params){
+    $('#modal-body-img').attr('src','');
     $('#myModal').modal('toggle');
     $('#modal-body-img').attr('src',params.imagen);
     $('#modal-body-timestamp').html(params.tiempo);

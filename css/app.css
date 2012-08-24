@@ -54,11 +54,6 @@ display: inline-block;
 float: left;
 }
 
-.modal {
-    left: 65%;
-    width: 350px;
-    display: none;
-}
 #modal-body-timestamp{
     text-align: center;
 }
@@ -80,8 +75,29 @@ float: left;
     .row-fluid .span2 {
         width: 16%;
     }
+    .row-fluid .span4 {
+        width: 33%;
+    }
     #map_canvas {
         height: 445px;
+    }
+    .modal{
+        top: 55px;
+        width: 450px;
+        margin: 0px;
+        left: 275px;
+    }
+}
+
+@media (max-width: 800px){
+    .modal{
+        top: 55px;
+        width: 450px;
+        margin: 0px;
+        left: 200px;
+    }
+    .row-fluid .span4 {
+        width: 33%;
     }
 }
 
@@ -114,11 +130,41 @@ float: left;
     #map_canvas {
         height: 440px;
     }
+    .modal{
+        top: 55px;
+        width: 450px;
+        margin: 0px;
+        left: 155px;
+    }
 }
 
 @media (max-width: 640px) {
     body{
         padding-left: 7px;
         padding-right: 7px;
+    }
+    .modal{
+        top: 55px;
+        width: 450px;
+        margin: 0px;
+        left: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal{
+        top: 55px;
+        width: 450px;
+        margin: 0px;
+        left: 7px;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal{
+        top: 55px;
+        width: 300px;
+        margin: 0px;
+        left: 2px;
     }
 }
