@@ -87,7 +87,17 @@
                                 <!--<span class="toggle span1">Meteorologia</span>-->
                                 <div class="iphone-toggle-buttons">
                                     <label for="prm_6" class="checkbox"><span><i class="icon-fire"></i> Gasolineras</span></label>
-                                    <input id="prm_6" type="checkbox" ng-model="fltr_gas" ng-change="gasToogle()">
+                                    <select id="prm_6" class="span2" ng-model="gasolina_type" ng-change="gasToogle()">
+                                        <option value="0" selected>--------------</option>
+                                        <option value="1">Gasolina 95</option>
+                                        <option value="2">Gasolina 97</option>
+                                        <option value="3">Gasolina 98</option>
+                                        <option value="4">Gasóleo A habitual</option>
+                                        <option value="5">Nuevo gasóleo A</option>
+                                        <option value="6">Gasóleo B</option>
+                                        <option value="7">Gasóleo C</option>
+                                        <option value="8">Biodiésel</option>
+                                    </select>
                                 </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p> -->
                             </li>
@@ -158,7 +168,7 @@
         <div class="span11 well">
             <div>
                 <p>http response data:</p>
-                <p id="response">{{res}}</p>
+                <p id="response"></p>
             </div>
         </div>
 

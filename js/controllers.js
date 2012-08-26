@@ -37,13 +37,15 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     $scope.destination = null;
 
     //Marker clusters
-    $scope.camerasCluster;
-    $scope.panelsCluster;
-    $scope.meteoCluster;
-    $scope.sensoresCluster;
+    $scope.camerasCluster=[];
+    $scope.panelsCluster=[];
+    $scope.meteoCluster=[];
+    $scope.sensoresCluster=[];
     $scope.wayPointsCluster=[];
     $scope.OLDwayPointsCluster = [];
 
+    //Gasolina
+    $scope.gasolinaCluster=[];
 
     // Main function in ng-init
     $scope.BeganToBegin = function (){
@@ -164,29 +166,37 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     // Gas control
     $scope.gasToogle = function (){
 
-        $.ajax({
-            type: 'GET',
-            url: 'dataModels/mitycProxy.php',
-            dataType: 'xml',
-            success: function (data){
-                $(data).find('elemento').each(function()
-                {
-                    var myOptions = {
-                        tipo : $(this).find('rotulo').text(),
-                        alias : $(this).find('precio').text(),
-                        lat : $(this).find('y').text(),
-                        lng : $(this).find('x').text()
+            if ($scope.gasolinaCluster.length>1){
+                var gas;
+                for (gas in $scope.gasolinaCluster){
+                    $scope.gasolinaCluster[gas].setMap(null);
+                }
+            }
+
+            if($scope.gasolina_type !=0 ){
+                var URI = 'dataModels/mitycProxy.php?tipo='+$scope.gasolina_type;
+                $.ajax({
+                    type: 'GET',
+                    url: URI,
+                    dataType: 'xml',
+                    success: function (data){
+                        var i=0;
+                        $(data).find('elemento').each(function()
+                        {
+                            var myOptions = {
+                                tipo : $(this).find('rotulo').text(),
+                                alias : $(this).find('precio').text(),
+                                lat : $(this).find('y').text(),
+                                lng : $(this).find('x').text()
+                            };
+
+                            i+=1;
+                            $scope.gasolinaCluster.push(poiServiceCreator.createGenericPoi(myOptions,$scope.mapObj));
+                        });
+                        console.log('Gasolineras',i);
                     }
-
-                    $scope.res = myOptions;
-
-                    poiServiceCreator.createGenericPoi(myOptions,$scope.mapObj)
-
-                    //console.log(myOptions)
-
                 });
             }
-        });
     };
 
 
