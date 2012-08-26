@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataModels/mitycProxy.php" afterPath="$PROJECT_DIR$/dataModels/mitycProxy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/MapsAndMarkers.js" afterPath="$PROJECT_DIR$/js/MapsAndMarkers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
     </list>
     <ignored path="trafic_app.iws" />
@@ -30,7 +28,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="-5.8333335">
+            <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -48,7 +46,7 @@
       <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="176" column="81" selection-start="5947" selection-end="5947" vertical-scroll-proportion="0.36692506">
+            <state line="234" column="0" selection-start="8804" selection-end="8804" vertical-scroll-proportion="0.6124031">
               <folding>
                 <element signature="e#1411#2020#0" expanded="false" />
                 <element signature="e#2083#2224#0" expanded="false" />
@@ -58,30 +56,12 @@
                 <element signature="e#4601#5301#0" expanded="false" />
                 <element signature="e#5370#5416#0" expanded="false" />
                 <element signature="e#5495#5541#0" expanded="false" />
-                <element signature="e#7075#9904#0" expanded="false" />
-                <element signature="e#10034#11864#0" expanded="false" />
-                <element signature="e#11912#12049#0" expanded="false" />
-                <element signature="e#12122#12206#0" expanded="false" />
-                <element signature="e#12334#12588#0" expanded="false" />
+                <element signature="e#9057#11886#0" expanded="false" />
+                <element signature="e#12016#13846#0" expanded="false" />
+                <element signature="e#13894#14031#0" expanded="false" />
+                <element signature="e#14104#14188#0" expanded="false" />
+                <element signature="e#14316#14570#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mitycProxy.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataModels/mitycProxy.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="301" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dgtProxy.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataModels/dgtProxy.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="30" selection-start="7" selection-end="33" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -98,7 +78,7 @@
       <file leaf-file-name="MapsAndMarkers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/MapsAndMarkers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="342" column="35" selection-start="12456" selection-end="12456" vertical-scroll-proportion="0.0">
+            <state line="11" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -144,11 +124,11 @@
         <option value="$PROJECT_DIR$/index_alternativo.html" />
         <option value="$PROJECT_DIR$/css/app.css" />
         <option value="$PROJECT_DIR$/dataModels/dgtProxy.php" />
-        <option value="$PROJECT_DIR$/js/MapsAndMarkers.js" />
         <option value="$PROJECT_DIR$/js/services.js" />
         <option value="$PROJECT_DIR$/dataModels/mitycProxy.php" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/MapsAndMarkers.js" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
     </option>
@@ -199,30 +179,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Tests" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trafic_app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -299,6 +255,30 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Tests" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trafic_app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,16 +296,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="149" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="943" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="941" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="943" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="147" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="144" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -428,9 +408,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28339577" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16978776" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40948814" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17219478" sideWeight="0.4906367" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17078334" sideWeight="0.50062424" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19548342" sideWeight="0.59051186" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17478152" sideWeight="0.96586347" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19195484" sideWeight="0.6679151" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -556,9 +536,31 @@
         <state line="35" column="48" selection-start="1687" selection-end="1687" vertical-scroll-proportion="0.216" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/MapsAndMarkers.js">
+    <entry file="file://$PROJECT_DIR$/dataModels/dgtProxy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="342" column="35" selection-start="12456" selection-end="12456" vertical-scroll-proportion="0.0" />
+        <state line="1" column="30" selection-start="7" selection-end="33" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataModels/mitycProxy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="301" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="29" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="204" column="48" selection-start="7479" selection-end="7486" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/app.css">
@@ -566,44 +568,16 @@
         <state line="3" column="2" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/services.js">
+    <entry file="file://$PROJECT_DIR$/js/MapsAndMarkers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="48" selection-start="7479" selection-end="7486" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataModels/dgtProxy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="30" selection-start="7" selection-end="33" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="29" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataModels/mitycProxy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="301" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="-5.8333335">
+        <state line="11" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="81" selection-start="5947" selection-end="5947" vertical-scroll-proportion="0.36692506">
+        <state line="234" column="0" selection-start="8804" selection-end="8804" vertical-scroll-proportion="0.6124031">
           <folding>
             <element signature="e#1411#2020#0" expanded="false" />
             <element signature="e#2083#2224#0" expanded="false" />
@@ -613,11 +587,11 @@
             <element signature="e#4601#5301#0" expanded="false" />
             <element signature="e#5370#5416#0" expanded="false" />
             <element signature="e#5495#5541#0" expanded="false" />
-            <element signature="e#7075#9904#0" expanded="false" />
-            <element signature="e#10034#11864#0" expanded="false" />
-            <element signature="e#11912#12049#0" expanded="false" />
-            <element signature="e#12122#12206#0" expanded="false" />
-            <element signature="e#12334#12588#0" expanded="false" />
+            <element signature="e#9057#11886#0" expanded="false" />
+            <element signature="e#12016#13846#0" expanded="false" />
+            <element signature="e#13894#14031#0" expanded="false" />
+            <element signature="e#14104#14188#0" expanded="false" />
+            <element signature="e#14316#14570#0" expanded="false" />
           </folding>
         </state>
       </provider>
