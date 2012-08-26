@@ -193,6 +193,8 @@ markerCreator = function (dato,objMap){
         icon: dato.tipo,
         title: dato.tipo+" : "+ dato.alias
     };// retriving and matching the especific options for this marker
+
+    console.log (myOptions);
     var markObject = new markerObject (myOptions);  //markerObject is an interface for google map API
 
     //TODO: this will be in the controller NOT in the SERVICE

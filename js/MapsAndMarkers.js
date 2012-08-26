@@ -339,6 +339,8 @@ icoResolutor = function (type) {
         case ('RETENCI�N / CONGESTI�N'):
             ico = 'img/Retencion.png';
             break;
+        default:
+            ico ='img/default.png';
     }
 
     return ico;

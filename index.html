@@ -83,6 +83,14 @@
                                 </div>
                                 <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p> -->
                             </li>
+                            <li>
+                                <!--<span class="toggle span1">Meteorologia</span>-->
+                                <div class="iphone-toggle-buttons">
+                                    <label for="prm_6" class="checkbox"><span><i class="icon-fire"></i> Gasolineras</span></label>
+                                    <input id="prm_6" type="checkbox" ng-model="fltr_gas" ng-change="gasToogle()">
+                                </div>
+                                <!-- <p ng-repeat="dato in datos">{{ dato | itemTraficFilter:fltr_trafico:'SensorTrafico' }} </p> -->
+                            </li>
                         </ul>
                     </li>
 
@@ -150,7 +158,7 @@
         <div class="span11 well">
             <div>
                 <p>http response data:</p>
-                <p id="response"></p>
+                <p id="response">{{res}}</p>
             </div>
         </div>
 

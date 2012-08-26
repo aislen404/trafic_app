@@ -10,12 +10,13 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
 // --------- initialization of model-view bindings  --------- \\
 
     //filter for info filters & google layers
-    $scope.fltr_camaras = true;
+    $scope.fltr_camaras = false;
     $scope.fltr_paneles = false;
     $scope.fltr_estMeteorologia = false;
     $scope.fltr_sensorTrafico = false;
     $scope.fltr_meteo = false;
     $scope.fltr_trafico = false;
+    $scope.fltr_gas = false;
 
     //filter for route planning form
     $scope.route_mode='driving';
@@ -159,6 +160,35 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     $scope.trafficToogle = function (){
         $scope.mapObj.trafficToogle();
     };
+
+    // Gas control
+    $scope.gasToogle = function (){
+
+        $.ajax({
+            type: 'GET',
+            url: 'dataModels/mitycProxy.php',
+            dataType: 'xml',
+            success: function (data){
+                $(data).find('elemento').each(function()
+                {
+                    var myOptions = {
+                        tipo : $(this).find('rotulo').text(),
+                        alias : $(this).find('precio').text(),
+                        lat : $(this).find('y').text(),
+                        lng : $(this).find('x').text()
+                    }
+
+                    $scope.res = myOptions;
+
+                    poiServiceCreator.createGenericPoi(myOptions,$scope.mapObj)
+
+                    //console.log(myOptions)
+
+                });
+            }
+        });
+    };
+
 
 // --------- Controls for route planning --------- \\
     // Init the direction routine and register click event to creater the route marks (waypoints)
