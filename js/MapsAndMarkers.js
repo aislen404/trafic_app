@@ -401,6 +401,9 @@ icoResolutor = function (type) {
         case ('RETENCI�N / CONGESTI�N'):
             ico = 'img/Retencion.png';
             break;
+        case ('Gasolinera'):
+            ico = 'img/gasolinera.png';
+            break;
         default:
             ico ='img/default.png';
     }
@@ -408,19 +411,21 @@ icoResolutor = function (type) {
     return ico;
 }
 
-function setMarkers(map, data,z) {
-    var image = new google.maps.MarkerImage('img/marker-panel.png',
-        new google.maps.Size(100, 39),
+function setMarkers(data,map) {
+    var image;
+    /*var image = new google.maps.MarkerImage('img/default.png',
+        new google.maps.Size(32, 32),
         new google.maps.Point(0,0),
         new google.maps.Point(50, 39));
-    /* var shadow = new google.maps.MarkerImage('marker-panel.png',
+     var shadow = new google.maps.MarkerImage('marker-panel.png',
      new google.maps.Size(37, 32),
      new google.maps.Point(0,0),
-     new google.maps.Point(0, 32));*/
+     new google.maps.Point(0, 32));
+
     var shape = {
         coord: [1, 1, 1, 20, 18, 20, 18 , 1],
         type: 'poly'
-    };
+    };*/
 
     var myLatLng = new google.maps.LatLng(data.lat, data.lng);
     var marker = new google.maps.Marker({
@@ -428,23 +433,26 @@ function setMarkers(map, data,z) {
         map: map,
         //shadow: shadow,
         icon: image,
-        shape: shape,
-        title: data.rotulo+'<br/>'+data.precio+' €',
-        zIndex: z
+        //shape: shape,
+        title: data.alias
     });
+
+    /*
     var label = new Label({
         map: map
     });
     label.set('zIndex', 1234);
     label.bindTo('position', marker, 'position');
-    label.set('text',data.precio+' €');
+    label.set('text',marker.alias+' €');
     //label.bindTo('text', marker, 'position');
+    */
 
-    var theReturn = {
+
+    /*var theReturn = {
         a: marker,
         b: label
-    };
+    };*/
 
-    return theReturn;
+    return marker;
 
 }

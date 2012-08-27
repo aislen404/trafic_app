@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987e6389-c612-49f4-8404-596be2c6634d" name="Default" comment="incluimos Panel_CMS">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/m1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/m2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/m3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/m4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/m5.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/marker-panel.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/MapsAndMarkers.js" afterPath="$PROJECT_DIR$/js/MapsAndMarkers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services.js" afterPath="$PROJECT_DIR$/js/services.js" />
     </list>
     <ignored path="trafic_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +36,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="0.0">
+            <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="-0.625">
               <folding />
             </state>
           </provider>
@@ -46,31 +54,10 @@
       <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="234" column="0" selection-start="8804" selection-end="8804" vertical-scroll-proportion="0.6124031">
+            <state line="171" column="8" selection-start="5712" selection-end="5712" vertical-scroll-proportion="-0.630749">
               <folding>
-                <element signature="e#1411#2020#0" expanded="false" />
-                <element signature="e#2083#2224#0" expanded="false" />
-                <element signature="e#2332#3019#0" expanded="false" />
-                <element signature="e#3082#3766#0" expanded="false" />
-                <element signature="e#3837#4525#0" expanded="false" />
-                <element signature="e#4601#5301#0" expanded="false" />
-                <element signature="e#5370#5416#0" expanded="false" />
-                <element signature="e#5495#5541#0" expanded="false" />
-                <element signature="e#9057#11886#0" expanded="false" />
-                <element signature="e#12016#13846#0" expanded="false" />
-                <element signature="e#13894#14031#0" expanded="false" />
-                <element signature="e#14104#14188#0" expanded="false" />
-                <element signature="e#14316#14570#0" expanded="false" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="48" selection-start="7479" selection-end="7486" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -78,8 +65,10 @@
       <file leaf-file-name="MapsAndMarkers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/MapsAndMarkers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="413" column="28" selection-start="14810" selection-end="14810" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#12487#13353#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,10 +113,10 @@
         <option value="$PROJECT_DIR$/index_alternativo.html" />
         <option value="$PROJECT_DIR$/css/app.css" />
         <option value="$PROJECT_DIR$/dataModels/dgtProxy.php" />
-        <option value="$PROJECT_DIR$/js/services.js" />
         <option value="$PROJECT_DIR$/dataModels/mitycProxy.php" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/services.js" />
         <option value="$PROJECT_DIR$/js/MapsAndMarkers.js" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
@@ -179,6 +168,30 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Tests" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="trafic_app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,6 +248,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trafic_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trafic_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dataModels" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -251,30 +278,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Tests" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="trafic_app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -380,7 +383,11 @@
       <created>1341443472967</created>
       <updated>1341443472967</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="incluimos Panel_CMS">
+      <created>1346094741430</created>
+      <updated>1346094741430</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -407,10 +414,12 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28339577" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40948814" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17219478" sideWeight="0.4906367" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19548342" sideWeight="0.59051186" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30836454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19548342" sideWeight="0.28214732" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19548342" sideWeight="0.71660423" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17478152" sideWeight="0.96586347" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19195484" sideWeight="0.6679151" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -420,8 +429,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30836454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -548,7 +555,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="0.0">
+        <state line="90" column="66" selection-start="5847" selection-end="5847" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
@@ -558,40 +565,32 @@
         <state line="15" column="29" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="48" selection-start="7479" selection-end="7486" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="2" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="243" column="0" selection-start="8748" selection-end="8748" vertical-scroll-proportion="4.4573646">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/MapsAndMarkers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="413" column="28" selection-start="14810" selection-end="14810" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#12487#13353#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="0" selection-start="8804" selection-end="8804" vertical-scroll-proportion="0.6124031">
+        <state line="171" column="8" selection-start="5712" selection-end="5712" vertical-scroll-proportion="-0.630749">
           <folding>
-            <element signature="e#1411#2020#0" expanded="false" />
-            <element signature="e#2083#2224#0" expanded="false" />
-            <element signature="e#2332#3019#0" expanded="false" />
-            <element signature="e#3082#3766#0" expanded="false" />
-            <element signature="e#3837#4525#0" expanded="false" />
-            <element signature="e#4601#5301#0" expanded="false" />
-            <element signature="e#5370#5416#0" expanded="false" />
-            <element signature="e#5495#5541#0" expanded="false" />
-            <element signature="e#9057#11886#0" expanded="false" />
-            <element signature="e#12016#13846#0" expanded="false" />
-            <element signature="e#13894#14031#0" expanded="false" />
-            <element signature="e#14104#14188#0" expanded="false" />
-            <element signature="e#14316#14570#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

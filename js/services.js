@@ -5,7 +5,7 @@ var module;
 var markerCreator;
 var clusterCreator;
 
-var getMeTheDetails;
+var getMeTheDetailsDGT;
 var infoWindowForAllPurpose;
 
 module = angular.module('trafic_app.services',['ngResource']);
@@ -26,6 +26,7 @@ module.factory('dataServiceProvider', function ($resource){
         query: {method:'GET', params:{file:''}, isArray:true}
     });
 });
+
 
 // --------- THE POIS  --------- \\
 //These service generate all the POIS and clusters in especifics method for especifics elements
@@ -174,6 +175,37 @@ module.factory('poiServiceCreator',function (){
             }
             return clusterCreator (objMap.mapInstance,poisSensores,myOptions); //create a cluster with all the markeres returned and stored
         },
+        //Gaz Stations cluster
+        createGazCluster: function (arrayOfMarkers,objMap){
+            var myOptions = {
+                gridSize: 100,
+                maxZoom: 14,
+                styles: [{
+                    url: 'img/m1.png',
+                    height: 53,
+                    width: 52,
+                    anchor: [0,0],
+                    textColor: '#000',
+                    textSize: 11
+                }, {
+                    url: 'img/m2.png',
+                    height: 56,
+                    width: 55,
+                    anchor: [0,0],
+                    textColor: '#000',
+                    textSize: 12
+                }, {
+                    url: 'img/m3.png',
+                    height: 66,
+                    width: 65,
+                    anchor: [0,0],
+                    textColor: '#000',
+                    textSize: 13
+                }]
+            }; //especific options for the cluster
+
+            return clusterCreator (objMap.mapInstance,arrayOfMarkers,myOptions); //create a cluster with all the markeres returned and stored
+        },
         //Only ONE personalized POI per call
         createGenericPoi: function (data,objMap){
             return markerCreator (data,objMap);
@@ -204,7 +236,11 @@ markerCreator = function (dato,objMap){
         var tipo = dato.tipo;
         var uri= 'dataModels/dgtProxy.php?codEle='+codEle+'&tipo='+tipo;
 
-        getMeTheDetails (uri,tipo);
+        if(tipo!='Gasolinera'){
+            getMeTheDetailsDGT (uri,tipo);
+        }else{
+            alert(dato.alias);
+        }
 
     });
 
@@ -212,7 +248,7 @@ markerCreator = function (dato,objMap){
     return markObject.markerInstance;
 };
 
-getMeTheDetails = function (param,type){
+getMeTheDetailsDGT = function (param,type){
  var jqxhr = $.getJSON(param, type, function(data) {
 
      var img,tmpstp,lstParams;

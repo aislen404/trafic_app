@@ -166,76 +166,68 @@ module.controller('traficCtrl', function ($scope, mapServiceProvider,dataService
     // Gas control
     $scope.gasToogle = function (){
 
-            if ($scope.gasolinaCluster.length>1){
-                var gas;
-                for (gas in $scope.gasolinaCluster){
-                    $scope.gasolinaCluster[gas].a.setMap(null);
-                    $scope.gasolinaCluster[gas].b.setMap(null);
+        try {
+            $scope.gasolinaCluster.clearMarkers();
+            $scope.gasolinaCluster=[];
+        }catch(e){} //clearMarkers is a method of MarkerCluster
+
+        if($scope.gasolina_type !=0 ){
+            var URI = 'dataModels/mitycProxy.php?tipo='+$scope.gasolina_type;
+            var arryOfMarkers = [];
+            $.ajax({
+                type: 'GET',
+                url: URI,
+                dataType: 'xml',
+                success: function (data){
+                    var i=1;
+                    var valor=0;
+                    var expensive;
+                    var expensiveOption;
+                    var cheap;
+                    var cheapOption;
+                    var gasolinera;
+
+                    $(data).find('elemento').each(function()
+                    {
+                        var theData = {
+                            tipo : 'Gasolinera',
+                            alias : $(this).find('precio').text()+' € '+$(this).find('rotulo').text(),
+                            lat : $(this).find('y').text(),
+                            lng : $(this).find('x').text()
+                        };
+
+                        arryOfMarkers.push(markerCreator(theData,$scope.mapObj.mapInstance));
+
+                        var auxPrecio = parseInt(theData.alias.replace(/,/g, '.'));
+
+                        if(auxPrecio>valor){
+                            expensive = auxPrecio;
+                            expensiveOption = theData;
+                            valor = expensive;
+                        }else{
+                            cheap = auxPrecio;
+                            cheapOption = theData;
+                        }
+
+                        $scope.gasolinaCluster.push(gasolinera);
+
+                        i+=1;
+                    });
+
+                    $scope.gasolinaCluster =poiServiceCreator.createGazCluster(arryOfMarkers,$scope.mapObj);
+                    console.log('Gasolineras',i-1);
+
+                    console.log('cheapOption',cheapOption);
+                    //var ch = setMarkers(cheapOption,$scope.mapObj.mapInstance,1);
+                    //ch.b.set('style','color: #FF0000;font-family: Trebuchet MS;font-size: 15px;font-weight: bold;left: -34%;letter-spacing: 2px;padding: 2px;position: relative;top: -33px;');
+
+                    console.log('expensiveOption',expensiveOption);
+                    //var ex = setMarkers(expensiveOption,$scope.mapObj.mapInstance,-1);
+                    //ex.b.set('style','color: #00FF00;font-family: Trebuchet MS;font-size: 15px;font-weight: bold;left: -34%;letter-spacing: 2px;padding: 2px;position: relative;top: -33px;');
+
                 }
-            }
-
-            if($scope.gasolina_type !=0 ){
-                var URI = 'dataModels/mitycProxy.php?tipo='+$scope.gasolina_type;
-                $.ajax({
-                    type: 'GET',
-                    url: URI,
-                    dataType: 'xml',
-                    success: function (data){
-                        var i=1;
-                        var valor=0;
-                        var expensive;
-                        var expensiveOption;
-                        var cheap;
-                        var cheapOption;
-
-                        var expensiveGas;
-                        var cheapGas;
-                        var gasolinera;
-
-                        $(data).find('elemento').each(function()
-                        {
-                            var myOptions = {
-                                rotulo : $(this).find('rotulo').text(),
-                                precio : $(this).find('precio').text(),
-                                lat : $(this).find('y').text(),
-                                lng : $(this).find('x').text()                            };
-
-                            var precio = myOptions.precio;
-                            precio = precio.replace(/,/g, '.');
-                            var auxPrecio = parseInt(precio);
-
-                            if(auxPrecio>valor){
-                                expensive = auxPrecio;
-                                expensiveOption = myOptions;
-                                valor = expensive;
-                                expensiveGas = setMarkers($scope.mapObj.mapInstance, myOptions,i);
-                                gasolinera = expensiveGas;
-                            }else{
-                                cheap = auxPrecio;
-                                cheapOption = myOptions;
-                                cheapGas = setMarkers($scope.mapObj.mapInstance, myOptions,i);
-                                gasolinera = cheapGas;
-                            }
-
-                            $scope.gasolinaCluster.push(gasolinera);
-                            i+=1;
-                            //$scope.gasolinaCluster.push(poiServiceCreator.createGenericPoi(myOptions,$scope.mapObj));
-                        });
-
-                        console.log('Gasolineras',i-1);
-                        console.log('cheapOption',cheapOption);
-                        console.log('expesiveOption',expensiveOption);
-
-                        var fd = cheapGas.b;
-                        fd.span_.style.cssText = 'color: #FF0000;font-family: Trebuchet MS;font-size: 15px;font-weight: bold;left: -34%;letter-spacing: 2px;padding: 2px;position: relative;top: -33px;';
-
-                        var fs = expensiveGas.b;
-                        fs.span_.style.cssText = 'color: #00FF00;font-family: Trebuchet MS;font-size: 15px;font-weight: bold;left: -34%;letter-spacing: 2px;padding: 2px;position: relative;top: -33px;';
-
-
-                    }
-                });
-            }
+            });
+        }
     };
 
 
